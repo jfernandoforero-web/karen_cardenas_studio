@@ -15,16 +15,15 @@
   /* ============================================================
      PALETA DE COLORES — edita estos valores para cambiar el estilo
      de todo el sitio de una sola vez.
-     Negro / blanco elegante con toques dorados y plateados.
+     Fondo negro absoluto, texto blanco, acentos oro y plata metalizada.
      ============================================================ */
   :root {
-    --ink:       #0A0A0A;   /* Negro profundo — fondo principal */
-    --cream:     #FFFFFF;   /* Blanco puro — texto principal */
+    --ink:       #000000;   /* Negro absoluto — fondo principal en TODO el sitio */
+    --cream:     #FFFFFF;   /* Blanco puro — títulos, subtítulos y texto principal */
     --gold:      #FFD700;   /* Amarillo oro — acentos, botones y bordes activos */
-    --silver:    #A8A9AD;   /* Gris metalizado — detalles secundarios, iconos y divisores */
-    --card-bg:   #171717;   /* Negro suave/Gris oscuro — tarjetas para dar contraste con el fondo */
-    --ink-soft:  #CCCCCC;   /* Gris claro cálido — textos secundarios y descripciones */
-}
+    --silver:    #C7C9CC;   /* Plateado metalizado — detalles secundarios, iconos y divisores */
+    --card-bg:   #121212;   /* Negro ligeramente elevado — tarjetas, para dar profundidad sobre el fondo negro */
+    --ink-soft:  #BFBFBF;   /* Gris claro — textos secundarios y descripciones sobre fondo negro */
 
     --font-display: 'Cormorant', Georgia, serif;
     --font-body: 'Jost', -apple-system, sans-serif;
@@ -37,8 +36,8 @@
   html{ scroll-behavior:smooth; }
 
   body{
-    background: var(--cream);
-    color: var(--ink);
+    background: var(--ink);
+    color: var(--cream);
     font-family: var(--font-body);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -63,6 +62,7 @@
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: 0.01em;
+    color: var(--cream);
   }
 
   /* ============================================================
@@ -70,18 +70,18 @@
      ============================================================ */
   header{
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,249,246,0.92);
+    background: rgba(0,0,0,0.92);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(17,17,17,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
     padding: 22px 32px; max-width: var(--container); margin: 0 auto;
   }
-  .logo{ font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.02em; }
+  .logo{ font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.02em; color: var(--cream); }
   .logo span{ color: var(--gold); font-style: italic; font-weight: 500; }
 
-  .nav-links{ display:flex; list-style:none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+  .nav-links{ display:flex; list-style:none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--cream); }
   .nav-links li + li{ margin-left: 30px; }
   .nav-links a{ position:relative; padding: 4px 0; white-space: nowrap; }
   .nav-links a::after{
@@ -91,14 +91,14 @@
   .nav-links a:hover::after{ width:100%; }
 
   .nav-cta{
-    background: var(--ink); color: var(--cream);
+    background: transparent; color: var(--gold);
     padding: 12px 26px; font-size: 0.78rem; font-weight: 600;
     letter-spacing: 0.08em; text-transform: uppercase;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--gold);
     transition: background 0.2s ease, color 0.2s ease;
   }
   .nav-cta:hover{ background: var(--gold); border-color: var(--gold); color: var(--ink); }
-  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; }
+  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; color: var(--cream); }
 
   /* ============================================================
      HERO
@@ -126,18 +126,18 @@
     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
   }
   .btn-primary{ background: var(--gold); color: var(--ink); }
-  .btn-primary:hover{ background: var(--ink); color: var(--cream); transform: translateY(-1px); }
-  .btn-ghost{ border: 1px solid var(--ink); }
-  .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
+  .btn-primary:hover{ background: var(--cream); color: var(--ink); transform: translateY(-1px); }
+  .btn-ghost{ border: 1px solid var(--silver); color: var(--cream); }
+  .btn-ghost:hover{ background: var(--cream); color: var(--ink); border-color: var(--cream); }
 
   /* Marco decorativo del hero: espejo ovalado con borde dorado */
   .hero-visual{
     position: relative;
     aspect-ratio: 4/5;
     border-radius: 50% 50% 46% 54% / 55% 50% 50% 45%;
-    background: linear-gradient(160deg, #1A1A1A, #111111 55%, #2A2A2A);
+    background: linear-gradient(160deg, #141414, #000000 55%, #1E1E1E);
     display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 40px 80px -30px rgba(17,17,17,0.45);
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8);
   }
   .hero-visual::before{
     content:''; position:absolute; inset: 14px; border-radius: inherit;
@@ -151,9 +151,9 @@
 
   /* ============================================================
      TIRA DE TRATAMIENTOS — elemento distintivo:
-     franjas alternadas en negro / dorado / marfil, una por tratamiento.
+     franjas alternadas en negro / dorado / plata, una por tratamiento.
      ============================================================ */
-  .swatch-section{ background: var(--ink); color: var(--cream); padding: 76px 0 84px; }
+  .swatch-section{ background: var(--ink); color: var(--cream); padding: 76px 0 84px; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
   .swatch-header{ text-align:center; margin-bottom: 50px; }
   .swatch-header .eyebrow{ color: var(--gold); }
   .swatch-header h2{ font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--cream); margin-top: 14px; }
@@ -161,13 +161,14 @@
   .swatch-strip{
     display:flex; min-height: 360px; border-radius: var(--radius); overflow: hidden;
     box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
   }
   .swatch{
     flex: 1; position: relative; cursor: pointer;
     display:flex; align-items:flex-end; padding: 26px 20px;
     transition: flex 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     overflow:hidden;
-    border-right: 1px solid rgba(250,249,246,0.08);
+    border-right: 1px solid rgba(255,255,255,0.08);
   }
   .swatch:last-child{ border-right:none; }
   .swatch:hover, .swatch:focus-visible{ flex: 2.4; }
@@ -180,12 +181,12 @@
   }
   .swatch:hover .swatch-desc, .swatch:focus-visible .swatch-desc{ opacity: 1; transform: translateY(0); }
 
-  .swatch-1{ background: #1E1E1E; }              /* Epilación */
-  .swatch-2{ background: #B08D57; }               /* HidraLips */
-  .swatch-3{ background: #0C0C0C; }               /* Sombreado en henna */
-  .swatch-4{ background: #C9C4B8; }               /* Lifting de pestañas */
-  .swatch-5{ background: #8C6D3F; }               /* Laminado de cejas */
-  .swatch-6{ background: #2A2A2A; }               /* Micropigmentación */
+  .swatch-1{ background: #141414; }              /* Epilación */
+  .swatch-2{ background: var(--silver); }         /* Micropigmentación labios */
+  .swatch-3{ background: #000000; }               /* Sombreado en henna */
+  .swatch-4{ background: var(--gold); }           /* Lifting de pestañas */
+  .swatch-5{ background: #1E1E1E; }               /* Laminado de cejas */
+  .swatch-6{ background: #0A0A0A; }               /* Micropigmentación cejas */
 
   /* ============================================================
      TRATAMIENTOS — cuadrícula de tarjetas (sin pestañas: un solo enfoque)
@@ -199,7 +200,7 @@
 
   .card{
     background: var(--card-bg);
-    border: 1px solid rgba(17,17,17,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
     padding: 34px 28px;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
@@ -213,25 +214,25 @@
   /* ============================================================
      BANDA DE CONFIANZA
      ============================================================ */
-  .trust{ border-top: 1px solid rgba(17,17,17,0.1); border-bottom: 1px solid rgba(17,17,17,0.1); padding: 44px 0; }
+  .trust{ border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 44px 0; }
   .trust-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align:center; }
   .trust-num{ font-family: var(--font-display); font-size: 2.1rem; color: var(--gold); }
-  .trust-label{ font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
+  .trust-label{ font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--silver); margin-top: 6px; }
 
   /* ============================================================
      TESTIMONIOS
      ============================================================ */
   .testimonials{ padding: 104px 0; background: var(--card-bg); }
   .testimonials-inner{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .testi-card{ background: var(--cream); padding: 32px 26px; border: 1px solid rgba(17,17,17,0.08); }
-  .testi-card p{ font-family: var(--font-display); font-style: italic; font-size: 1.08rem; color: var(--ink); margin-bottom: 20px; }
-  .testi-name{ font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; }
-  .testi-role{ font-size: 0.78rem; color: var(--ink-soft); }
+  .testi-card{ background: var(--ink); padding: 32px 26px; border: 1px solid rgba(255,255,255,0.1); }
+  .testi-card p{ font-family: var(--font-display); font-style: italic; font-size: 1.08rem; color: var(--cream); margin-bottom: 20px; }
+  .testi-name{ font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--cream); }
+  .testi-role{ font-size: 0.78rem; color: var(--silver); }
 
   /* ============================================================
      RESERVA / CTA FINAL
      ============================================================ */
-  .booking{ background: var(--ink); color: var(--cream); padding: 104px 0; text-align:center; }
+  .booking{ background: var(--ink); color: var(--cream); padding: 104px 0; text-align:center; border-top: 1px solid rgba(255,255,255,0.08); }
   .booking .eyebrow{ color: var(--gold); }
   .booking h2{ font-size: clamp(2rem, 4vw, 3.2rem); margin: 16px auto 20px; max-width: 700px; }
   .booking p{ color: var(--silver); max-width: 520px; margin: 0 auto 12px; }
@@ -247,10 +248,10 @@
   .footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
   .footer-brand .logo{ margin-bottom: 12px; }
   .footer-brand p{ color: var(--ink-soft); font-size: 0.9rem; max-width: 300px; }
-  .footer-col h4{ font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--ink-soft); }
-  .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem; }
+  .footer-col h4{ font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--silver); }
+  .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem; color: var(--ink-soft); }
   .footer-bottom{
-    border-top: 1px solid rgba(17,17,17,0.1); padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
     display:flex; justify-content:space-between; font-size: 0.78rem; color: var(--ink-soft);
     flex-wrap: wrap; gap: 10px;
   }
@@ -264,7 +265,7 @@
     .hero-grid{ grid-template-columns: 1fr; }
     .hero-visual{ order:-1; max-width: 320px; margin: 0 auto; }
     .swatch-strip{ flex-direction:column; height:auto; }
-    .swatch{ padding: 20px; border-right:none; border-bottom: 1px solid rgba(250,249,246,0.08); }
+    .swatch{ padding: 20px; border-right:none; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .swatch:hover, .swatch:focus-visible{ flex:1; }
     .cards-grid{ grid-template-columns: 1fr; }
     .trust-grid{ grid-template-columns: repeat(2,1fr); }
@@ -279,13 +280,14 @@
   /* ============================================================
      ACERCA DE MÍ
      ============================================================ */
-  .about{ padding: 104px 0; background: var(--cream); }
+  .about{ padding: 104px 0; background: var(--ink); }
   .about-grid{ display:grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items:center; }
   .about-photo{ position:relative; }
   .about-photo img{
     width:100%; height:100%; object-fit:cover; aspect-ratio: 3/4;
-    filter: grayscale(12%);
-    box-shadow: 0 30px 60px -24px rgba(17,17,17,0.35);
+    filter: grayscale(12%) brightness(0.95);
+    box-shadow: 0 30px 60px -24px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.08);
   }
   .about-photo::before{
     content:''; position:absolute; inset: -14px -14px auto auto; width:120px; height:120px;
@@ -307,18 +309,18 @@
 
   .gallery-block{
     display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 44px; align-items:center;
-    padding: 44px 0; border-bottom: 1px solid rgba(17,17,17,0.1);
+    padding: 44px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   .gallery-block:last-child{ border-bottom:none; }
   .gallery-block.reverse{ direction: rtl; }
   .gallery-block.reverse > *{ direction: ltr; }
 
   .gallery-photos{ display:flex; gap:12px; }
-  .gallery-photos figure{ flex:1; position:relative; overflow:hidden; }
+  .gallery-photos figure{ flex:1; position:relative; overflow:hidden; border: 1px solid rgba(255,255,255,0.08); }
   .gallery-photos img{ width:100%; height:100%; object-fit:cover; aspect-ratio: 4/5; }
   .gallery-photos figcaption{
     position:absolute; left:0; right:0; bottom:0;
-    background: linear-gradient(0deg, rgba(17,17,17,0.72), transparent);
+    background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent);
     color: var(--cream); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
     padding: 22px 12px 10px; text-align:center; font-weight:600;
   }
@@ -327,7 +329,7 @@
   .gallery-info h3{ font-size: 1.7rem; margin: 6px 0 12px; }
   .gallery-info p.desc{ color: var(--ink-soft); margin-bottom: 20px; }
   .gallery-meta{ display:flex; gap: 36px; flex-wrap:wrap; margin-bottom: 20px; }
-  .gallery-meta div{ font-size: 0.8rem; }
+  .gallery-meta div{ font-size: 0.8rem; color: var(--cream); }
   .gallery-meta span{ display:block; text-transform:uppercase; letter-spacing:0.08em; font-size:0.68rem; color: var(--gold); margin-bottom:4px; }
   .gallery-info .price{ font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); }
   .gallery-info .price small{ display:block; font-family: var(--font-body); font-size: 0.7rem; color: var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px; }
@@ -335,7 +337,7 @@
   /* ============================================================
      POLÍTICAS Y REGLAMENTO
      ============================================================ */
-  .policies{ padding: 100px 0; background: var(--ink); color: var(--cream); }
+  .policies{ padding: 100px 0; background: var(--ink); color: var(--cream); border-top: 1px solid rgba(255,255,255,0.08); }
   .policies-head{ text-align:center; margin-bottom: 54px; }
   .policies-head .eyebrow{ color: var(--gold); }
   .policies-head h2{ color: var(--cream); font-size: clamp(1.8rem, 3vw, 2.6rem); margin-top: 14px; }
@@ -344,7 +346,7 @@
   .policy-col h3{
     font-family: var(--font-body); font-size: 0.78rem; font-weight:600;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
-    margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid rgba(250,249,246,0.15);
+    margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.15);
   }
   .policy-col ul{ list-style:none; display:flex; flex-direction:column; gap: 20px; }
   .policy-col li{ font-size: 0.95rem; color: var(--silver); padding-left: 22px; position:relative; line-height:1.6; }
@@ -410,8 +412,8 @@
       </div>
       <div class="swatch swatch-2" tabindex="0">
         <div>
-          <span class="swatch-name" style="color:#111111">Micropigmentación labios</span>
-          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Color natural y definición semipermanente para tus labios.</p>
+          <span class="swatch-name" style="color:#0A0A0A">Micropigmentación labios</span>
+          <p class="swatch-desc" style="color:rgba(10,10,10,0.75)">Color natural y definición semipermanente para tus labios.</p>
         </div>
       </div>
       <div class="swatch swatch-3" tabindex="0">
@@ -422,8 +424,8 @@
       </div>
       <div class="swatch swatch-4" tabindex="0">
         <div>
-          <span class="swatch-name" style="color:#111111">Lifting de pestañas</span>
-          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Curvatura y volumen natural sin necesidad de extensiones.</p>
+          <span class="swatch-name" style="color:#0A0A0A">Lifting de pestañas</span>
+          <p class="swatch-desc" style="color:rgba(10,10,10,0.75)">Curvatura y volumen natural sin necesidad de extensiones.</p>
         </div>
       </div>
       <div class="swatch swatch-5" tabindex="0">
