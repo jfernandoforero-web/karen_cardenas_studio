@@ -148,24 +148,69 @@
   .btn-ghost{ border: 1px solid var(--ink); }
   .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
 
-  /* Marco decorativo del hero: espejo ovalado con borde dorado */
+  /* Marco decorativo del hero: foto real recortada en forma orgánica, con borde dorado */
   .hero-visual{
     position: relative;
     aspect-ratio: 4/5;
     border-radius: 50% 50% 46% 54% / 55% 50% 50% 45%;
-    background: linear-gradient(160deg, #1A1A1A, #111111 55%, #2A2A2A);
-    display:flex; align-items:center; justify-content:center;
+    overflow: hidden;
     box-shadow: 0 40px 80px -30px rgba(17,17,17,0.45);
+  }
+  .hero-visual img{
+    width:100%; height:100%; object-fit: cover; object-position: center 20%;
   }
   .hero-visual::before{
     content:''; position:absolute; inset: 14px; border-radius: inherit;
     border: 1px solid var(--gold);
-    opacity: 0.6;
+    opacity: 0.7;
+    pointer-events: none;
   }
-  .hero-visual-label{
-    font-family: var(--font-display); font-style: italic; font-size: 1.5rem;
-    color: var(--cream); text-align:center; padding: 0 46px;
+  /* Ficha flotante con la cita, superpuesta sobre la foto */
+  .hero-quote{
+    position:absolute; left: 8%; right: 8%; bottom: 9%;
+    background: rgba(17,17,17,0.72);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(176,141,87,0.5);
+    border-radius: 2px;
+    padding: 16px 20px;
+    font-family: var(--font-display); font-style: italic; font-size: 1rem;
+    color: var(--cream); text-align:center; line-height: 1.4;
   }
+  /* Insignia flotante con una cifra de confianza */
+  .hero-badge{
+    position:absolute; top: 6%; right: -6%;
+    background: var(--cream); border: 1px solid var(--gold);
+    border-radius: 50%; width: 104px; height: 104px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    box-shadow: 0 18px 34px -14px rgba(17,17,17,0.35);
+  }
+  .hero-badge strong{ font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); line-height:1; }
+  .hero-badge span{ font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; text-align:center; }
+
+  /* ============================================================
+     SOBRE KAREN — retrato principal + dos fotos secundarias
+     ============================================================ */
+  .about{ padding: 104px 0; }
+  .about-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items:center; }
+
+  .about-visual{ position:relative; margin-bottom: 46px; }
+  .about-main-photo{
+    aspect-ratio: 3/4; overflow:hidden; border-radius: var(--radius);
+    box-shadow: 0 30px 60px -24px rgba(17,17,17,0.35);
+  }
+  .about-main-photo img{ width:100%; height:100%; object-fit:cover; }
+  .about-side-photos{ position:absolute; bottom:-30px; right:-36px; display:flex; gap:12px; }
+  .about-side-photos img{
+    width:92px; height:120px; object-fit:cover; border-radius: var(--radius);
+    border: 4px solid var(--cream); box-shadow: 0 16px 30px -14px rgba(17,17,17,0.4);
+  }
+
+  .about-text .eyebrow{ display:block; margin-bottom: 14px; }
+  .about-text h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-bottom: 20px; }
+  .about-text p{ color: var(--ink-soft); margin-bottom: 16px; max-width: 480px; }
+  .about-stats{ display:flex; gap: 36px; margin-top: 32px; }
+  .about-stats div strong{ display:block; font-family: var(--font-display); font-size: 1.7rem; color: var(--gold); }
+  .about-stats div span{ font-size: 0.76rem; color: var(--ink-soft); letter-spacing: 0.03em; }
 
   /* ============================================================
      TIRA DE TRATAMIENTOS — elemento distintivo:
@@ -358,6 +403,16 @@
   .project-info h3{ font-size: 1.12rem; margin-bottom: 6px; }
   .project-info p{ color: var(--ink-soft); font-size: 0.88rem; }
 
+  /* Tarjeta vacía invitando a agregar un futuro video */
+  .project-card--add{ cursor: default; }
+  .project-card--add:hover{ transform:none; box-shadow:none; border-color: rgba(17,17,17,0.1); }
+  .project-thumb--add{
+    background: var(--card-bg);
+    border: 1px dashed rgba(17,17,17,0.25);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .add-icon{ font-family: var(--font-display); font-size: 2.4rem; color: var(--gold); font-weight: 300; }
+
   /* Modal de reproducción de video */
   .video-modal{
     position: fixed; inset: 0; z-index: 1000;
@@ -419,6 +474,12 @@
     .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
     .gallery-item--tall{ grid-row: span 2; }
     .projects-grid{ grid-template-columns: 1fr; }
+    .about-grid{ grid-template-columns: 1fr; gap: 70px; }
+    .about-visual{ max-width: 340px; margin: 0 auto; }
+    .about-side-photos{ right: -8px; }
+    .about-text{ text-align:center; }
+    .about-text p{ margin-left:auto; margin-right:auto; }
+    .about-stats{ justify-content:center; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -433,7 +494,10 @@
   <nav class="nav">
     <div class="logo">Karen Cárdenas <span>Studio</span></div>
     <ul class="nav-links">
+      <li><a href="#galeria">Galería</a></li>
       <li><a href="#tratamientos">Tratamientos</a></li>
+      <li><a href="#proyectos">Videos</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#testimonios">Opiniones</a></li>
       <li><a href="#reserva">Contacto</a></li>
     </ul>
@@ -455,7 +519,10 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-visual-label">"La mirada es el primer detalle que se nota, el último que se olvida"</div>
+      <!-- 🖼️ FOTO PRINCIPAL DEL HERO: reemplaza src si quieres usar otra imagen -->
+      <img src="assets/img/hero-principal.jpg" alt="Resultado de cejas y pestañas, Karen Cárdenas Studio">
+      <div class="hero-quote">"La mirada es el primer detalle que se nota, el último que se olvida"</div>
+      <div class="hero-badge"><strong>6+</strong><span>Años de experiencia</span></div>
     </div>
   </div>
 </section>
@@ -468,20 +535,53 @@
       <h2>El detalle en cada mirada</h2>
       <p>Resultados reales de nuestras clientas. Desplázate para ver el efecto de profundidad.</p>
     </div>
-    <!-- 🖼️ FOTOS DE GALERÍA: reemplaza cada src="..." por tus propias fotos
-         (idealmente en formato vertical/horizontal similar al placeholder). -->
+    <!-- 🖼️ FOTOS DE GALERÍA: para agregar/cambiar una foto, reemplaza el src="assets/img/..."
+         por la ruta de tu nueva imagen (mantén la carpeta assets/img junto a este archivo). -->
     <div class="gallery-grid">
       <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="https://picsum.photos/id/1011/700/900" alt="Resultado de tratamiento de cejas">
+        <img class="parallax-img" src="assets/img/gal-antes.jpg" alt="Cejas antes del tratamiento">
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="https://picsum.photos/id/1027/700/560" alt="Resultado de lifting de pestañas">
+        <img class="parallax-img" src="assets/img/gal-recien-realizada.jpg" alt="Cejas recién realizadas">
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="https://picsum.photos/id/1025/700/560" alt="Resultado de laminado de cejas">
+        <img class="parallax-img" src="assets/img/gal-cicatrizadas.jpg" alt="Cejas cicatrizadas, resultado final">
       </div>
       <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="https://picsum.photos/id/1005/700/900" alt="Resultado de micropigmentación de cejas">
+        <img class="parallax-img" src="assets/img/gal-resultado-4.jpg" alt="Resultado de tratamiento de cejas y pestañas">
+      </div>
+      <div class="gallery-item">
+        <img class="parallax-img" src="assets/img/gal-resultado-5.jpg" alt="Resultado de tratamiento, clienta sonriendo">
+      </div>
+      <div class="gallery-item">
+        <img class="parallax-img" src="assets/img/gal-resultado-6.jpg" alt="Resultado de sombreado en henna">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE KAREN ============ -->
+<section class="about" id="sobre-mi">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <!-- 🖼️ FOTOS DE KAREN: reemplaza estos src por tus propias fotos de estudio -->
+      <div class="about-main-photo">
+        <img src="assets/img/about-karen-principal.jpg" alt="Karen Cárdenas, especialista en cejas y pestañas">
+      </div>
+      <div class="about-side-photos">
+        <img src="assets/img/about-karen-1.jpg" alt="Karen Cárdenas, sesión de estudio">
+        <img src="assets/img/about-karen-3.jpg" alt="Karen Cárdenas trabajando con su dermógrafo">
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Quién está detrás</span>
+      <h2>Hola, soy Karen Cárdenas</h2>
+      <p>Fundé este estudio con una idea simple: cada rostro merece un diseño de cejas y pestañas hecho a su medida, con técnica precisa y un trato cercano.</p>
+      <p>Me formé y sigo formándome constantemente en micropigmentación, laminado y lifting, para ofrecerte siempre resultados naturales y duraderos.</p>
+      <div class="about-stats">
+        <div><strong>6+</strong><span>Años de experiencia</span></div>
+        <div><strong>1.200+</strong><span>Clientas atendidas</span></div>
+        <div><strong>5.0★</strong><span>Calificación</span></div>
       </div>
     </div>
   </div>
@@ -596,49 +696,46 @@
 
     <div class="projects-grid">
 
-      <!-- 🎥 PROYECTO 1 — Video propio (archivo .mp4)
-           Para usar tu archivo: sube el video (por ejemplo a la carpeta /videos)
-           y reemplaza data-video="" por su ruta, ej: data-video="videos/lifting.mp4" -->
+      <!-- 🎥 PROYECTO 1 — Micropigmentación de cejas (video propio) -->
       <div class="project-card reveal" tabindex="0" role="button"
-           data-video="videos/lifting-pestanas.mp4"
-           aria-label="Reproducir video: Lifting de pestañas paso a paso">
+           data-video="assets/video/micropigmentacion-cejas.mp4"
+           aria-label="Reproducir video: Micropigmentación de cejas, proceso completo">
         <div class="project-thumb">
-          <img src="https://picsum.photos/id/1062/600/375" alt="Miniatura: Lifting de pestañas paso a paso">
+          <img src="assets/img/thumb-micropigmentacion.jpg" alt="Miniatura: Micropigmentación de cejas">
           <span class="play-btn">▶</span>
         </div>
         <div class="project-info">
-          <h3>Lifting de pestañas — paso a paso</h3>
-          <p>Proceso completo, del curling a la mirada final.</p>
+          <h3>Micropigmentación de cejas</h3>
+          <p>Proceso completo, del diseño al trazo final.</p>
         </div>
       </div>
 
-      <!-- 🎥 PROYECTO 2 — Video embebido de YouTube/Vimeo
-           Reemplaza data-embed="" por la URL de embed, ej:
-           data-embed="https://www.youtube.com/embed/TU_ID_DE_VIDEO" -->
+      <!-- 🎥 PROYECTO 2 — Sombreado en henna (video propio) -->
       <div class="project-card reveal" tabindex="0" role="button"
-           data-embed="https://www.youtube.com/embed/TU_ID_DE_VIDEO"
-           aria-label="Reproducir video: Micropigmentación pelo a pelo">
+           data-video="assets/video/sombreado-henna.mp4"
+           aria-label="Reproducir video: Sombreado en henna, antes y después">
         <div class="project-thumb">
-          <img src="https://picsum.photos/id/1074/600/375" alt="Miniatura: Micropigmentación pelo a pelo">
+          <img src="assets/img/thumb-henna.jpg" alt="Miniatura: Sombreado en henna">
           <span class="play-btn">▶</span>
         </div>
         <div class="project-info">
-          <h3>Micropigmentación pelo a pelo</h3>
-          <p>Diseño y trazo, técnica utilizada por Karen Cárdenas Studio.</p>
+          <h3>Sombreado en henna</h3>
+          <p>Depilación con hilo y definición con henna, en un solo proceso.</p>
         </div>
       </div>
 
-      <!-- 🎥 PROYECTO 3 — Video propio (archivo .mp4) -->
-      <div class="project-card reveal" tabindex="0" role="button"
-           data-video="videos/laminado-cejas.mp4"
-           aria-label="Reproducir video: Laminado de cejas, antes y después">
-        <div class="project-thumb">
-          <img src="https://picsum.photos/id/1082/600/375" alt="Miniatura: Laminado de cejas, antes y después">
-          <span class="play-btn">▶</span>
+      <!-- 🎥 PROYECTO 3 — TARJETA PARA UN NUEVO VIDEO
+           Cuando tengas un tercer video, reemplaza esta tarjeta:
+           1) Cambia project-card--add por project-card
+           2) Agrega data-video="assets/video/tu-video.mp4" (o data-embed="https://www.youtube.com/embed/ID")
+           3) Reemplaza la imagen de miniatura y el texto -->
+      <div class="project-card project-card--add reveal" tabindex="0" role="button" aria-label="Espacio para agregar un nuevo video">
+        <div class="project-thumb project-thumb--add">
+          <span class="add-icon">+</span>
         </div>
         <div class="project-info">
-          <h3>Laminado de cejas — antes y después</h3>
-          <p>Resultado inmediato tras el tratamiento en estudio.</p>
+          <h3>Tu próximo video aquí</h3>
+          <p>Espacio reservado para un nuevo proceso o resultado.</p>
         </div>
       </div>
 
@@ -888,7 +985,7 @@
     videoModalMedia.innerHTML = ''; // detiene la reproducción al cerrar
   }
 
-  document.querySelectorAll('.project-card').forEach(card => {
+  document.querySelectorAll('.project-card:not(.project-card--add)').forEach(card => {
     card.addEventListener('click', () => openVideoModal(card));
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideoModal(card); }
@@ -902,3 +999,4 @@
 
 </body>
 </html>
+
