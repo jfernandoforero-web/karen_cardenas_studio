@@ -1,904 +1,533 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karen Cárdenas Studio — Cejas y pestañas</title>
-<meta name="description" content="Estudio especializado en cejas y pestañas: epilación, HidraLips, sombreado en henna, lifting de pestañas, laminado y micropigmentación de cejas. La Vega, Cundinamarca.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karen Cárdenas Studio — Cejas, Pestañas & Belleza</title>
+  <meta name="description" content="Estudio especializado en cejas y pestañas: epilación, HidraLips, sombreado en henna, lifting de pestañas, laminado y micropigmentación de cejas. La Vega, Cundinamarca.">
 
-<!-- Tipografías: Cormorant (elegante, editorial, para títulos) + Jost (cuerpo, geométrica y limpia). -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-  /* ============================================================
-     PALETA DE COLORES — edita estos valores para cambiar el estilo
-     de todo el sitio de una sola vez.
-     Negro / blanco elegante con toques dorados y plateados.
-     ============================================================ */
-  :root{
-    --ink:      #111111;   /* negro profundo — texto principal / secciones oscuras */
-    --cream:    #FAF9F6;   /* blanco marfil — fondo principal */
-    --gold:     #B08D57;   /* dorado — acento principal, líneas, botones */
-    --silver:   #B6B6B0;   /* plateado — detalles secundarios, divisores */
-    --card-bg:  #F1EFEA;   /* gris marfil — tarjetas */
-    --ink-soft: #55524C;   /* gris cálido — textos secundarios */
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    --font-display: 'Cormorant', Georgia, serif;
-    --font-body: 'Jost', -apple-system, sans-serif;
-
-    --radius: 1px;
-    --container: 1180px;
-    --gold-glow: rgba(176,141,87,0.35); /* dorado difuminado — usado en glow/sombras nuevas */
-  }
-
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-
-  body{
-    background: var(--cream);
-    color: var(--ink);
-    font-family: var(--font-body);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img{ max-width:100%; display:block; }
-  a{ color:inherit; text-decoration:none; }
-  :focus-visible{ outline: 1px solid var(--gold); outline-offset: 3px; }
-
-  .wrap{ max-width: var(--container); margin: 0 auto; padding: 0 32px; }
-
-  .eyebrow{
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  h1, h2, h3{
-    font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-
-  /* ============================================================
-     ENCABEZADO
-     ============================================================ */
-  header{
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(250,249,246,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(17,17,17,0.08);
-    transition: box-shadow 0.3s ease, background 0.3s ease;
-  }
-  /* Estado al hacer scroll: la barra gana profundidad y se recorta un poco */
-  header.is-scrolled{
-    box-shadow: 0 8px 24px -12px rgba(17,17,17,0.18);
-    background: rgba(250,249,246,0.97);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 22px 32px; max-width: var(--container); margin: 0 auto;
-  }
-  .logo{ font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.02em; }
-  .logo span{ color: var(--gold); font-style: italic; font-weight: 500; }
-
-  .nav-links{ display:flex; gap: 38px; list-style:none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
-  .nav-links a{ position:relative; padding: 4px 0; }
-  .nav-links a::after{
-    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
-    background: var(--gold); transition: width 0.25s ease;
-  }
-  .nav-links a:hover::after{ width:100%; }
-
-  .nav-cta{
-    background: var(--ink); color: var(--cream);
-    padding: 12px 26px; font-size: 0.78rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    border: 1px solid var(--ink);
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .nav-cta:hover{ background: var(--gold); border-color: var(--gold); color: var(--ink); box-shadow: 0 10px 26px -10px var(--gold-glow); }
-  .nav-toggle{
-    display:none; background:none; border:none; cursor:pointer;
-    width: 32px; height: 22px; position:relative;
-  }
-  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
-    content:''; position:absolute; left:0; width:100%; height:1.5px; background: var(--ink);
-    transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
-  }
-  .nav-toggle span{ top: 10px; }
-  .nav-toggle span::before{ top: -8px; }
-  .nav-toggle span::after{ top: 8px; }
-  .nav-toggle[aria-expanded="true"] span{ background: transparent; }
-  .nav-toggle[aria-expanded="true"] span::before{ top:0; transform: rotate(45deg); background: var(--gold); }
-  .nav-toggle[aria-expanded="true"] span::after{ top:0; transform: rotate(-45deg); background: var(--gold); }
-
-  /* ============================================================
-     HERO
-     ============================================================ */
-  .hero{ padding: 100px 0 84px; position: relative; overflow: hidden; }
-  .hero-grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items:center; }
-
-  .hero h1{
-    font-size: clamp(2.6rem, 5vw, 4.3rem);
-    line-height: 1.05;
-    margin: 18px 0 26px;
-    font-weight: 500;
-  }
-  .hero h1 em{ font-style: italic; color: var(--gold); }
-
-  .hero p{ font-size: 1.06rem; color: var(--ink-soft); max-width: 460px; margin-bottom: 34px; }
-
-  .hero-actions{ display:flex; gap: 16px; align-items:center; flex-wrap: wrap; }
-
-  .btn{
-    display:inline-flex; align-items:center; gap: 8px;
-    padding: 15px 30px; font-size: 0.82rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    border-radius: var(--radius);
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-  }
-  .btn-primary{ background: var(--gold); color: var(--ink); }
-  .btn-primary:hover{ background: var(--ink); color: var(--cream); transform: translateY(-1px); }
-  .btn-ghost{ border: 1px solid var(--ink); }
-  .btn-ghost:hover{ background: var(--ink); color: var(--cream); }
-
-  /* Marco decorativo del hero: espejo ovalado con borde dorado */
-  .hero-visual{
-    position: relative;
-    aspect-ratio: 4/5;
-    border-radius: 50% 50% 46% 54% / 55% 50% 50% 45%;
-    background: linear-gradient(160deg, #1A1A1A, #111111 55%, #2A2A2A);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 40px 80px -30px rgba(17,17,17,0.45);
-  }
-  .hero-visual::before{
-    content:''; position:absolute; inset: 14px; border-radius: inherit;
-    border: 1px solid var(--gold);
-    opacity: 0.6;
-  }
-  .hero-visual-label{
-    font-family: var(--font-display); font-style: italic; font-size: 1.5rem;
-    color: var(--cream); text-align:center; padding: 0 46px;
-  }
-
-  /* ============================================================
-     TIRA DE TRATAMIENTOS — elemento distintivo:
-     franjas alternadas en negro / dorado / marfil, una por tratamiento.
-     ============================================================ */
-  .swatch-section{ background: var(--ink); color: var(--cream); padding: 76px 0 84px; }
-  .swatch-header{ text-align:center; margin-bottom: 50px; }
-  .swatch-header .eyebrow{ color: var(--gold); }
-  .swatch-header h2{ font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--cream); margin-top: 14px; }
-
-  .swatch-strip{
-    display:flex; min-height: 360px; border-radius: var(--radius); overflow: hidden;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
-  }
-  .swatch{
-    flex: 1; position: relative; cursor: pointer;
-    display:flex; align-items:flex-end; padding: 26px 20px;
-    transition: flex 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    overflow:hidden;
-    border-right: 1px solid rgba(250,249,246,0.08);
-  }
-  .swatch:last-child{ border-right:none; }
-  .swatch:hover, .swatch:focus-visible{ flex: 2.4; }
-
-  .swatch-name{ font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; white-space: nowrap; }
-  .swatch-desc{
-    font-size: 0.8rem; max-width: 220px; margin-top: 6px;
-    opacity: 0; transform: translateY(6px);
-    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
-  }
-  .swatch:hover .swatch-desc, .swatch:focus-visible .swatch-desc{ opacity: 1; transform: translateY(0); }
-
-  .swatch-1{ background: #1E1E1E; }              /* Epilación */
-  .swatch-2{ background: #B08D57; }               /* HidraLips */
-  .swatch-3{ background: #0C0C0C; }               /* Sombreado en henna */
-  .swatch-4{ background: #C9C4B8; }               /* Lifting de pestañas */
-  .swatch-5{ background: #8C6D3F; }               /* Laminado de cejas */
-  .swatch-6{ background: #2A2A2A; }               /* Micropigmentación */
-
-  /* ============================================================
-     TRATAMIENTOS — cuadrícula de tarjetas (sin pestañas: un solo enfoque)
-     ============================================================ */
-  .services{ padding: 104px 0; }
-  .services-head{ text-align:center; margin-bottom: 56px; }
-  .services-head h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top:12px; }
-  .services-head p{ color: var(--ink-soft); max-width: 520px; margin: 14px auto 0; }
-
-  .cards-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-
-  .card{
-    background: var(--card-bg);
-    border: 1px solid rgba(17,17,17,0.1);
-    padding: 34px 28px;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-  .card:hover{ border-color: var(--gold); transform: translateY(-3px); }
-
-  .card-num{ font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.95rem; margin-bottom: 14px; display:block; }
-  .card h3{ font-size: 1.3rem; margin-bottom: 10px; }
-  .card p{ color: var(--ink-soft); font-size: 0.92rem; }
-  .card .price{ display:block; margin-top: 18px; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.03em; color: var(--gold); }
-
-  /* ============================================================
-     BANDA DE CONFIANZA
-     ============================================================ */
-  .trust{ border-top: 1px solid rgba(17,17,17,0.1); border-bottom: 1px solid rgba(17,17,17,0.1); padding: 44px 0; }
-  .trust-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align:center; }
-  .trust-num{ font-family: var(--font-display); font-size: 2.1rem; color: var(--gold); }
-  .trust-label{ font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
-
-  /* ============================================================
-     TESTIMONIOS
-     ============================================================ */
-  .testimonials{ padding: 104px 0; background: var(--card-bg); }
-  .testimonials-inner{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .testi-card{ background: var(--cream); padding: 32px 26px; border: 1px solid rgba(17,17,17,0.08); }
-  .testi-card p{ font-family: var(--font-display); font-style: italic; font-size: 1.08rem; color: var(--ink); margin-bottom: 20px; }
-  .testi-name{ font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; }
-  .testi-role{ font-size: 0.78rem; color: var(--ink-soft); }
-
-  /* ============================================================
-     RESERVA / CTA FINAL
-     ============================================================ */
-  .booking{ background: var(--ink); color: var(--cream); padding: 104px 0; text-align:center; }
-  .booking .eyebrow{ color: var(--gold); }
-  .booking h2{ font-size: clamp(2rem, 4vw, 3.2rem); margin: 16px auto 20px; max-width: 700px; }
-  .booking p{ color: var(--silver); max-width: 520px; margin: 0 auto 12px; }
-  .booking .phone{
-    display:block; font-family: var(--font-display); font-size: 1.6rem; color: var(--gold);
-    margin: 8px 0 34px; letter-spacing: 0.04em;
-  }
-
-  /* ============================================================
-     PIE DE PÁGINA
-     ============================================================ */
-  footer{ padding: 60px 0 40px; }
-  .footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
-  .footer-brand .logo{ margin-bottom: 12px; }
-  .footer-brand p{ color: var(--ink-soft); font-size: 0.9rem; max-width: 300px; }
-  .footer-col h4{ font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--ink-soft); }
-  .footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem; }
-  .footer-bottom{
-    border-top: 1px solid rgba(17,17,17,0.1); padding-top: 24px;
-    display:flex; justify-content:space-between; font-size: 0.78rem; color: var(--ink-soft);
-    flex-wrap: wrap; gap: 10px;
-  }
-
-  /* ============================================================
-     UTILIDAD: REVELADO AL HACER SCROLL (IntersectionObserver, JS abajo)
-     Se usa en títulos y tarjetas para dar sensación dinámica sin GSAP.
-     ============================================================ */
-  .reveal{ opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
-
-  /* ============================================================
-     GALERÍA — efecto parallax con GSAP + ScrollTrigger
-     Cada imagen: escala 0.7→1.2, opacidad 0→1 en 600px de scroll,
-     ease 'power2.out', y desplazamiento vertical 20% más lento
-     que el scroll (ver <script> al final del documento).
-     ============================================================ */
-  .gallery{ padding: 104px 0 112px; overflow: hidden; }
-  .gallery-head{ text-align:center; margin-bottom: 54px; }
-  .gallery-head h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top:12px; }
-  .gallery-head p{ color: var(--ink-soft); max-width: 520px; margin: 14px auto 0; }
-
-  .gallery-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 240px;
-    grid-auto-flow: dense;
-    gap: 20px;
-  }
-  .gallery-item{
-    position: relative;
-    overflow: hidden;              /* recorta la imagen mientras escala/se desplaza */
-    border-radius: var(--radius);
-    background: var(--card-bg);
-  }
-  .gallery-item--tall{ grid-row: span 2; }
-
-  /* La imagen es más alta que su contenedor (130%) para que el
-     desplazamiento vertical (parallax) nunca deje huecos visibles. */
-  .parallax-img{
-    position:absolute; top:-15%; left:0;
-    width:100%; height:130%;
-    object-fit: cover;
-    will-change: transform, opacity;
-    backface-visibility: hidden;
-  }
-
-  /* ============================================================
-     PROYECTOS — portafolio de video
-     ============================================================ */
-  .projects{ padding: 104px 0; background: var(--card-bg); }
-  .projects-head{ text-align:center; margin-bottom: 54px; }
-  .projects-head h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top:12px; }
-  .projects-head p{ color: var(--ink-soft); max-width: 560px; margin: 14px auto 0; }
-
-  .projects-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-
-  .project-card{
-    background: var(--cream);
-    border: 1px solid rgba(17,17,17,0.1);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .project-card:hover, .project-card:focus-visible{
-    transform: translateY(-4px);
-    border-color: var(--gold);
-    box-shadow: 0 30px 50px -26px rgba(17,17,17,0.35);
-  }
-
-  .project-thumb{ position:relative; aspect-ratio: 16/10; overflow:hidden; background: var(--ink); }
-  .project-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease; }
-  .project-card:hover .project-thumb img{ transform: scale(1.06); }
-
-  .play-btn{
-    position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);
-    width:56px; height:56px; border-radius:50%;
-    background: rgba(250,249,246,0.92); color: var(--ink);
-    border: 1px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    font-size: 0.95rem; pointer-events:none;
-    transition: background 0.25s ease, transform 0.25s ease;
-  }
-  .project-card:hover .play-btn{ background: var(--gold); transform: translate(-50%,-50%) scale(1.08); }
-
-  .project-info{ padding: 22px 24px 26px; }
-  .project-info h3{ font-size: 1.12rem; margin-bottom: 6px; }
-  .project-info p{ color: var(--ink-soft); font-size: 0.88rem; }
-
-  /* Modal de reproducción de video */
-  .video-modal{
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(17,17,17,0.9);
-    display:flex; align-items:center; justify-content:center;
-    padding: 24px;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  .video-modal.is-open{ opacity:1; visibility: visible; }
-  .video-modal-inner{ position:relative; width:100%; max-width: 900px; }
-  .video-modal-media{ position:relative; width:100%; aspect-ratio:16/9; background:#000; }
-  .video-modal-media video, .video-modal-media iframe{
-    position:absolute; inset:0; width:100%; height:100%; border:0;
-  }
-  .video-modal-close{
-    position:absolute; top:-46px; right:0; background:none; border:none;
-    color: var(--cream); font-size: 1.6rem; cursor:pointer; line-height:1;
-  }
-  .video-modal-close:hover{ color: var(--gold); }
-
-  /* ============================================================
-     REDES SOCIALES EN EL PIE DE PÁGINA
-     ============================================================ */
-  .footer-social{ display:flex; gap: 14px; margin-top: 18px; }
-  .footer-social a{
-    width: 36px; height:36px; border-radius:50%;
-    border: 1px solid rgba(17,17,17,0.18);
-    display:flex; align-items:center; justify-content:center;
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-  }
-  .footer-social a:hover{ border-color: var(--gold); background: var(--gold); transform: translateY(-2px); }
-  .footer-social svg{ width:16px; height:16px; fill: var(--ink); }
-  .footer-social a:hover svg{ fill: var(--ink); }
-
-  /* ============================================================
-     RESPONSIVE
-     ============================================================ */
-  @media (max-width: 900px){
-    .nav-links{
-      display:flex; flex-direction:column; gap: 0; text-align:center;
-      position: fixed; top: 73px; left:0; right:0; bottom:0;
-      background: var(--cream); padding: 40px 32px;
-      transform: translateX(100%); transition: transform 0.35s ease;
+  <style>
+    /* ============================================================
+       VARIABLES & PALETA DE COLORES (Dark Luxury Mode)
+       ============================================================ */
+    :root {
+      --bg-dark: #0A0A0B;
+      --bg-card: rgba(22, 22, 26, 0.7);
+      --bg-card-hover: rgba(32, 32, 38, 0.85);
+      --text-main: #F4F4F5;
+      --text-muted: #A1A1AA;
+      --gold-primary: #D4AF37;
+      --gold-gradient: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+      --accent-glow: rgba(212, 175, 55, 0.15);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.3);
+      
+      --font-title: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --container: 1240px;
     }
-    .nav-links.is-open{ transform: translateX(0); }
-    .nav-links li{ border-bottom: 1px solid rgba(17,17,17,0.08); }
-    .nav-links a{ display:block; padding: 18px 0; }
-    .nav-toggle{ display:block; }
-    .hero-grid{ grid-template-columns: 1fr; }
-    .hero-visual{ order:-1; max-width: 320px; margin: 0 auto; }
-    .swatch-strip{ flex-direction:column; height:auto; }
-    .swatch{ padding: 20px; border-right:none; border-bottom: 1px solid rgba(250,249,246,0.08); }
-    .swatch:hover, .swatch:focus-visible{ flex:1; }
-    .cards-grid{ grid-template-columns: 1fr; }
-    .trust-grid{ grid-template-columns: repeat(2,1fr); }
-    .testimonials-inner{ grid-template-columns: 1fr; }
-    .footer-grid{ grid-template-columns: 1fr; }
-    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
-    .gallery-item--tall{ grid-row: span 2; }
-    .projects-grid{ grid-template-columns: 1fr; }
-  }
 
-  @media (prefers-reduced-motion: reduce){
-    *{ transition: none !important; scroll-behavior: auto !important; }
-  }
-</style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background-color: var(--bg-dark); }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* Componentes Generales */
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .gradient-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h1, h2, h3 { font-family: var(--font-title); font-weight: 600; }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: #000;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+    }
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      backdrop-filter: blur(10px);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: rgba(10, 10, 11, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px; max-width: var(--container); margin: 0 auto;
+    }
+    .logo { font-family: var(--font-title); font-size: 1.8rem; font-weight: 600; }
+    .logo span { font-style: italic; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 32px; list-style: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-links a { transition: color 0.3s ease; color: var(--text-muted); }
+    .nav-links a:hover { color: var(--gold-primary); }
+    
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      padding: 180px 0 100px;
+      position: relative;
+      background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+    .hero h1 { font-size: clamp(3rem, 5.5vw, 4.8rem); line-height: 1.05; margin: 16px 0 24px; }
+    .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 500px; margin-bottom: 36px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    
+    .hero-img-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .hero-img-box img { width: 100%; height: 500px; object-fit: cover; }
+
+    /* ============================================================
+       PORTAFOLIO DE VIDEOS (NUEVA SECCIÓN)
+       ============================================================ */
+    .portfolio-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-dark) 0%, #111115 100%); }
+    .section-head { text-align: center; margin-bottom: 60px; }
+    .section-head h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-top: 8px; }
+    .section-head p { color: var(--text-muted); max-width: 580px; margin: 12px auto 0; }
+
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s ease;
+    }
+    .video-card:hover { border-color: var(--border-gold); }
+    .video-wrapper {
+      position: relative;
+      aspect-ratio: 9/16; /* Ideal para videos verticales de tratamientos/Reels */
+      max-height: 450px;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .video-info { padding: 24px; }
+    .video-info h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .video-info p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* ============================================================
+       SERVICIOS & TRATAMIENTOS
+       ============================================================ */
+    .services { padding: 100px 0; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold);
+      transform: translateY(-5px);
+    }
+    .card-num { font-family: var(--font-title); font-size: 1.2rem; color: var(--gold-primary); margin-bottom: 12px; display: block; }
+    .card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+    .card .price { font-weight: 700; font-size: 1rem; color: var(--gold-primary); letter-spacing: 0.05em; }
+
+    /* ============================================================
+       GALERÍA CON PARALLAX (GSAP TARGETS)
+       ============================================================ */
+    .parallax-gallery { padding: 100px 0; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .gallery-item {
+      height: 380px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-color);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 120%; /* Altura extra para permitir el movimiento Parallax */
+      object-fit: cover;
+      /* Estado Inicial GSAP */
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    /* ============================================================
+       CONFIANZA & TESTIMONIOS
+       ============================================================ */
+    .trust { border-y: 1px solid var(--border-color); padding: 60px 0; background: rgba(255,255,255,0.01); }
+    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+    .trust-num { font-family: var(--font-title); font-size: 3rem; font-weight: 600; color: var(--gold-primary); }
+    .trust-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+
+    .testimonials { padding: 100px 0; }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+    .testi-card p { font-family: var(--font-title); font-style: italic; font-size: 1.2rem; margin-bottom: 20px; }
+    .testi-name { font-weight: 700; font-size: 0.9rem; color: var(--gold-primary); }
+
+    /* ============================================================
+       CTA & FOOTER
+       ============================================================ */
+    .booking {
+      padding: 100px 0; text-align: center;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, var(--bg-dark) 70%);
+    }
+    .booking h2 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 16px; }
+    .booking p { color: var(--text-muted); max-width: 500px; margin: 0 auto 30px; }
+
+    footer { border-top: 1px solid var(--border-color); padding: 60px 0 30px; background: #050506; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-brand p { color: var(--text-muted); font-size: 0.9rem; margin-top: 12px; }
+    .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold-primary); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-muted); }
+    .footer-col a:hover { color: var(--gold-primary); }
+    .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; gap: 12px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ============ ENCABEZADO ============ -->
-<header>
-  <nav class="nav">
-    <div class="logo">Karen Cárdenas <span>Studio</span></div>
-    <ul class="nav-links">
-      <li><a href="#tratamientos">Tratamientos</a></li>
-      <li><a href="#testimonios">Opiniones</a></li>
-      <li><a href="#reserva">Contacto</a></li>
-    </ul>
-    <a href="#reserva" class="nav-cta">Agendar cita</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-  </nav>
-</header>
+  <header>
+    <nav class="nav">
+      <div class="logo">Karen Cárdenas <span>Studio</span></div>
+      <ul class="nav-links">
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#tratamientos">Tratamientos</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#testimonios">Opiniones</a></li>
+      </ul>
+      <a href="#reserva" class="btn btn-primary">Agendar Cita</a>
+    </nav>
+  </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">La Vega, Cundinamarca</span>
-      <h1>El arte de <em>realzar</em> tu mirada</h1>
-      <p>Estudio especializado en cejas y pestañas. Diseño, técnica y precisión para una mirada elegante, natural y a tu medida.</p>
-      <div class="hero-actions">
-        <a href="#reserva" class="btn btn-primary">Agendar cita →</a>
-        <a href="#tratamientos" class="btn btn-ghost">Ver tratamientos</a>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">La Vega, Cundinamarca</span>
+        <h1>El arte de <span class="gradient-text">realzar</span> tu mirada</h1>
+        <p>Estudio especializado en cejas y pestañas. Alta precisión, técnicas avanzadas y diseño a medida para un acabado de elegancia natural.</p>
+        <div class="hero-actions">
+          <a href="#reserva" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Reservar Ahora</a>
+          <a href="#portafolio" class="btn btn-ghost">Ver Trabajos</a>
+        </div>
+      </div>
+      <div class="hero-img-box">
+        <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80" alt="Karen Cárdenas Studio Preview">
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-visual-label">"La mirada es el primer detalle que se nota, el último que se olvida"</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ GALERÍA — efecto parallax con GSAP ============ -->
-<section class="gallery" id="galeria">
-  <div class="wrap">
-    <div class="gallery-head reveal">
-      <span class="eyebrow">Nuestro trabajo</span>
-      <h2>El detalle en cada mirada</h2>
-      <p>Resultados reales de nuestras clientas. Desplázate para ver el efecto de profundidad.</p>
-    </div>
-    <!-- 🖼️ FOTOS DE GALERÍA: reemplaza cada src="..." por tus propias fotos
-         (idealmente en formato vertical/horizontal similar al placeholder). -->
-    <div class="gallery-grid">
-      <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="https://picsum.photos/id/1011/700/900" alt="Resultado de tratamiento de cejas">
+  <section class="portfolio-section" id="portafolio">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Resultados en Movimiento</span>
+        <h2>Portafolio de Procedimientos</h2>
+        <p>Observa el nivel de detalle y los resultados finales de nuestros tratamientos en video.</p>
       </div>
-      <div class="gallery-item">
-        <img class="parallax-img" src="https://picsum.photos/id/1027/700/560" alt="Resultado de lifting de pestañas">
-      </div>
-      <div class="gallery-item">
-        <img class="parallax-img" src="https://picsum.photos/id/1025/700/560" alt="Resultado de laminado de cejas">
-      </div>
-      <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="https://picsum.photos/id/1005/700/900" alt="Resultado de micropigmentación de cejas">
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ TIRA DE TRATAMIENTOS ============ -->
-<section class="swatch-section">
-  <div class="wrap">
-    <div class="swatch-header reveal">
-      <span class="eyebrow">Nuestra especialidad</span>
-      <h2>Seis técnicas, un mismo detalle</h2>
-    </div>
-    <div class="swatch-strip">
-      <div class="swatch swatch-1" tabindex="0">
-        <div>
-          <span class="swatch-name">Epilación</span>
-          <p class="swatch-desc">Depilación facial y corporal con cera, precisa y duradera.</p>
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls poster="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80">
+              <source src="TU_VIDEO_1.mp4" type="video/mp4">
+              Tu navegador no soporta el formato de video.
+            </video>
+            </div>
+          <div class="video-info">
+            <h3>Micropigmentación Pelo a Pelo</h3>
+            <p>Técnica de alta precisión para cejas naturales y definidas.</p>
+          </div>
         </div>
-      </div>
-      <div class="swatch swatch-2" tabindex="0">
-        <div>
-          <span class="swatch-name" style="color:#111111">HidraLips</span>
-          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Tratamiento de hidratación y color natural para labios.</p>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls poster="https://images.unsplash.com/photo-1583001809873-a1284a563176?auto=format&fit=crop&w=500&q=80">
+              <source src="TU_VIDEO_2.mp4" type="video/mp4">
+              Tu navegador no soporta el formato de video.
+            </video>
+            </div>
+          <div class="video-info">
+            <h3>Lifting & Laminado</h3>
+            <p>Elevación natural de pestañas e iluminación de la mirada.</p>
+          </div>
         </div>
-      </div>
-      <div class="swatch swatch-3" tabindex="0">
-        <div>
-          <span class="swatch-name">Sombreado en henna</span>
-          <p class="swatch-desc">Definición de cejas con henna, efecto denso y natural.</p>
-        </div>
-      </div>
-      <div class="swatch swatch-4" tabindex="0">
-        <div>
-          <span class="swatch-name" style="color:#111111">Lifting de pestañas</span>
-          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Curvatura y volumen natural sin necesidad de extensiones.</p>
-        </div>
-      </div>
-      <div class="swatch swatch-5" tabindex="0">
-        <div>
-          <span class="swatch-name">Laminado de cejas</span>
-          <p class="swatch-desc">Cejas peinadas, uniformes y con efecto duradero.</p>
-        </div>
-      </div>
-      <div class="swatch swatch-6" tabindex="0">
-        <div>
-          <span class="swatch-name">Micropigmentación</span>
-          <p class="swatch-desc">Diseño semipermanente de cejas, trazo a trazo.</p>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls poster="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=500&q=80">
+              <source src="TU_VIDEO_3.mp4" type="video/mp4">
+              Tu navegador no soporta el formato de video.
+            </video>
+            </div>
+          <div class="video-info">
+            <h3>HidraLips & Coloration</h3>
+            <p>Hidratación profunda con un toque sutil de color natural.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ TRATAMIENTOS DETALLADOS ============ -->
-<section class="services" id="tratamientos">
-  <div class="wrap">
-    <div class="services-head reveal">
-      <span class="eyebrow">Catálogo</span>
-      <h2>Nuestros tratamientos</h2>
-      <p>Cada procedimiento se realiza de forma personalizada, según la forma de tu rostro y lo que buscas resaltar.</p>
-    </div>
+  <section class="services" id="tratamientos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Menú de Especialidades</span>
+        <h2>Tratamientos Exclusivos</h2>
+      </div>
 
-    <div class="cards-grid">
-      <div class="card reveal">
-        <span class="card-num">01</span>
-        <h3>Epilación</h3>
-        <p>Depilación facial y corporal con cera tibia, cuidadosa con la piel y de larga duración.</p>
-        <span class="price">Desde $25.000</span>
-      </div>
-      <div class="card reveal">
-        <span class="card-num">02</span>
-        <h3>HidraLips</h3>
-        <p>Tratamiento hidratante que aporta color natural y suavidad a los labios.</p>
-        <span class="price">Desde $60.000</span>
-      </div>
-      <div class="card reveal">
-        <span class="card-num">03</span>
-        <h3>Sombreado en henna</h3>
-        <p>Técnica que define y rellena las cejas con un efecto denso, natural y de larga duración.</p>
-        <span class="price">Desde $35.000</span>
-      </div>
-      <div class="card reveal">
-        <span class="card-num">04</span>
-        <h3>Lifting de pestañas</h3>
-        <p>Curva y realza tus propias pestañas para una mirada abierta, sin extensiones.</p>
-        <span class="price">Desde $50.000</span>
-      </div>
-      <div class="card reveal">
-        <span class="card-num">05</span>
-        <h3>Laminado de cejas</h3>
-        <p>Peinado y fijación de cejas pobladas y uniformes, con acabado natural.</p>
-        <span class="price">Desde $45.000</span>
-      </div>
-      <div class="card reveal">
-        <span class="card-num">06</span>
-        <h3>Micropigmentación de cejas</h3>
-        <p>Diseño semipermanente pelo a pelo o sombreado, adaptado a tu forma de rostro.</p>
-        <span class="price">Desde $250.000</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROYECTOS — portafolio de video ============ -->
-<section class="projects" id="proyectos">
-  <div class="wrap">
-    <div class="projects-head reveal">
-      <span class="eyebrow">Portafolio</span>
-      <h2>Procesos y resultados en video</h2>
-      <p>Mira el paso a paso de nuestros tratamientos, directamente de nuestro estudio.</p>
-    </div>
-
-    <div class="projects-grid">
-
-      <!-- 🎥 PROYECTO 1 — Video propio (archivo .mp4)
-           Para usar tu archivo: sube el video (por ejemplo a la carpeta /videos)
-           y reemplaza data-video="" por su ruta, ej: data-video="videos/lifting.mp4" -->
-      <div class="project-card reveal" tabindex="0" role="button"
-           data-video="videos/lifting-pestanas.mp4"
-           aria-label="Reproducir video: Lifting de pestañas paso a paso">
-        <div class="project-thumb">
-          <img src="https://picsum.photos/id/1062/600/375" alt="Miniatura: Lifting de pestañas paso a paso">
-          <span class="play-btn">▶</span>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-num">01</span>
+          <h3>Epilación Facial</h3>
+          <p>Depilación facial técnica con cera tibia suave para el cuidado de la piel sensible.</p>
+          <span class="price">Desde $25.000</span>
         </div>
-        <div class="project-info">
-          <h3>Lifting de pestañas — paso a paso</h3>
-          <p>Proceso completo, del curling a la mirada final.</p>
+        <div class="card">
+          <span class="card-num">02</span>
+          <h3>HidraLips</h3>
+          <p>Tratamiento altamente hidratante que regenera la piel de los labios dándoles tono natural.</p>
+          <span class="price">Desde $60.000</span>
+        </div>
+        <div class="card">
+          <span class="card-num">03</span>
+          <h3>Sombreado Henna</h3>
+          <p>Diseño y marcación de cejas con pigmentación orgánica efecto sombreado.</p>
+          <span class="price">Desde $35.000</span>
+        </div>
+        <div class="card">
+          <span class="card-num">04</span>
+          <h3>Lifting de Pestañas</h3>
+          <p>Curvatura y realce natural desde la raíz sin necesidad de extensiones sintéticas.</p>
+          <span class="price">Desde $50.000</span>
+        </div>
+        <div class="card">
+          <span class="card-num">05</span>
+          <h3>Laminado de Cejas</h3>
+          <p>Direccionamiento y fijación de los vellos de la ceja para un look poblado y ordenado.</p>
+          <span class="price">Desde $45.000</span>
+        </div>
+        <div class="card">
+          <span class="card-num">06</span>
+          <h3>Micropigmentación</h3>
+          <p>Diseño semipermanente personalizado según las proporciones de tu rostro.</p>
+          <span class="price">Desde $250.000</span>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 🎥 PROYECTO 2 — Video embebido de YouTube/Vimeo
-           Reemplaza data-embed="" por la URL de embed, ej:
-           data-embed="https://www.youtube.com/embed/TU_ID_DE_VIDEO" -->
-      <div class="project-card reveal" tabindex="0" role="button"
-           data-embed="https://www.youtube.com/embed/TU_ID_DE_VIDEO"
-           aria-label="Reproducir video: Micropigmentación pelo a pelo">
-        <div class="project-thumb">
-          <img src="https://picsum.photos/id/1074/600/375" alt="Miniatura: Micropigmentación pelo a pelo">
-          <span class="play-btn">▶</span>
-        </div>
-        <div class="project-info">
-          <h3>Micropigmentación pelo a pelo</h3>
-          <p>Diseño y trazo, técnica utilizada por Karen Cárdenas Studio.</p>
-        </div>
+  <section class="parallax-gallery" id="galeria">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Detalles Impecables</span>
+        <h2>Galería de Fotografía</h2>
       </div>
-
-      <!-- 🎥 PROYECTO 3 — Video propio (archivo .mp4) -->
-      <div class="project-card reveal" tabindex="0" role="button"
-           data-video="videos/laminado-cejas.mp4"
-           aria-label="Reproducir video: Laminado de cejas, antes y después">
-        <div class="project-thumb">
-          <img src="https://picsum.photos/id/1082/600/375" alt="Miniatura: Laminado de cejas, antes y después">
-          <span class="play-btn">▶</span>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img class="parallax-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Detalle Cejas">
         </div>
-        <div class="project-info">
-          <h3>Laminado de cejas — antes y después</h3>
-          <p>Resultado inmediato tras el tratamiento en estudio.</p>
+        <div class="gallery-item">
+          <img class="parallax-img" src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=600&q=80" alt="Lifting Pestañas">
+        </div>
+        <div class="gallery-item">
+          <img class="parallax-img" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="HidraLips Labios">
+        </div>
+        <div class="gallery-item">
+          <img class="parallax-img" src="https://images.unsplash.com/photo-1583001809873-a1284a563176?auto=format&fit=crop&w=600&q=80" alt="Micropigmentación Cejas">
         </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Modal para reproducir los videos del portafolio -->
-<div class="video-modal" id="videoModal" aria-hidden="true">
-  <div class="video-modal-inner">
-    <button class="video-modal-close" id="videoModalClose" aria-label="Cerrar video">✕</button>
-    <div class="video-modal-media" id="videoModalMedia"></div>
-  </div>
-</div>
-
-<!-- ============ BANDA DE CONFIANZA ============ -->
-<section class="trust">
-  <div class="wrap trust-grid">
-    <div class="reveal"><div class="trust-num">6+</div><div class="trust-label">Años de experiencia</div></div>
-    <div class="reveal"><div class="trust-num">1.200+</div><div class="trust-label">Clientas atendidas</div></div>
-    <div class="reveal"><div class="trust-num">6</div><div class="trust-label">Técnicas especializadas</div></div>
-    <div class="reveal"><div class="trust-num">5.0★</div><div class="trust-label">Calificación promedio</div></div>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIOS ============ -->
-<section class="testimonials" id="testimonios">
-  <div class="wrap">
-    <span class="eyebrow">Lo que dicen de nosotras</span>
-    <h2 style="margin: 14px 0 40px; font-size: clamp(1.8rem, 3vw, 2.4rem);">Resultados que se notan</h2>
-    <div class="testimonials-inner">
-      <div class="testi-card reveal">
-        <p>"La micropigmentación quedó perfecta, muy natural. Karen es súper detallista con cada trazo."</p>
-        <div class="testi-name">Laura P.</div>
-        <div class="testi-role">Cliente desde 2023</div>
-      </div>
-      <div class="testi-card reveal">
-        <p>"El laminado de cejas me cambió la cara. El resultado dura semanas y se ve impecable."</p>
-        <div class="testi-name">Mariana T.</div>
-        <div class="testi-role">Cliente desde 2024</div>
-      </div>
-      <div class="testi-card reveal">
-        <p>"El lifting de pestañas fue justo lo que buscaba: mirada abierta y sin necesidad de rímel."</p>
-        <div class="testi-name">Andrea S.</div>
-        <div class="testi-role">Cliente desde 2022</div>
-      </div>
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div><div class="trust-num">6+</div><div class="trust-label">Años de experiencia</div></div>
+      <div><div class="trust-num">1.200+</div><div class="trust-label">Clientas Satisfechas</div></div>
+      <div><div class="trust-num">6</div><div class="trust-label">Técnicas Especializadas</div></div>
+      <div><div class="trust-num">5.0★</div><div class="trust-label">Valoración promedio</div></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ RESERVA ============ -->
-<section class="booking" id="reserva">
-  <div class="wrap">
-    <span class="eyebrow">Agenda tu cita</span>
-    <h2>Tu mirada merece este detalle</h2>
-    <p>Escríbenos o llámanos para reservar tu cita en La Vega, Cundinamarca.</p>
-    <span class="phone">322 216 7080</span>
-    <div class="hero-actions" style="justify-content:center;">
-      <a href="https://wa.me/573222167080" class="btn btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      <a href="tel:+573222167080" class="btn btn-ghost" style="border-color: var(--cream); color: var(--cream);">Llamar ahora</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PIE DE PÁGINA ============ -->
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo">Karen Cárdenas <span>Studio</span></div>
-        <p>Estudio especializado en cejas y pestañas, en el corazón de La Vega, Cundinamarca.</p>
-        <!-- 🔗 REDES SOCIALES: reemplaza los "#" por los enlaces reales de tus perfiles -->
-        <div class="footer-social">
-          <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/></svg>
-          </a>
-          <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.9h2.66l.4-3.09h-3.06V8.1c0-.9.25-1.5 1.53-1.5h1.63V3.85A21.9 21.9 0 0 0 14.3 3.7c-2.35 0-3.96 1.43-3.96 4.06v2.26H7.67v3.09h2.67V21h3.16z"/></svg>
-          </a>
-          <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M16.6 3c.3 1.9 1.5 3.5 3.4 4v2.9c-1.3 0-2.6-.4-3.7-1.1v6.4c0 3.1-2.5 5.6-5.7 5.6S4.9 18.3 4.9 15.2c0-3 2.3-5.4 5.3-5.6v2.9a2.7 2.7 0 1 0 1.9 2.6V3h4.5z"/></svg>
-          </a>
+  <section class="testimonials" id="testimonios">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Experiencias</span>
+        <h2>Lo que Opinan Nuestras Clientas</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p>"La micropigmentación quedó increíblemente natural. Karen analiza muy bien la forma del rostro antes de trabajar."</p>
+          <div class="testi-name">Laura P.</div>
+        </div>
+        <div class="testi-card">
+          <p>"El laminado de cejas me dura semanas perfecto. Es mi lugar de confianza en La Vega sin duda alguna."</p>
+          <div class="testi-name">Mariana T.</div>
+        </div>
+        <div class="testi-card">
+          <p>"Excelente atención y las pestañas quedan espectaculares sin maltratarlas. Súper recomendado."</p>
+          <div class="testi-name">Andrea S.</div>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Tratamientos</h4>
-        <ul>
-          <li><a href="#tratamientos">Epilación</a></li>
-          <li><a href="#tratamientos">HidraLips</a></li>
-          <li><a href="#tratamientos">Sombreado en henna</a></li>
-          <li><a href="#tratamientos">Lifting de pestañas</a></li>
-          <li><a href="#tratamientos">Laminado de cejas</a></li>
-          <li><a href="#tratamientos">Micropigmentación</a></li>
-        </ul>
+    </div>
+  </section>
+
+  <section class="booking" id="reserva">
+    <div class="wrap">
+      <span class="eyebrow">Agenda tu Experiencia</span>
+      <h2>Reserva tu cita hoy</h2>
+      <p>Estamos ubicados en La Vega, Cundinamarca. Haz clic para contactarnos directamente por WhatsApp.</p>
+      <a href="https://wa.me/573222167080" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Escribir a WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">Karen Cárdenas <span>Studio</span></div>
+          <p>Estudio de belleza especializado en el realce de cejas y pestañas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#tratamientos">Tratamientos</a></li>
+            <li><a href="#galeria">Galería</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>Cra. 4a #20-25, La Vega</li>
+            <li>+57 322 216 7080</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li>Cra. 4a #20-25, La Vega, Cundinamarca</li>
-          <li>322 216 7080</li>
-          <li><a href="#reserva">Agendar cita</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <span>© 2026 Karen Cárdenas Studio. Todos los derechos reservados.</span>
+        <span>Diseñado para una experiencia visual única.</span>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Karen Cárdenas Studio. Todos los derechos reservados.</span>
-      <span>Cejas y pestañas, con precisión.</span>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- ============================================================
-     GSAP + ScrollTrigger (CDN) — necesarios para el efecto parallax
-     ============================================================ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<script>
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ============================================================
-     1) MENÚ MÓVIL
-     ============================================================ */
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  /* ============================================================
-     2) CABECERA CON ESTADO AL HACER SCROLL
-     ============================================================ */
-  const header = document.querySelector('header');
-  const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
-  onScrollHeader();
-  window.addEventListener('scroll', onScrollHeader, { passive: true });
-
-  /* ============================================================
-     3) REVELADO DE SECCIONES AL HACER SCROLL (IntersectionObserver)
-     ============================================================ */
-  const revealEls = document.querySelectorAll('.reveal');
-  if (prefersReducedMotion) {
-    revealEls.forEach(el => el.classList.add('is-visible'));
-  } else {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => revealObserver.observe(el));
-  }
-
-  /* ============================================================
-     4) GALERÍA — PARALLAX CON GSAP + SCROLLTRIGGER
-     Requisitos: escala 0.7 → 1.2, opacidad 0 → 1 en 600px de scroll,
-     ease 'power2.out', y desplazamiento vertical 20% más lento que
-     el scroll (sensación de profundidad).
-     ============================================================ */
-  if (!prefersReducedMotion && window.gsap && window.ScrollTrigger) {
+  <script>
+    // Registrar el plugin ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    document.querySelectorAll('.parallax-img').forEach((img) => {
-      const wrapper = img.closest('.gallery-item');
+    // Animación Parallax y Escala de Imágenes solicitada
+    const images = document.querySelectorAll('.parallax-img');
 
-      // 4a) Revelado: escala 0.7 → 1.2 y opacidad 0 → 1, a lo largo
-      //     de 600px de recorrido de scroll, con ease 'power2.out'.
-      gsap.fromTo(img,
-        { scale: 0.7, opacity: 0 },
-        {
-          scale: 1.2,
-          opacity: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: 'top bottom',   // empieza cuando la imagen entra por abajo del viewport
-            end: '+=600',          // recorrido total de 600px
-            scrub: 1                 // ligado suavemente a la posición del scroll
-          }
+    images.forEach((img) => {
+      // 1. Efecto de Escala y Opacidad al hacer Scroll (Transición a lo largo de 600px)
+      gsap.to(img, {
+        scale: 1.2,
+        opacity: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top 85%',
+          end: '+=600',
+          scrub: true
         }
-      );
+      });
 
-      // 4b) Profundidad: la imagen se mueve verticalmente un 20% más
-      //     lento que el scroll (parallax clásico), mientras el
-      //     contenedor recorre el viewport de arriba a abajo.
-      gsap.fromTo(img,
-        { yPercent: -10 },
-        {
-          yPercent: 10,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          }
+      // 2. Efecto Parallax Vertical (Se mueve 20% más lento que el scroll)
+      gsap.to(img, {
+        y: '-20%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
         }
-      );
+      });
     });
-  } else if (prefersReducedMotion) {
-    // Si el usuario prefiere menos movimiento, mostramos las imágenes en su estado final.
-    document.querySelectorAll('.parallax-img').forEach(img => {
-      img.style.opacity = 1;
-      img.style.transform = 'scale(1)';
-    });
-  }
-
-  /* ============================================================
-     5) MODAL DE VIDEO — portafolio de proyectos
-     Cada .project-card puede traer:
-       - data-video="ruta/al/archivo.mp4"  → se reproduce con <video>
-       - data-embed="https://www.youtube.com/embed/ID" → se reproduce con <iframe>
-     ============================================================ */
-  const videoModal = document.getElementById('videoModal');
-  const videoModalMedia = document.getElementById('videoModalMedia');
-  const videoModalClose = document.getElementById('videoModalClose');
-
-  function openVideoModal(card) {
-    const videoSrc = card.getAttribute('data-video');
-    const embedSrc = card.getAttribute('data-embed');
-
-    if (videoSrc) {
-      videoModalMedia.innerHTML = `<video src="${videoSrc}" controls autoplay playsinline></video>`;
-    } else if (embedSrc) {
-      videoModalMedia.innerHTML = `<iframe src="${embedSrc}?autoplay=1" title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-    } else {
-      videoModalMedia.innerHTML = `<p style="color:#fff;text-align:center;padding-top:40%;">Agrega data-video o data-embed a esta tarjeta.</p>`;
-    }
-    videoModal.classList.add('is-open');
-    videoModal.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeVideoModal() {
-    videoModal.classList.remove('is-open');
-    videoModal.setAttribute('aria-hidden', 'true');
-    videoModalMedia.innerHTML = ''; // detiene la reproducción al cerrar
-  }
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => openVideoModal(card));
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideoModal(card); }
-    });
-  });
-
-  videoModalClose.addEventListener('click', closeVideoModal);
-  videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
-</script>
-
+  </script>
 </body>
 </html>
