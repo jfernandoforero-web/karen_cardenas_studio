@@ -7,7 +7,7 @@
   <meta name="description" content="Estudio boutique especializado en micropigmentación hiperrealista, lifting de pestañas, sombreado en henna y laminado. La Vega, Cundinamarca. Arte, visagismo y precisión.">
   <meta name="keywords" content="cejas la vega, micropigmentacion cundinamarca, lifting de pestañas, laminado de cejas, hidralips, karen cardenas studio">
   <meta name="author" content="Karen Cárdenas">
-  <meta name="theme-color" content="#09090B">
+  <meta name="theme-color" content="#09090C">
   <link rel="canonical" href="https://karencardenasstudio.com">
 
   <!-- Open Graph -->
@@ -17,7 +17,7 @@
   <meta property="og:image" content="images/karen.jpg">
   <meta property="og:locale" content="es_CO">
 
-  <!-- Tipografías: Cormorant Garamond + Jost -->
+  <!-- Tipografías: Cormorant Garamond (editorial) + Jost (precisión) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -46,39 +46,38 @@
 
   <style>
     /* ============================================================
-       SISTEMA DE DISEÑO UNIVERSAL: HAUTE NOIR & PLATINUM SILVER
+       SISTEMA DE DISEÑO: NOIR & STAINLESS STEEL (ACERO PLATEADO)
        ============================================================ */
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     
     :root {
-      /* Arquitectura de fondos profundos */
-      --bg-base: #09090C;
-      --bg-surface: #101015;
-      --bg-elevated: #16161C;
-      --bg-card: rgba(22, 22, 28, 0.75);
+      /* Fondos oscuros de alta gama */
+      --bg-base: #070709;
+      --bg-surface: #0E0E12;
+      --bg-elevated: #14141A;
+      --bg-card: rgba(20, 20, 26, 0.75);
       
-      /* Escala monocromática */
+      /* Blancos y grises */
       --white: #FFFFFF;
       --text-main: #EDEDF2;
       --text-muted: #9D9DA8;
       --text-subtle: #686875;
 
-      /* Plata, Platino y Titanio */
-      --silver-platinum: #E8E8EE;
-      --silver-mid: #B8B8C2;
-      --silver-hairline: rgba(255, 255, 255, 0.12);
-      --silver-hairline-bright: rgba(255, 255, 255, 0.35);
-      --silver-gradient-subtle: linear-gradient(135deg, #FFFFFF 0%, #D0D0D8 45%, #9E9EAA 100%);
+      /* ACERO PLATEADO Y TITANIO (CNC FINISH) */
+      --steel-gradient: linear-gradient(180deg, #F5F5FA 0%, #D2D2DC 46%, #A8A8B8 52%, #DCDCDE 100%);
+      --steel-gradient-hover: linear-gradient(180deg, #FFFFFF 0%, #E2E2EC 46%, #B6B6C8 52%, #EAEAFA 100%);
+      --steel-titanium: linear-gradient(180deg, #1E1E26 0%, #121217 100%);
+      --steel-border: rgba(255, 255, 255, 0.22);
+      --steel-highlight: rgba(255, 255, 255, 0.55);
 
-      /* Acentos de servicio */
+      /* WhatsApp */
       --wa-emerald: #25D366;
 
       /* Tipografía */
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
-      --radius-sm: 2px;
-      --radius-md: 4px;
-      --radius-pill: 50px;
+      --radius-sm: 4px;
+      --radius-pill: 100px;
       --container-max: min(1200px, 92vw);
     }
     
@@ -104,26 +103,26 @@
 
     /* LUZ AMBIENTAL DE FONDO */
     .ambient-mesh {
-      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
-      width: min(900px, 100vw); height: 500px;
-      background: radial-gradient(circle, rgba(230, 230, 245, 0.05) 0%, rgba(9, 9, 12, 0) 70%);
+      position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
+      width: min(1000px, 100vw); height: 600px;
+      background: radial-gradient(circle, rgba(230, 230, 255, 0.06) 0%, rgba(7, 7, 9, 0) 70%);
       pointer-events: none; z-index: 0;
     }
 
     .eyebrow {
       font-family: var(--font-sans);
-      font-size: clamp(0.68rem, 1.2vw, 0.74rem);
-      font-weight: 500;
+      font-size: clamp(0.68rem, 1.1vw, 0.74rem);
+      font-weight: 600;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--silver-mid);
+      color: var(--text-muted);
       display: inline-flex;
       align-items: center;
       gap: 12px;
     }
     .eyebrow::before {
       content: ''; display: inline-block; width: 18px; height: 1px;
-      background: var(--silver-mid);
+      background: var(--steel-gradient);
     }
 
     h1, h2, h3 {
@@ -133,138 +132,175 @@
       color: var(--white);
     }
 
-    .platinum-text {
-      background: var(--silver-gradient-subtle);
+    .steel-text {
+      background: var(--steel-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
     }
 
     /* ============================================================
-       SISTEMA DE BOTONES DE LUJO (EDITORIAL HAUTE-COUTURE)
+       BOTONES DE ACERO PLATEADO (CNC MACHINED STEEL)
        ============================================================ */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-      padding: 16px 36px;
+      position: relative;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 30px;
       font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       border-radius: var(--radius-sm);
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
       cursor: pointer;
-      min-height: 50px;
+      min-height: 48px;
       white-space: nowrap;
-      text-align: center;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    /* Botón Principal: Sólido Blanco Editorial, Inversión a Negro Pulido */
-    .btn-primary {
-      background: var(--white);
-      color: #000000;
-      border: 1px solid var(--white);
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    /* Botón Primario: Acero Plateado Pulido */
+    .btn-steel {
+      background: var(--steel-gradient);
+      color: #0E0E12;
+      border: 1px solid #FFFFFF;
+      box-shadow: 
+        inset 0 1px 1px #FFFFFF,
+        inset 0 -1px 2px rgba(0, 0, 0, 0.35),
+        0 8px 24px -4px rgba(0, 0, 0, 0.8),
+        0 0 15px rgba(255, 255, 255, 0.15);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.7);
     }
-    .btn-primary:hover {
-      background: var(--bg-base);
-      color: var(--white);
-      border-color: var(--silver-hairline-bright);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    .btn-steel:hover {
+      background: var(--steel-gradient-hover);
       transform: translateY(-2px);
+      box-shadow: 
+        inset 0 1px 2px #FFFFFF,
+        inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+        0 14px 32px -4px rgba(0, 0, 0, 0.9),
+        0 0 25px rgba(255, 255, 255, 0.3);
+    }
+    .btn-steel:active {
+      transform: translateY(1px);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
     }
 
-    /* Botón Secundario: Borde Ultrafino en Plata Platino */
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--silver-platinum);
-      border: 1px solid var(--silver-hairline);
+    /* Botón Secundario: Titanio Oscuro con Bisel Plateado */
+    .btn-titanium {
+      background: var(--steel-titanium);
+      color: #E6E6EE;
+      border: 1px solid var(--steel-border);
+      border-top: 1px solid var(--steel-highlight);
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 8px 20px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
     }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--silver-hairline-bright);
-      color: var(--white);
+    .btn-titanium:hover {
+      background: linear-gradient(180deg, #2A2A36 0%, #16161D 100%);
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #FFFFFF;
       transform: translateY(-2px);
+      box-shadow: 
+        inset 0 1px 0 #FFFFFF,
+        0 12px 28px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.15);
     }
 
     /* ============================================================
-       HEADER
+       CABECERA EN COMPUTADOR: ISLA FLOTANTE DE CRISTAL & ACERO
        ============================================================ */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(9, 9, 12, 0.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--silver-hairline);
-      transition: all 0.3s ease;
+    .header-island-wrapper {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      padding: 0 20px;
     }
-    header.is-scrolled {
-      background: rgba(6, 6, 8, 0.96);
-      border-bottom-color: var(--silver-hairline-bright);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    .header-island {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 1140px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(14, 14, 18, 0.82);
+      backdrop-filter: blur(24px) saturate(140%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-top: 1px solid rgba(255, 255, 255, 0.45); /* Reflejo bisel superior */
+      border-radius: var(--radius-pill);
+      padding: 8px 20px 8px 24px;
+      box-shadow: 
+        0 20px 45px -10px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: all 0.35s ease;
     }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: clamp(10px, 2vw, 16px) 0;
-      max-width: var(--container-max); margin: 0 auto;
+    .header-island.is-scrolled {
+      background: rgba(10, 10, 14, 0.94);
+      box-shadow: 0 24px 50px -5px rgba(0, 0, 0, 0.95);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .brand-group {
-      display: flex; align-items: center; gap: 14px; cursor: pointer;
+      display: flex; align-items: center; gap: 12px; cursor: pointer;
     }
     .brand-logo-img {
-      height: clamp(42px, 5vw, 56px); width: auto; object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(255,255,255,0.12));
+      height: 44px; width: auto; max-width: 130px; object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(255,255,255,0.18));
+      transition: transform 0.25s ease;
     }
+    .brand-group:hover .brand-logo-img { transform: scale(1.03); }
     .brand-monogram {
-      display: none; width: 42px; height: 42px; border-radius: 50%;
-      border: 1px solid var(--silver-hairline-bright);
+      display: none; width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid var(--steel-border);
       align-items: center; justify-content: center;
-      font-family: var(--font-serif); font-size: 1.2rem; color: var(--white);
+      font-family: var(--font-serif); font-size: 1.15rem; color: var(--white);
     }
     .brand-text { display: flex; flex-direction: column; }
     .brand-title {
-      font-family: var(--font-serif); font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-      font-weight: 600; line-height: 1.1; letter-spacing: 0.02em; color: var(--white);
+      font-family: var(--font-serif); font-size: 1.25rem;
+      font-weight: 600; line-height: 1.05; letter-spacing: 0.02em; color: var(--white);
     }
-    .brand-title span { color: var(--silver-mid); font-style: italic; font-weight: 400; }
+    .brand-title span {
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-style: italic; font-weight: 400;
+    }
     .brand-sub {
-      font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase;
-      color: var(--text-subtle); margin-top: 2px;
+      font-size: 0.52rem; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--text-subtle); margin-top: 1px;
     }
 
+    /* ENLACES DEL MENÚ CON INDICADOR REFINADO */
     .nav-links {
-      display: flex; gap: clamp(16px, 2.2vw, 32px); list-style: none;
-      font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 24px; list-style: none;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
     }
     .nav-links a {
       position: relative; padding: 6px 0; color: var(--text-muted);
       transition: color 0.25s ease;
     }
     .nav-links a::after {
-      content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
-      background: var(--white); transition: width 0.25s ease;
+      content: ''; position: absolute; left: 50%; bottom: 0; width: 0; height: 1px;
+      background: var(--steel-gradient); transform: translateX(-50%); transition: width 0.25s ease;
     }
     .nav-links a:hover { color: var(--white); }
     .nav-links a:hover::after { width: 100%; }
 
-    .nav-cta {
-      background: transparent; color: var(--white);
-      padding: 10px 22px; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-sm);
-      transition: all 0.25s ease;
-    }
-    .nav-cta:hover {
-      background: var(--white); color: #000; border-color: var(--white);
+    /* BOTÓN DENTRO DE LA ISLA */
+    .nav-cta-steel {
+      padding: 10px 22px; font-size: 0.7rem; border-radius: var(--radius-pill);
+      min-height: 40px;
     }
 
     .nav-toggle {
       display: none; background: none; border: none; cursor: pointer;
-      width: 44px; height: 44px; position: relative;
+      width: 40px; height: 40px; position: relative;
       align-items: center; justify-content: center; z-index: 105;
     }
-    .nav-toggle-icon { width: 24px; height: 14px; position: relative; display: block; }
+    .nav-toggle-icon { width: 22px; height: 14px; position: relative; display: block; }
     .nav-toggle-icon span,
     .nav-toggle-icon span::before,
     .nav-toggle-icon span::after {
@@ -279,10 +315,10 @@
     .nav-toggle[aria-expanded="true"] .nav-toggle-icon span::after { top: 0; transform: rotate(-45deg); }
 
     /* ============================================================
-       HERO (FLUID ARCHITECTURE)
+       HERO (CON ESPACIO PARA LA ISLA FLOTANTE)
        ============================================================ */
     .hero {
-      padding: clamp(40px, 8vw, 90px) 0 clamp(50px, 7vw, 90px);
+      padding: 135px 0 clamp(50px, 7vw, 90px);
       position: relative; overflow: hidden;
     }
     .hero-grid {
@@ -294,10 +330,12 @@
 
     .hero-badge-live {
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 6px 14px; background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-pill);
-      font-size: 0.72rem; font-weight: 500; color: var(--silver-mid);
-      margin-bottom: 20px;
+      padding: 6px 16px; background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--steel-border);
+      border-top: 1px solid var(--steel-highlight);
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem; font-weight: 500; color: #D6D6DE;
+      margin-bottom: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.5);
     }
     .pulse-dot {
       width: 7px; height: 7px; border-radius: 50%; background: var(--wa-emerald);
@@ -310,36 +348,34 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4.3rem);
+      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
       line-height: 1.04; margin-bottom: 20px; font-weight: 500;
     }
     .hero p {
       font-size: clamp(0.98rem, 1.4vw, 1.1rem);
-      color: var(--text-muted); max-width: 490px; margin-bottom: 32px; line-height: 1.6;
+      color: var(--text-muted); max-width: 490px; margin-bottom: 34px; line-height: 1.6;
     }
-    .hero-actions {
-      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
-    }
+    .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 
     .hero-social-proof {
-      margin-top: 32px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      margin-top: 34px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
     }
     .stars {
-      color: var(--white); font-size: 0.95rem; letter-spacing: 3px;
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: 0.95rem; letter-spacing: 3px;
     }
     .proof-text { font-size: 0.8rem; color: var(--text-muted); }
     .proof-text strong { color: var(--white); font-weight: 600; }
 
-    /* RETRATO HERO: ARCO EDITORIAL */
-    .hero-visual-wrapper {
-      display: flex; justify-content: center; width: 100%;
-    }
+    /* RETRATO HERO: ARCO EDITORIAL CON BISEL */
+    .hero-visual-wrapper { display: flex; justify-content: center; width: 100%; }
     .hero-visual {
       position: relative; width: 100%; max-width: 380px; aspect-ratio: 4/5;
       border-radius: 260px 260px var(--radius-sm) var(--radius-sm);
       overflow: hidden;
-      border: 1px solid var(--silver-hairline-bright);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--steel-border);
+      border-top: 1.5px solid #FFFFFF;
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 255, 255, 0.08);
       will-change: transform;
     }
     .hero-visual img {
@@ -347,46 +383,53 @@
     }
     .hero-visual::before {
       content: ''; position: absolute; inset: 10px; border-radius: inherit;
-      border: 1px solid rgba(255,255,255,0.2); pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.22); pointer-events: none;
     }
     .hero-quote {
       position: absolute; left: 6%; right: 6%; bottom: 6%;
       background: rgba(9, 9, 12, 0.88); backdrop-filter: blur(12px);
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-sm);
+      border: 1px solid var(--steel-border);
+      border-top: 1px solid rgba(255,255,255,0.4);
+      border-radius: var(--radius-sm);
       padding: 12px 16px; font-family: var(--font-serif); font-style: italic;
       font-size: 0.94rem; color: var(--white); text-align: center; line-height: 1.35;
     }
     .hero-badge {
       position: absolute; top: 8%; right: 4px;
-      background: #141418; border: 1px solid var(--silver-hairline-bright);
-      border-radius: 50%; width: 90px; height: 90px;
+      background: var(--steel-titanium); border: 1.5px solid var(--white);
+      border-radius: 50%; width: 92px; height: 92px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      box-shadow: 0 16px 30px rgba(0,0,0,0.8); z-index: 5;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.85), 0 0 20px rgba(255,255,255,0.15); z-index: 5;
     }
     .hero-badge strong {
-      font-family: var(--font-serif); font-size: 1.5rem; color: var(--white); line-height: 1;
+      font-family: var(--font-serif); font-size: 1.5rem;
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
     }
     .hero-badge span {
       font-size: 0.54rem; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--silver-mid); margin-top: 3px; text-align: center;
+      color: #D6D6DE; margin-top: 3px; text-align: center;
     }
 
     /* ============================================================
        CINTA MARQUESINA
        ============================================================ */
     .ticker-bar {
-      background: #060608; color: var(--white);
-      padding: 12px 0; overflow: hidden; white-space: nowrap;
-      border-top: 1px solid var(--silver-hairline);
-      border-bottom: 1px solid var(--silver-hairline);
+      background: #040405; color: var(--white);
+      padding: 13px 0; overflow: hidden; white-space: nowrap;
+      border-top: 1px solid var(--steel-border);
+      border-bottom: 1px solid var(--steel-border);
     }
     .ticker-track { display: inline-flex; gap: 40px; animation: tickerMove 28s linear infinite; }
     .ticker-item {
       display: inline-flex; align-items: center; gap: 14px;
       font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--silver-platinum);
+      text-transform: uppercase; color: #D6D6DE;
     }
-    .ticker-item span { color: var(--silver-mid); font-size: 0.9rem; }
+    .ticker-item span {
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: 0.95rem;
+    }
     @keyframes tickerMove {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -397,26 +440,24 @@
        1. TRATAMIENTOS & PRECIOS (FLUID CARDS)
        ============================================================ */
     .services { padding: clamp(70px, 9vw, 110px) 0; background: var(--bg-surface); }
-    .services-head { text-align: center; margin-bottom: 30px; }
+    .services-head { text-align: center; margin-bottom: 32px; }
     .services-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 8px; }
     .services-head p { color: var(--text-muted); max-width: 520px; margin: 10px auto 0; font-size: 0.96rem; }
 
-    /* PESTAÑAS DE FILTRO REFINADAS */
-    .filter-tabs-wrapper { margin-bottom: 40px; }
-    .filter-tabs {
-      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
-    }
+    /* PESTAÑAS DE FILTRO EN ACERO PLATEADO */
+    .filter-tabs-wrapper { margin-bottom: 42px; }
+    .filter-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .filter-btn {
-      padding: 8px 20px; font-size: 0.72rem; font-weight: 500;
+      padding: 9px 22px; font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.12em; text-transform: uppercase;
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-pill);
-      background: var(--bg-elevated); color: var(--silver-mid);
+      border: 1px solid var(--steel-border); border-radius: var(--radius-pill);
+      background: var(--bg-elevated); color: #B0B0BE;
       cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
     }
     .filter-btn:hover { border-color: var(--white); color: var(--white); }
     .filter-btn.active {
-      background: var(--white); color: #000; border-color: var(--white);
-      font-weight: 600;
+      background: var(--steel-gradient); color: #0E0E12; border-color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
     }
 
     .cards-grid {
@@ -426,45 +467,57 @@
     }
     .card {
       background: var(--bg-card);
-      border: 1px solid var(--silver-hairline);
+      border: 1px solid var(--steel-border);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.35);
       padding: clamp(26px, 3vw, 36px);
       display: flex; flex-direction: column; justify-content: space-between;
       border-radius: var(--radius-sm);
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .card:hover {
-      border-color: var(--silver-hairline-bright);
-      background: rgba(26, 26, 34, 0.9);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      border-color: rgba(255, 255, 255, 0.5);
+      border-top-color: #FFFFFF;
+      background: rgba(26, 26, 34, 0.92);
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.08);
     }
     .card.is-hidden { display: none; }
     .card-num {
       font-family: var(--font-serif); font-style: italic;
-      color: var(--silver-mid); font-size: 1.05rem; margin-bottom: 12px; display: block;
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: 1.05rem; margin-bottom: 12px; display: block;
     }
     .card h3 { font-size: 1.35rem; margin-bottom: 8px; color: var(--white); }
     .card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.55; }
     .card-footer {
-      border-top: 1px solid var(--silver-hairline);
+      border-top: 1px solid var(--steel-border);
       padding-top: 18px; margin-top: auto;
       display: flex; align-items: center; justify-content: space-between; gap: 14px;
     }
-    .card .price { font-weight: 600; font-size: 1.02rem; color: var(--white); }
+    .card .price {
+      font-weight: 600; font-size: 1.05rem;
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
     
-    /* ENLACE DE CITA REFINADO (NO BOTÓN TOZCO) */
-    .card-cta {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--silver-platinum);
+    .card-cta-steel {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white);
       display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: var(--radius-sm);
+      border: 1px solid var(--steel-border);
+      border-top: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255, 255, 255, 0.04);
       transition: all 0.2s ease;
     }
-    .card-cta:hover { color: var(--white); transform: translateX(3px); }
+    .card-cta-steel:hover {
+      background: var(--steel-gradient); color: #0E0E12; border-color: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
 
     /* ============================================================
        2. RESULTADOS REALES (DARK SHOWCASE CINEMA)
        ============================================================ */
-    .showcase-section { padding: clamp(70px, 9vw, 110px) 0; background: #050507; }
+    .showcase-section { padding: clamp(70px, 9vw, 110px) 0; background: #040406; }
     .showcase-head { text-align: center; margin-bottom: 40px; }
     .showcase-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 8px; }
     .showcase-head p { color: var(--text-muted); max-width: 580px; margin: 10px auto 0; font-size: 0.96rem; }
@@ -472,9 +525,10 @@
     /* COMPARADOR */
     .compare-container {
       max-width: 860px; margin: 0 auto 60px;
-      background: #111116; border: 1px solid var(--silver-hairline);
+      background: #101015; border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
       padding: 12px; border-radius: var(--radius-sm);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85); touch-action: pan-y;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9); touch-action: pan-y;
     }
     .ba-slider {
       position: relative; width: 100%; aspect-ratio: 16 / 10;
@@ -490,30 +544,31 @@
       padding: 5px 12px; font-size: 0.68rem; font-weight: 600;
       letter-spacing: 0.16em; text-transform: uppercase;
       background: rgba(9, 9, 12, 0.85); color: #fff;
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-sm);
+      border: 1px solid var(--steel-border); border-radius: var(--radius-sm);
       backdrop-filter: blur(6px); pointer-events: none; z-index: 6;
     }
     .ba-label--before { left: 14px; }
     .ba-label--after { right: 14px; }
     .ba-line {
       position: absolute; top: 0; bottom: 0; left: var(--pos);
-      width: 1.5px; background: var(--white); transform: translateX(-50%);
+      width: 2px; background: var(--steel-gradient); transform: translateX(-50%);
       pointer-events: none; z-index: 8;
+      box-shadow: 0 0 12px rgba(255,255,255,0.6);
     }
     .ba-handle {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--white); border: 2px solid #000;
-      box-shadow: 0 4px 20px rgba(255,255,255,0.4);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--steel-gradient); border: 2px solid #FFFFFF;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.5), inset 0 1px 1px #FFF;
       display: flex; align-items: center; justify-content: center;
-      color: #000; font-size: 0.8rem; font-weight: bold;
+      color: #0E0E12; font-size: 0.82rem; font-weight: bold;
     }
     .ba-range {
       position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10;
     }
     .compare-foot {
       display: flex; justify-content: space-between; align-items: center;
-      margin-top: 12px; font-size: 0.82rem; color: var(--silver-mid); padding: 0 4px;
+      margin-top: 12px; font-size: 0.84rem; color: #D6D6DE; padding: 0 4px;
     }
     .compare-foot strong { color: var(--white); }
 
@@ -524,21 +579,22 @@
       gap: clamp(20px, 2.5vw, 30px);
     }
     .reel-card {
-      position: relative; background: #121217; border-radius: var(--radius-md);
-      overflow: hidden; border: 1px solid var(--silver-hairline);
-      aspect-ratio: 9/15; box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+      position: relative; background: #121217; border-radius: var(--radius-sm);
+      overflow: hidden; border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
+      aspect-ratio: 9/15; box-shadow: 0 25px 50px rgba(0,0,0,0.8);
       display: flex; flex-direction: column; justify-content: flex-end;
       transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .reel-card:hover {
       transform: translateY(-6px);
-      border-color: var(--silver-hairline-bright);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 32px 65px rgba(0,0,0,0.95), 0 0 25px rgba(255,255,255,0.12);
     }
     .reel-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .reel-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 50%, rgba(5,5,7,0.95) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 50%, rgba(5,5,7,0.96) 100%);
       pointer-events: none;
     }
     .reel-top {
@@ -547,14 +603,14 @@
     }
     .reel-tag {
       background: rgba(9,9,12,0.7); backdrop-filter: blur(8px);
-      color: #fff; border: 1px solid var(--silver-hairline);
+      color: #fff; border: 1px solid var(--steel-border);
       font-size: 0.66rem; padding: 4px 10px; border-radius: var(--radius-pill);
       font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
     }
     .reel-sound-btn {
       width: 34px; height: 34px; border-radius: 50%;
       background: rgba(9,9,12,0.7); backdrop-filter: blur(8px);
-      border: 1px solid var(--silver-hairline); color: #fff;
+      border: 1px solid var(--steel-border); color: #fff;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; font-size: 0.82rem; transition: all 0.2s ease;
     }
@@ -562,21 +618,15 @@
 
     .reel-content { position: relative; z-index: 5; padding: 22px 18px; }
     .reel-badge-pill {
-      font-size: 0.68rem; color: var(--silver-mid); text-transform: uppercase;
+      font-size: 0.68rem; color: #D6D6DE; text-transform: uppercase;
       letter-spacing: 0.12em; font-weight: 600; display: block; margin-bottom: 4px;
     }
     .reel-content h3 { font-size: 1.3rem; color: #fff; line-height: 1.2; margin-bottom: 6px; }
-    .reel-content p { font-size: 0.85rem; color: var(--silver-platinum); margin-bottom: 16px; line-height: 1.4; }
+    .reel-content p { font-size: 0.85rem; color: #D6D6DE; margin-bottom: 16px; line-height: 1.4; }
     
-    .reel-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
+    .reel-btn-steel {
       width: 100%; padding: 12px 16px; border-radius: var(--radius-sm);
-      background: var(--white); color: #000;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; transition: all 0.25s ease;
-    }
-    .reel-btn:hover {
-      background: var(--bg-base); color: var(--white); border: 1px solid var(--white);
+      min-height: 44px;
     }
 
     .reel-card--insta {
@@ -585,9 +635,10 @@
     }
     .insta-icon-circle {
       width: 56px; height: 56px; border-radius: 50%;
-      border: 1px solid var(--silver-hairline-bright);
+      border: 1.5px solid var(--white);
       display: flex; align-items: center; justify-content: center;
       color: var(--white); margin-bottom: 14px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.15);
     }
 
     /* ============================================================
@@ -604,20 +655,23 @@
       gap: 20px;
     }
     .step-card {
-      background: var(--bg-surface); padding: 30px 22px; border-radius: var(--radius-sm);
-      border: 1px solid var(--silver-hairline);
+      background: var(--bg-surface); padding: 32px 22px; border-radius: var(--radius-sm);
+      border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
       transition: all 0.3s ease;
     }
     .step-card:hover {
-      border-color: var(--silver-hairline-bright); transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.5); transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.8);
     }
     .step-num {
-      font-family: var(--font-serif); font-size: 2.1rem; font-weight: 600;
-      color: var(--white); line-height: 1; margin-bottom: 12px; display: block;
+      font-family: var(--font-serif); font-size: 2.2rem; font-weight: 600;
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1; margin-bottom: 12px; display: block;
     }
-    .step-card h3 { font-size: 1.18rem; margin-bottom: 8px; color: var(--white); }
+    .step-card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--white); }
     .step-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
-    .step-card strong { color: var(--silver-platinum); }
+    .step-card strong { color: #E8E8F0; }
 
     /* ============================================================
        4. SOBRE KAREN CÁRDENAS
@@ -632,8 +686,9 @@
     .about-visual { position: relative; margin: 0 auto; max-width: 360px; width: 100%; }
     .about-main-photo {
       aspect-ratio: 3/4; overflow: hidden; border-radius: var(--radius-sm);
-      border: 1px solid var(--silver-hairline);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
     }
     .about-main-photo img { width: 100%; height: 100%; object-fit: cover; }
     .about-side-photos {
@@ -647,9 +702,10 @@
     .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.96rem; }
     .about-stats { display: flex; gap: clamp(20px, 4vw, 40px); margin-top: 28px; flex-wrap: wrap; }
     .about-stats div strong {
-      display: block; font-family: var(--font-serif); font-size: 1.8rem; color: var(--white);
+      display: block; font-family: var(--font-serif); font-size: 1.9rem;
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .about-stats div span { font-size: 0.74rem; color: var(--silver-mid); }
+    .about-stats div span { font-size: 0.74rem; color: #D6D6DE; }
 
     /* ============================================================
        5. TESTIMONIOS
@@ -663,14 +719,19 @@
       gap: 22px;
     }
     .testi-card {
-      background: var(--bg-surface); padding: 30px 24px;
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-sm);
+      background: var(--bg-surface); padding: 32px 24px;
+      border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
+      border-radius: var(--radius-sm);
       display: flex; flex-direction: column; justify-content: space-between;
     }
-    .testi-stars { color: var(--white); font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .testi-stars {
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px;
+    }
     .testi-card p {
       font-family: var(--font-serif); font-style: italic; font-size: 1.1rem;
-      color: var(--silver-platinum); margin-bottom: 18px; line-height: 1.45;
+      color: #E8E8F0; margin-bottom: 18px; line-height: 1.45;
     }
     .testi-name { font-weight: 600; font-size: 0.86rem; color: var(--white); }
     .testi-role { font-size: 0.76rem; color: var(--text-subtle); margin-top: 2px; }
@@ -683,49 +744,48 @@
     .faq-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 8px; }
     .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
     .faq-item {
-      border: 1px solid var(--silver-hairline); border-radius: var(--radius-sm);
+      border: 1px solid var(--steel-border);
+      border-top: 1px solid var(--steel-highlight);
+      border-radius: var(--radius-sm);
       background: var(--bg-base); overflow: hidden; transition: border-color 0.25s ease;
     }
-    .faq-item[open] { border-color: var(--silver-hairline-bright); }
+    .faq-item[open] { border-color: rgba(255, 255, 255, 0.5); }
     .faq-question {
       padding: 18px 22px; font-weight: 500; font-size: 1.05rem;
       font-family: var(--font-serif); cursor: pointer; list-style: none;
       display: flex; justify-content: space-between; align-items: center; color: var(--white);
     }
     .faq-question::-webkit-details-marker { display: none; }
-    .faq-question::after { content: '+'; font-size: 1.35rem; color: var(--silver-mid); }
+    .faq-question::after { content: '+'; font-size: 1.35rem; color: #D6D6DE; }
     .faq-item[open] .faq-question::after { content: '−'; }
     .faq-answer {
       padding: 0 22px 20px; color: var(--text-muted); font-size: 0.94rem;
-      border-top: 1px solid var(--silver-hairline); padding-top: 12px; line-height: 1.6;
+      border-top: 1px solid var(--steel-border); padding-top: 12px; line-height: 1.6;
     }
 
     /* ============================================================
        7. RESERVA & UBICACIÓN
        ============================================================ */
-    .booking { background: #050507; color: var(--white); padding: clamp(70px, 9vw, 110px) 0; text-align: center; }
+    .booking { background: #040406; color: var(--white); padding: clamp(70px, 9vw, 110px) 0; text-align: center; }
     .booking h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin: 12px auto 16px; max-width: 720px; }
-    .booking p { color: var(--silver-mid); max-width: 520px; margin: 0 auto 12px; font-size: 0.96rem; }
+    .booking p { color: #D6D6DE; max-width: 520px; margin: 0 auto 12px; font-size: 0.96rem; }
     .booking .phone {
-      display: block; font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.3rem);
-      color: var(--white); margin: 6px 0 30px; letter-spacing: 0.04em;
+      display: block; font-family: var(--font-serif); font-size: clamp(1.9rem, 3.5vw, 2.3rem);
+      background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin: 6px 0 30px; letter-spacing: 0.04em;
     }
 
     .location-box {
-      background: rgba(255,255,255,0.02); border: 1px solid var(--silver-hairline);
+      background: rgba(255,255,255,0.02); border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
       padding: clamp(24px, 4vw, 34px); margin: 34px auto 0; max-width: 620px;
       border-radius: var(--radius-sm);
     }
     .location-address { font-size: 1.05rem; margin-bottom: 18px; color: var(--white); }
     .location-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .location-btn {
-      padding: 12px 22px; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      border: 1px solid var(--silver-hairline); color: var(--silver-platinum);
-      border-radius: var(--radius-sm); display: inline-flex; align-items: center;
-      gap: 8px; transition: all 0.25s ease; min-height: 48px;
+    .location-btn-steel {
+      padding: 12px 24px; font-size: 0.72rem;
     }
-    .location-btn:hover { background: var(--white); color: #000; border-color: var(--white); }
 
     /* ============================================================
        FOOTER
@@ -737,11 +797,11 @@
       gap: 32px; margin-bottom: 36px;
     }
     .footer-brand p { font-size: 0.88rem; max-width: 320px; margin-top: 12px; color: var(--text-muted); }
-    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: var(--silver-platinum); }
+    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: #D6D6DE; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; }
     .footer-col a:hover { color: var(--white); }
     .footer-bottom {
-      border-top: 1px solid var(--silver-hairline); padding-top: 20px;
+      border-top: 1px solid var(--steel-border); padding-top: 20px;
       display: flex; justify-content: space-between; font-size: 0.76rem; color: var(--text-subtle);
       flex-wrap: wrap; gap: 10px;
     }
@@ -749,14 +809,17 @@
     .footer-social a {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 8px 16px; border-radius: var(--radius-sm);
-      border: 1px solid var(--silver-hairline); font-size: 0.78rem; font-weight: 500;
-      color: var(--silver-platinum); transition: all 0.2s ease;
+      border: 1px solid var(--steel-border); font-size: 0.78rem; font-weight: 500;
+      color: #D6D6DE; transition: all 0.2s ease;
     }
-    .footer-social a:hover { border-color: var(--white); background: var(--white); color: #000; }
+    .footer-social a:hover {
+      border-color: var(--white); background: var(--steel-gradient); color: #0E0E12;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+    }
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
     /* ============================================================
-       BOTÓN CONCIERGE WHATSAPP (LUJO ERGONÓMICO)
+       BOTÓN CONCIERGE WHATSAPP (ACERO & ESMERALDA)
        ============================================================ */
     .wa-widget {
       position: fixed;
@@ -766,47 +829,50 @@
       display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
     }
     .wa-bubble {
-      background: #121217; color: var(--white);
+      background: #14141A; color: var(--white);
       padding: 9px 16px; border-radius: var(--radius-pill);
       font-size: 0.8rem; font-weight: 500;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      border: 1px solid var(--silver-hairline);
+      border: 1px solid var(--steel-border);
+      border-top: 1px solid var(--steel-highlight);
       display: flex; align-items: center; gap: 8px;
     }
     .whatsapp-btn {
       display: flex; align-items: center; gap: 10px;
-      background: #111116; color: var(--white);
+      background: var(--steel-titanium); color: var(--white);
       padding: 14px 24px; border-radius: var(--radius-pill);
-      border: 1px solid var(--silver-hairline-bright);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--steel-border);
+      border-top: 1.5px solid var(--steel-highlight);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255,255,255,0.2);
       font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
       min-height: 52px;
     }
     .whatsapp-btn svg { width: 22px; height: 22px; fill: var(--wa-emerald); flex-shrink: 0; }
     .whatsapp-btn:hover {
-      background: var(--white); color: #000; border-color: var(--white);
+      background: var(--steel-gradient); color: #0E0E12; border-color: #FFFFFF;
       transform: translateY(-3px);
-      box-shadow: 0 14px 36px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.25);
     }
-    .whatsapp-btn:hover svg { fill: #000; }
+    .whatsapp-btn:hover svg { fill: #0E0E12; }
 
     /* ============================================================
        RESPONSIVE ADAPTATIVO
        ============================================================ */
     @media (max-width: 900px) {
-      .nav-cta { display: none; }
+      .header-island { padding: 8px 16px; }
+      .nav-cta-steel { display: none; }
       .nav-toggle { display: flex; }
       .nav-links {
         display: flex; flex-direction: column; gap: 0; text-align: left;
         position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(9, 9, 12, 0.98); backdrop-filter: blur(20px);
+        background: rgba(8, 8, 11, 0.98); backdrop-filter: blur(20px);
         padding: 95px 28px 40px; transform: translateY(-100%);
         transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         z-index: 100; overflow-y: auto;
       }
       .nav-links.is-open { transform: translateY(0); }
-      .nav-links li { border-bottom: 1px solid var(--silver-hairline); }
+      .nav-links li { border-bottom: 1px solid var(--steel-border); }
       .nav-links a {
         display: block; padding: 18px 0; font-size: 1.15rem; font-family: var(--font-serif);
         color: var(--white); text-transform: uppercase;
@@ -815,12 +881,13 @@
       .hero-actions { flex-direction: column; width: 100%; }
       .hero-actions .btn { width: 100%; }
       .wa-bubble { display: none; }
+      .hero { padding-top: 100px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ============ BOTÓN VIP CONCIERGE WHATSAPP ============ -->
+<!-- ============ BOTÓN CONCIERGE WHATSAPP ============ -->
 <div class="wa-widget">
   <div class="wa-bubble">
     <span>✨ Consultar disponibilidad en La Vega</span>
@@ -834,48 +901,48 @@
   </a>
 </div>
 
-<!-- ============ HEADER ============ -->
-<header>
-  <div class="wrap">
-    <nav class="nav">
-      <a href="#" class="brand-group">
-        <img src="images/logo.png" alt="Logo Karen Cárdenas" class="brand-logo-img" 
-             onerror="this.style.display='none'; document.getElementById('brandMonogram').style.display='flex';">
-        <div class="brand-monogram" id="brandMonogram">KC</div>
-        
-        <div class="brand-text">
-          <div class="brand-title">Karen Cárdenas <span>Studio</span></div>
-          <span class="brand-sub">CEJAS & PESTAÑAS</span>
-        </div>
-      </a>
+<!-- ============ ISLA FLOTANTE DE CRISTAL & ACERO (HEADER) ============ -->
+<div class="header-island-wrapper">
+  <header class="header-island" id="headerIsland">
+    <a href="#" class="brand-group">
+      <img src="images/logo.png" alt="Logo Karen Cárdenas" class="brand-logo-img" 
+           onerror="this.style.display='none'; document.getElementById('brandMonogram').style.display='flex';">
+      <div class="brand-monogram" id="brandMonogram">KC</div>
+      
+      <div class="brand-text">
+        <div class="brand-title">Karen Cárdenas <span>Studio</span></div>
+        <span class="brand-sub">CEJAS & PESTAÑAS</span>
+      </div>
+    </a>
 
-      <!-- Menú adaptable -->
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#tratamientos">Tratamientos</a></li>
-        <li><a href="#resultados">Resultados</a></li>
-        <li><a href="#experiencia">Tu Experiencia</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#testimonios">Opiniones</a></li>
-        <li><a href="#preguntas">Preguntas</a></li>
-        <li class="nav-mobile-cta">
-          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20desde%20tu%20web." target="_blank" rel="noopener" class="btn btn-primary">
-            Agendar por WhatsApp
-          </a>
-          <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-secondary">
-            Seguir en Instagram
-          </a>
-        </li>
-      </ul>
+    <!-- Enlaces suspendidos en la cápsula -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#tratamientos">Tratamientos</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#testimonios">Opiniones</a></li>
+      <li><a href="#preguntas">FAQ</a></li>
+      <li class="nav-mobile-cta">
+        <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20desde%20tu%20web." target="_blank" rel="noopener" class="btn btn-steel">
+          Agendar por WhatsApp
+        </a>
+        <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-titanium">
+          Seguir en Instagram
+        </a>
+      </li>
+    </ul>
 
-      <a href="#reserva" class="nav-cta">Agendar cita</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
-        <div class="nav-toggle-icon"><span></span></div>
-      </button>
-    </nav>
-  </div>
-</header>
+    <!-- Botón de acero en el menú -->
+    <a href="#reserva" class="btn btn-steel nav-cta-steel">Agendar Cita</a>
+    
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <div class="nav-toggle-icon"><span></span></div>
+    </button>
+  </header>
+</div>
 
-<!-- ============ HERO CON ARCO EDITORIAL ============ -->
+<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="ambient-mesh"></div>
   <div class="wrap">
@@ -886,15 +953,15 @@
           <span>Agenda abierta esta semana en La Vega</span>
         </div>
 
-        <h1>El arte de <span class="platinum-text">realzar tu mirada</span> con precisión</h1>
+        <h1>El arte de <span class="steel-text">realzar tu mirada</span> con precisión</h1>
         
         <p>Estudio boutique especializado en micropigmentación hiperrealista, laminado y lifting. Técnicas anatómicas de alta gama diseñadas para esculpir tu rostro con elegancia, simetría y sofisticación natural.</p>
         
         <div class="hero-actions">
-          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20en%20el%20studio." class="btn btn-primary" target="_blank" rel="noopener">
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20en%20el%20studio." class="btn btn-steel" target="_blank" rel="noopener">
             Agendar por WhatsApp ⟶
           </a>
-          <a href="#tratamientos" class="btn btn-secondary">Ver catálogo & precios</a>
+          <a href="#tratamientos" class="btn btn-titanium">Ver catálogo & precios</a>
         </div>
 
         <div class="hero-social-proof">
@@ -935,7 +1002,7 @@
   </div>
 </div>
 
-<!-- ============ 1. TRATAMIENTOS & PRECIOS (FLUID CARDS) ============ -->
+<!-- ============ 1. TRATAMIENTOS & PRECIOS ============ -->
 <section class="services" id="tratamientos">
   <div class="wrap">
     <div class="services-head">
@@ -944,7 +1011,7 @@
       <p>Selecciona tu procedimiento y contáctanos para agendar tu horario preferido.</p>
     </div>
 
-    <!-- Filtros de categoría en chips táctiles -->
+    <!-- Filtros de categoría en acero -->
     <div class="filter-tabs-wrapper">
       <div class="filter-tabs">
         <button class="filter-btn active" data-filter="all">Todos</button>
@@ -965,7 +1032,7 @@
         <div class="card-footer">
           <span class="price">Desde $250.000</span>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20o%20valoración%20para%20Micropigmentación." 
-             class="card-cta" target="_blank" rel="noopener">Agendar Cita ⟶</a>
+             class="card-cta-steel" target="_blank" rel="noopener">Agendar Cita ⟶</a>
         </div>
       </div>
 
@@ -979,7 +1046,7 @@
         <div class="card-footer">
           <span class="price">Desde $50.000</span>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Lifting%20de%20pestañas." 
-             class="card-cta" target="_blank" rel="noopener">Agendar Cita ⟶</a>
+             class="card-cta-steel" target="_blank" rel="noopener">Agendar Cita ⟶</a>
         </div>
       </div>
 
@@ -993,7 +1060,7 @@
         <div class="card-footer">
           <span class="price">Desde $45.000</span>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Laminado%20de%20cejas." 
-             class="card-cta" target="_blank" rel="noopener">Agendar Cita ⟶</a>
+             class="card-cta-steel" target="_blank" rel="noopener">Agendar Cita ⟶</a>
         </div>
       </div>
 
@@ -1007,7 +1074,7 @@
         <div class="card-footer">
           <span class="price">Desde $60.000</span>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20HidraLips." 
-             class="card-cta" target="_blank" rel="noopener">Agendar Cita ⟶</a>
+             class="card-cta-steel" target="_blank" rel="noopener">Agendar Cita ⟶</a>
         </div>
       </div>
 
@@ -1021,7 +1088,7 @@
         <div class="card-footer">
           <span class="price">Desde $35.000</span>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Sombreado%20en%20henna." 
-             class="card-cta" target="_blank" rel="noopener">Agendar Cita ⟶</a>
+             class="card-cta-steel" target="_blank" rel="noopener">Agendar Cita ⟶</a>
         </div>
       </div>
 
@@ -1035,14 +1102,14 @@
         <div class="card-footer">
           <span class="price">Desde $25.000</span>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Epilación." 
-             class="card-cta" target="_blank" rel="noopener">Agendar Cita ⟶</a>
+             class="card-cta-steel" target="_blank" rel="noopener">Agendar Cita ⟶</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 2. RESULTADOS REALES (DARK SHOWCASE CINEMA) ============ -->
+<!-- ============ 2. RESULTADOS REALES ============ -->
 <section class="showcase-section" id="resultados">
   <div class="wrap">
     <div class="showcase-head">
@@ -1073,7 +1140,7 @@
       </div>
     </div>
 
-    <!-- STUDIO REELS (FLUID CAROUSEL / GRID) -->
+    <!-- STUDIO REELS -->
     <div class="reels-grid">
       <!-- REEL 1 -->
       <div class="reel-card">
@@ -1088,7 +1155,7 @@
           <h3>Micropigmentación</h3>
           <p>Trazos hiperrealistas que definen y dan estructura a tu ceja desde el primer momento.</p>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20vi%20el%20video%20de%20Micropigmentación%20y%20quiero%20este%20resultado." 
-             target="_blank" rel="noopener" class="reel-btn">Quiero este resultado ⟶</a>
+             target="_blank" rel="noopener" class="btn btn-steel reel-btn-steel">Quiero este resultado ⟶</a>
         </div>
       </div>
 
@@ -1103,9 +1170,9 @@
         <div class="reel-content">
           <span class="reel-badge-pill">Efecto Maquillaje</span>
           <h3>Sombreado en Henna</h3>
-          <p>Pigmentación botánica con efecto degradado para una mirada más expresiva.</p>
+          <p>Pigmentación botánica con efecto sombreado degradado para una mirada más expresiva.</p>
           <a href="https://wa.me/573222167080?text=Hola%20Karen,%20vi%20el%20video%20de%20Sombreado%20en%20Henna%20y%20quiero%20agendar." 
-             target="_blank" rel="noopener" class="reel-btn">Quiero este resultado ⟶</a>
+             target="_blank" rel="noopener" class="btn btn-steel reel-btn-steel">Quiero este resultado ⟶</a>
         </div>
       </div>
 
@@ -1119,7 +1186,7 @@
         <span class="reel-badge-pill">Historias Diarias</span>
         <h3 style="font-size:1.35rem; margin-bottom: 6px;">@karencardenas_studio</h3>
         <p style="color:var(--text-muted); font-size: 0.85rem; max-width: 240px; margin: 0 auto 18px;">Historias, procesos y clientas felices compartidas a diario en La Vega.</p>
-        <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 10px 22px;">Ver en Instagram</a>
+        <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-titanium" style="padding: 10px 22px;">Ver en Instagram</a>
       </div>
     </div>
   </div>
@@ -1292,10 +1359,10 @@
     <span class="phone">322 216 7080</span>
     
     <div class="hero-actions" style="justify-content:center;">
-      <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20reservar%20mi%20cita%20en%20el%20studio." class="btn btn-primary" target="_blank" rel="noopener">
+      <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20reservar%20mi%20cita%20en%20el%20studio." class="btn btn-steel" target="_blank" rel="noopener">
         Escribir al WhatsApp ⟶
       </a>
-      <a href="tel:+573222167080" class="btn btn-secondary">
+      <a href="tel:+573222167080" class="btn btn-titanium">
         Llamar ahora
       </a>
     </div>
@@ -1304,10 +1371,10 @@
     <div class="location-box">
       <div class="location-address">📍 Cra. 4a #20-25, La Vega, Cundinamarca</div>
       <div class="location-buttons">
-        <a href="https://www.google.com/maps/search/?api=1&query=Cra.+4a+%2320-25,+La+Vega,+Cundinamarca" target="_blank" rel="noopener" class="location-btn">
+        <a href="https://www.google.com/maps/search/?api=1&query=Cra.+4a+%2320-25,+La+Vega,+Cundinamarca" target="_blank" rel="noopener" class="btn btn-titanium location-btn-steel">
           Abrir en Google Maps
         </a>
-        <a href="https://waze.com/ul?q=Cra.%204a%20%2320-25,%20La%20Vega,%20Cundinamarca" target="_blank" rel="noopener" class="location-btn">
+        <a href="https://waze.com/ul?q=Cra.%204a%20%2320-25,%20La%20Vega,%20Cundinamarca" target="_blank" rel="noopener" class="btn btn-titanium location-btn-steel">
           Abrir en Waze
         </a>
       </div>
@@ -1321,7 +1388,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="brand-group">
-          <img src="images/logo.png" alt="Logo Karen Cárdenas" style="height: 48px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
+          <img src="images/logo.png" alt="Logo Karen Cárdenas" style="height: 44px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
           <div class="brand-text">
             <div class="brand-title" style="color:#fff;">Karen Cárdenas <span>Studio</span></div>
             <span class="brand-sub">CEJAS & PESTAÑAS</span>
@@ -1373,11 +1440,11 @@
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
 <script>
-  // 1. LENIS FLUID SMOOTH SCROLL
+  // 1. LENIS SMOOTH SCROLL
   let lenis = null;
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 0.95,
@@ -1404,14 +1471,14 @@
               navToggle.setAttribute('aria-expanded', 'false');
               document.body.style.overflow = '';
             }
-            lenis.scrollTo(targetElem, { offset: -65 });
+            lenis.scrollTo(targetElem, { offset: -90 });
           }
         }
       });
     });
   }
 
-  // 2. MENÚ DESLIZABLE
+  // 2. MENÚ MÓVIL
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   if (navToggle && navLinks) {
@@ -1422,11 +1489,13 @@
     });
   }
 
-  // 3. HEADER SCROLL EFFECT
-  const header = document.querySelector('header');
-  const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 15);
-  onScrollHeader();
-  window.addEventListener('scroll', onScrollHeader, { passive: true });
+  // 3. EFECTO SCROLL EN LA ISLA FLOTANTE
+  const headerIsland = document.getElementById('headerIsland');
+  window.addEventListener('scroll', () => {
+    if (headerIsland) {
+      headerIsland.classList.toggle('is-scrolled', window.scrollY > 20);
+    }
+  }, { passive: true });
 
   // 4. FILTRO DE TRATAMIENTOS
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -1448,7 +1517,7 @@
     });
   });
 
-  // 5. STUDIO REELS AUDIO Y CONTROL
+  // 5. REELS VIDEO AUDIO Y REPRODUCCIÓN
   document.querySelectorAll('.reel-card').forEach(card => {
     const video = card.querySelector('video');
     const soundBtn = card.querySelector('.reel-sound-btn');
@@ -1461,7 +1530,7 @@
       });
 
       card.addEventListener('click', (e) => {
-        if (e.target.closest('.reel-btn') || e.target.closest('.reel-sound-btn')) return;
+        if (e.target.closest('.btn-steel') || e.target.closest('.reel-sound-btn')) return;
         if (video.paused) {
           video.play();
         } else {
