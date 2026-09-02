@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karen Cárdenas Studio — Alta Especialidad en Cejas y Pestañas</title>
-  <meta name="description" content="Estudio de belleza especializado en micropigmentación de cejas, lifting de pestañas, henna, laminado e HidraLips. La Vega, Cundinamarca. Vive una experiencia estética a tu medida.">
-  <meta name="keywords" content="cejas la vega, micropigmentacion cundinamarca, lifting de pestañas, laminado de cejas, hidralips, karen cardenas studio">
+  <title>Karen Cárdenas Studio — Especialista en Cejas y Pestañas en La Vega</title>
+  <meta name="description" content="Estudio de belleza especializado en micropigmentación, lifting de pestañas, sombreado en henna, laminado e HidraLips en La Vega, Cundinamarca. Agenda tu cita.">
+  <meta name="keywords" content="cejas la vega, micropigmentacion cundinamarca, lifting de pestañas, laminado cejas, hidralips, karen cardenas studio">
   <meta name="author" content="Karen Cárdenas">
   <link rel="canonical" href="https://karencardenasstudio.com">
 
   <!-- Open Graph para compartir en WhatsApp e Instagram -->
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Karen Cárdenas Studio — El arte de realzar tu mirada">
-  <meta property="og:description" content="Diseño, precisión y naturalidad en cejas y pestañas. La Vega, Cundinamarca.">
+  <meta property="og:description" content="Diseño, precisión y armonía natural en cejas y pestañas. La Vega, Cundinamarca.">
   <meta property="og:image" content="images/karen.jpg">
   <meta property="og:locale" content="es_CO">
 
@@ -48,26 +48,29 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --ink: #111111;
+      --ink-dark: #0D0D0D;
       --cream: #FAF9F6;
       --cream-tint: #F3EFEA;
+      --cream-warm: #F8F5EE;
       --gold: #B08D57;
-      --gold-light: #CDB38B;
+      --gold-light: #D4BD96;
       --gold-dark: #8F6E3B;
-      --silver: #999690;
-      --card-bg: #F2EFE9;
+      --silver: #A3A09A;
+      --card-bg: #F1ECE3;
       --ink-soft: #55524C;
       --wa-green: #25D366;
+      --wa-hover: #1FB855;
       --font-display: 'Cormorant', Georgia, serif;
       --font-body: 'Jost', -apple-system, sans-serif;
-      --radius: 3px;
+      --radius: 4px;
       --container: 1200px;
-      --gold-glow: rgba(176,141,87,0.3);
+      --gold-glow: rgba(176,141,87,0.35);
     }
+    
     html.lenis, html.lenis body { height: auto; }
     .lenis.lenis-smooth { scroll-behavior: auto !important; }
     .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
     .lenis.lenis-stopped { overflow: hidden; }
-    .lenis.lenis-scrolling iframe { pointer-events: none; }
 
     body {
       background: var(--cream);
@@ -93,7 +96,7 @@
       gap: 8px;
     }
     .eyebrow::before {
-      content: ''; display: inline-block; width: 14px; height: 1px; background: var(--gold);
+      content: ''; display: inline-block; width: 14px; height: 1.5px; background: var(--gold);
     }
     h1, h2, h3 {
       font-family: var(--font-display);
@@ -101,13 +104,13 @@
       letter-spacing: 0.01em;
     }
 
-    /* ===== HEADER CON LOGO MÁS GRANDE ===== */
+    /* ===== HEADER CON LOGO PROTAGÓNICO ===== */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(250,249,246,0.94);
+      background: rgba(250,249,246,0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(17,17,17,0.06);
-      transition: padding 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      transition: all 0.3s ease;
     }
     header.is-scrolled {
       box-shadow: 0 10px 30px -15px rgba(17,17,17,0.15);
@@ -120,22 +123,14 @@
     }
     header.is-scrolled .nav { padding: 10px 32px; }
 
-    /* BRAND LOGO CON MONOGRAMA OCULTO */
     .brand-group {
       display: flex; align-items: center; gap: 14px; cursor: pointer;
     }
     .brand-logo-img {
-      /* Logo más grande y elegante */
-      height: 58px;
-      width: auto;
-      max-width: 170px;
-      object-fit: contain;
+      height: 58px; width: auto; max-width: 170px; object-fit: contain;
       transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .brand-group:hover .brand-logo-img {
-      transform: scale(1.04);
-    }
-    /* Monograma OCULTO si existe el logo */
+    .brand-group:hover .brand-logo-img { transform: scale(1.04); }
     .brand-monogram {
       display: none;
       width: 44px; height: 44px; border-radius: 50%;
@@ -143,9 +138,7 @@
       background: linear-gradient(135deg, #FAF7F2 0%, #EFE9DF 100%);
       align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
-      color: var(--gold-dark); letter-spacing: -0.05em;
-      box-shadow: 0 4px 12px -2px rgba(176,141,87,0.3);
-      flex-shrink: 0;
+      color: var(--gold-dark);
     }
     .brand-text { display: flex; flex-direction: column; }
     .brand-title {
@@ -159,7 +152,7 @@
     }
 
     .nav-links {
-      display: flex; gap: 30px; list-style: none;
+      display: flex; gap: 28px; list-style: none;
       font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
     }
     .nav-links a { position: relative; padding: 4px 0; transition: color 0.2s ease; }
@@ -175,11 +168,11 @@
       padding: 11px 24px; font-size: 0.76rem; font-weight: 600;
       letter-spacing: 0.09em; text-transform: uppercase;
       border: 1px solid var(--ink); border-radius: var(--radius);
-      transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.25s ease;
     }
     .nav-cta:hover {
       background: var(--gold); border-color: var(--gold);
-      color: var(--ink); transform: translateY(-1px);
+      color: #fff; transform: translateY(-1px);
       box-shadow: 0 8px 20px -6px var(--gold-glow);
     }
     .nav-toggle {
@@ -211,7 +204,7 @@
       margin-bottom: 20px;
     }
     .pulse-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: #25D366;
+      width: 8px; height: 8px; border-radius: 50%; background: #25D366;
       box-shadow: 0 0 0 0 rgba(37,211,102,0.7);
       animation: pulseGreen 1.8s infinite;
     }
@@ -295,7 +288,7 @@
     .hero-badge strong { font-family: var(--font-display); font-size: 1.6rem; color: var(--gold-dark); line-height: 1; }
     .hero-badge span { font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; text-align: center; }
 
-    /* ===== MARQUESINA EN MOVIMIENTO (LUXURY TICKER) ===== */
+    /* ===== MARQUESINA EN MOVIMIENTO ===== */
     .ticker-bar {
       background: var(--ink); color: var(--cream);
       padding: 14px 0; overflow: hidden; white-space: nowrap;
@@ -318,166 +311,14 @@
     }
     .ticker-bar:hover .ticker-track { animation-play-state: paused; }
 
-    /* ===== SECCIÓN STUDIO REELS (VIDEOS DINÁMICOS) ===== */
-    .reels-section { padding: 110px 0; background: #141414; color: var(--cream); position: relative; }
-    .reels-head { text-align: center; margin-bottom: 54px; }
-    .reels-head .eyebrow { color: var(--gold-light); }
-    .reels-head h2 { font-size: clamp(2rem, 3.8vw, 3rem); color: #fff; margin-top: 12px; }
-    .reels-head p { color: var(--silver); max-width: 560px; margin: 12px auto 0; font-size: 0.96rem; }
-
-    .reels-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-    }
-    .reel-card {
-      position: relative;
-      background: #1C1C1C;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(250,249,246,0.12);
-      aspect-ratio: 9/15;
-      box-shadow: 0 25px 50px -20px rgba(0,0,0,0.8);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: transform;
-    }
-    .reel-card:hover {
-      transform: translateY(-8px) scale(1.01);
-      border-color: var(--gold);
-      box-shadow: 0 30px 60px -20px var(--gold-glow);
-    }
-    .reel-video {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    .reel-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.92) 100%);
-      pointer-events: none;
-    }
-    .reel-top {
-      position: absolute; top: 16px; left: 16px; right: 16px;
-      display: flex; justify-content: space-between; align-items: center; z-index: 5;
-    }
-    .reel-tag {
-      background: rgba(0,0,0,0.55); backdrop-filter: blur(8px);
-      color: #fff; border: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.68rem; padding: 4px 10px; border-radius: 50px;
-      font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-    }
-    .reel-sound-btn {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.2); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; font-size: 0.85rem; transition: background 0.2s ease;
-    }
-    .reel-sound-btn:hover { background: var(--gold); color: var(--ink); }
-
-    .reel-content {
-      position: relative; z-index: 5; padding: 24px 20px;
-    }
-    .reel-badge-pill {
-      font-size: 0.72rem; color: var(--gold-light); text-transform: uppercase;
-      letter-spacing: 0.1em; font-weight: 600; display: block; margin-bottom: 6px;
-    }
-    .reel-content h3 { font-size: 1.35rem; color: #fff; line-height: 1.2; margin-bottom: 8px; }
-    .reel-content p { font-size: 0.86rem; color: #D6D4D0; margin-bottom: 16px; line-height: 1.4; }
-    
-    .reel-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 11px 16px; border-radius: var(--radius);
-      background: rgba(250,249,246,0.92); color: var(--ink);
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; transition: all 0.25s ease;
-    }
-    .reel-card:hover .reel-btn {
-      background: var(--gold); color: #fff;
-    }
-
-    /* Tarjeta Reel Instagram */
-    .reel-card--insta {
-      background: linear-gradient(145deg, #1f1a14 0%, #111 100%);
-      justify-content: center; align-items: center; text-align: center;
-      padding: 30px;
-    }
-    .insta-icon-circle {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(176,141,87,0.15); border: 1.5px solid var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); margin-bottom: 18px;
-    }
-
-    /* ===== COMPARADOR ANTES / DESPUÉS ===== */
-    .compare-section { padding: 104px 0; background: var(--cream-tint); }
-    .compare-head { text-align: center; margin-bottom: 44px; }
-    .compare-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
-    .compare-container {
-      max-width: 840px; margin: 0 auto;
-      background: var(--cream);
-      border: 1px solid rgba(17,17,17,0.1);
-      padding: 16px;
-      border-radius: var(--radius);
-      box-shadow: 0 24px 50px -20px rgba(17,17,17,0.18);
-    }
-    .ba-slider {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      border-radius: var(--radius);
-      user-select: none;
-      --pos: 50%;
-    }
-    .ba-img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; pointer-events: none;
-    }
-    .ba-img--before {
-      clip-path: inset(0 calc(100% - var(--pos)) 0 0);
-    }
-    .ba-label {
-      position: absolute; top: 16px;
-      padding: 6px 14px; font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      background: rgba(17,17,17,0.78); color: #fff;
-      border-radius: 2px; backdrop-filter: blur(4px);
-      pointer-events: none; z-index: 6;
-    }
-    .ba-label--before { left: 16px; }
-    .ba-label--after { right: 16px; }
-    .ba-line {
-      position: absolute; top: 0; bottom: 0; left: var(--pos);
-      width: 2px; background: var(--gold);
-      transform: translateX(-50%);
-      pointer-events: none; z-index: 8;
-    }
-    .ba-handle {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--cream); border: 2px solid var(--gold);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--ink); font-size: 0.8rem; font-weight: bold;
-    }
-    .ba-range {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      opacity: 0; cursor: ew-resize; z-index: 10;
-    }
-    .compare-foot {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 14px; font-size: 0.85rem; color: var(--ink-soft);
-      padding: 0 8px;
-    }
-
-    /* ===== TRATAMIENTOS CON FILTRO DINÁMICO ===== */
-    .services { padding: 110px 0; background: var(--card-bg); }
+    /* ===== CATÁLOGO DE TRATAMIENTOS (SUBIÓ AL INICIO) ===== */
+    .services { padding: 105px 0; background: var(--cream-warm); }
     .services-head { text-align: center; margin-bottom: 36px; }
-    .services-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
+    .services-head h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-top: 12px; }
+    .services-head p { color: var(--ink-soft); max-width: 520px; margin: 12px auto 0; font-size: 0.98rem; }
 
     .filter-tabs {
-      display: flex; justify-content: center; gap: 10px; margin-bottom: 48px;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 10px; margin-bottom: 48px; flex-wrap: wrap;
     }
     .filter-btn {
       padding: 10px 22px; font-size: 0.76rem; font-weight: 600;
@@ -519,51 +360,164 @@
     .card-cta {
       font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 12px; border-radius: var(--radius); border: 1px solid rgba(17,17,17,0.15);
+      padding: 7px 14px; border-radius: var(--radius); border: 1px solid rgba(17,17,17,0.15);
       transition: all 0.2s ease;
     }
     .card-cta:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-    /* ===== GALERÍA PARALLAX ===== */
-    .gallery { padding: 110px 0; overflow: hidden; }
-    .gallery-head { text-align: center; margin-bottom: 50px; }
-    .gallery-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 240px;
-      grid-auto-flow: dense;
-      gap: 20px;
+    /* ===== RESULTADOS REALES (DARK SHOWCASE UNIFICADO) ===== */
+    .showcase-section { padding: 110px 0; background: var(--ink-dark); color: var(--cream); position: relative; }
+    .showcase-head { text-align: center; margin-bottom: 54px; }
+    .showcase-head .eyebrow { color: var(--gold-light); }
+    .showcase-head h2 { font-size: clamp(2rem, 3.8vw, 3rem); color: #fff; margin-top: 12px; }
+    .showcase-head p { color: var(--silver); max-width: 580px; margin: 12px auto 0; font-size: 0.96rem; }
+
+    /* COMPARADOR DENTRO DEL SHOWCASE */
+    .compare-container {
+      max-width: 860px; margin: 0 auto 70px;
+      background: #1A1A1A;
+      border: 1px solid rgba(176,141,87,0.3);
+      padding: 16px; border-radius: var(--radius);
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
     }
-    .gallery-item {
-      position: relative; overflow: hidden;
-      border-radius: var(--radius); background: var(--card-bg);
+    .ba-slider {
+      position: relative; width: 100%; aspect-ratio: 16 / 10;
+      overflow: hidden; border-radius: var(--radius); user-select: none; --pos: 50%;
     }
-    .gallery-item--tall { grid-row: span 2; }
-    .parallax-img {
-      position: absolute; top: -15%; left: 0;
-      width: 100%; height: 130%; object-fit: cover;
-      will-change: transform, opacity;
+    .ba-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; pointer-events: none;
     }
-    .gallery-badge {
-      position: absolute; bottom: 12px; left: 12px; z-index: 2;
-      background: rgba(17,17,17,0.72); backdrop-filter: blur(4px);
-      color: var(--cream); font-size: 0.72rem; padding: 4px 12px;
-      border-radius: 1px; letter-spacing: 0.05em; text-transform: uppercase;
+    .ba-img--before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+    .ba-label {
+      position: absolute; top: 16px;
+      padding: 6px 14px; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      background: rgba(17,17,17,0.85); color: #fff;
+      border-radius: 2px; backdrop-filter: blur(4px); pointer-events: none; z-index: 6;
+    }
+    .ba-label--before { left: 16px; }
+    .ba-label--after { right: 16px; }
+    .ba-line {
+      position: absolute; top: 0; bottom: 0; left: var(--pos);
+      width: 2px; background: var(--gold); transform: translateX(-50%);
+      pointer-events: none; z-index: 8;
+    }
+    .ba-handle {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--cream); border: 2px solid var(--gold);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink); font-size: 0.8rem; font-weight: bold;
+    }
+    .ba-range {
+      position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10;
+    }
+    .compare-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 14px; font-size: 0.85rem; color: var(--silver); padding: 0 8px;
     }
 
+    /* REELS EN EL SHOWCASE */
+    .reels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .reel-card {
+      position: relative; background: #1C1C1C; border-radius: 12px;
+      overflow: hidden; border: 1px solid rgba(250,249,246,0.12);
+      aspect-ratio: 9/15; box-shadow: 0 25px 50px -20px rgba(0,0,0,0.8);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .reel-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: var(--gold); box-shadow: 0 30px 60px -20px var(--gold-glow);
+    }
+    .reel-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .reel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.92) 100%);
+      pointer-events: none;
+    }
+    .reel-top {
+      position: absolute; top: 16px; left: 16px; right: 16px;
+      display: flex; justify-content: space-between; align-items: center; z-index: 5;
+    }
+    .reel-tag {
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+      color: #fff; border: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.68rem; padding: 4px 10px; border-radius: 50px;
+      font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .reel-sound-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.85rem; transition: background 0.2s ease;
+    }
+    .reel-sound-btn:hover { background: var(--gold); color: var(--ink); }
+
+    .reel-content { position: relative; z-index: 5; padding: 24px 20px; }
+    .reel-badge-pill {
+      font-size: 0.72rem; color: var(--gold-light); text-transform: uppercase;
+      letter-spacing: 0.1em; font-weight: 600; display: block; margin-bottom: 6px;
+    }
+    .reel-content h3 { font-size: 1.35rem; color: #fff; line-height: 1.2; margin-bottom: 8px; }
+    .reel-content p { font-size: 0.86rem; color: #D6D4D0; margin-bottom: 16px; line-height: 1.4; }
+    .reel-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 11px 16px; border-radius: var(--radius);
+      background: rgba(250,249,246,0.92); color: var(--ink);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; transition: all 0.25s ease;
+    }
+    .reel-card:hover .reel-btn { background: var(--gold); color: #fff; }
+
+    .reel-card--insta {
+      background: linear-gradient(145deg, #1f1a14 0%, #111 100%);
+      justify-content: center; align-items: center; text-align: center; padding: 30px;
+    }
+    .insta-icon-circle {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(176,141,87,0.15); border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); margin-bottom: 18px;
+    }
+
+    /* ===== NUEVA SECCIÓN: LA EXPERIENCIA EN EL STUDIO ===== */
+    .experience { padding: 110px 0; background: var(--cream); }
+    .experience-head { text-align: center; margin-bottom: 56px; }
+    .experience-head h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-top: 12px; }
+    .experience-head p { color: var(--ink-soft); max-width: 560px; margin: 12px auto 0; font-size: 0.98rem; }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step-card {
+      background: var(--cream-tint); padding: 36px 24px; border-radius: var(--radius);
+      border: 1px solid rgba(17,17,17,0.06); position: relative;
+      transition: all 0.3s ease;
+    }
+    .step-card:hover {
+      border-color: var(--gold); transform: translateY(-4px);
+      box-shadow: 0 16px 30px -14px rgba(176,141,87,0.25);
+    }
+    .step-num {
+      font-family: var(--font-display); font-size: 2.2rem; font-weight: 600;
+      color: var(--gold); line-height: 1; margin-bottom: 16px; display: block;
+    }
+    .step-card h3 { font-size: 1.2rem; margin-bottom: 12px; line-height: 1.25; }
+    .step-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+
     /* ===== SOBRE KAREN ===== */
-    .about { padding: 110px 0; }
+    .about { padding: 105px 0; background: var(--cream-warm); }
     .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: center; }
-    .about-visual { position: relative; margin-bottom: 46px; will-change: transform; }
+    .about-visual { position: relative; margin-bottom: 46px; }
     .about-main-photo {
       aspect-ratio: 3/4; overflow: hidden; border-radius: var(--radius);
       box-shadow: 0 30px 60px -24px rgba(17,17,17,0.35);
     }
     .about-main-photo img { width: 100%; height: 100%; object-fit: cover; }
     .about-side-photos {
-      position: absolute; bottom: -30px; right: -36px;
-      display: flex; gap: 12px;
+      position: absolute; bottom: -30px; right: -36px; display: flex; gap: 12px;
     }
     .about-side-photos img {
       width: 96px; height: 124px; object-fit: cover; border-radius: var(--radius);
@@ -576,8 +530,23 @@
     .about-stats div strong { display: block; font-family: var(--font-display); font-size: 1.8rem; color: var(--gold-dark); }
     .about-stats div span { font-size: 0.76rem; color: var(--ink-soft); letter-spacing: 0.04em; }
 
-    /* ===== PREGUNTAS FRECUENTES (FAQ) ===== */
-    .faq-section { padding: 100px 0; background: var(--cream-tint); }
+    /* ===== TESTIMONIOS ===== */
+    .testimonials { padding: 100px 0; background: var(--cream); }
+    .testimonials-head { text-align: center; margin-bottom: 46px; }
+    .testimonials-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
+    .testimonials-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .testi-card {
+      background: var(--cream-tint); padding: 36px 30px;
+      border: 1px solid rgba(17,17,17,0.08); border-radius: var(--radius);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .testi-stars { color: #E5A83B; font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-card p { font-family: var(--font-display); font-style: italic; font-size: 1.12rem; color: var(--ink); margin-bottom: 20px; line-height: 1.45; }
+    .testi-name { font-weight: 600; font-size: 0.88rem; letter-spacing: 0.02em; }
+    .testi-role { font-size: 0.78rem; color: var(--gold-dark); margin-top: 2px; }
+
+    /* ===== PREGUNTAS FRECUENTES ===== */
+    .faq-section { padding: 100px 0; background: var(--cream-warm); }
     .faq-head { text-align: center; margin-bottom: 48px; }
     .faq-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
     .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
@@ -593,11 +562,9 @@
     }
     .faq-question::-webkit-details-marker { display: none; }
     .faq-question::after {
-      content: '+'; font-size: 1.4rem; color: var(--gold); transition: transform 0.25s ease;
+      content: '+'; font-size: 1.4rem; color: var(--gold);
     }
-    .faq-item[open] .faq-question::after {
-      content: '−';
-    }
+    .faq-item[open] .faq-question::after { content: '−'; }
     .faq-answer {
       padding: 0 24px 22px; color: var(--ink-soft); font-size: 0.94rem;
       border-top: 1px solid rgba(17,17,17,0.06); padding-top: 14px; line-height: 1.6;
@@ -606,89 +573,92 @@
     /* ===== RESERVA Y UBICACIÓN ===== */
     .booking { background: var(--ink); color: var(--cream); padding: 110px 0; text-align: center; }
     .booking .eyebrow { color: var(--gold-light); }
-    .booking h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); margin: 16px auto 20px; max-width: 720px; }
+    .booking h2 { font-size: clamp(2.1rem, 4.2vw, 3.3rem); margin: 16px auto 20px; max-width: 720px; }
     .booking p { color: var(--silver); max-width: 520px; margin: 0 auto 12px; }
-    .booking .phone { display: block; font-family: var(--font-display); font-size: 1.85rem; color: var(--gold); margin: 8px 0 34px; letter-spacing: 0.04em; }
+    .booking .phone { display: block; font-family: var(--font-display); font-size: 1.95rem; color: var(--gold); margin: 8px 0 34px; letter-spacing: 0.04em; }
 
     .location-box {
       background: rgba(250,249,246,0.05); border: 1px solid rgba(176,141,87,0.3);
-      padding: 30px; margin: 36px auto 0; max-width: 620px; border-radius: var(--radius);
+      padding: 32px; margin: 36px auto 0; max-width: 620px; border-radius: var(--radius);
     }
-    .location-address { font-size: 1.05rem; margin-bottom: 18px; color: var(--cream); }
-    .location-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .location-address { font-size: 1.1rem; margin-bottom: 18px; color: var(--cream); }
+    .location-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .location-btn {
-      padding: 9px 20px; font-size: 0.74rem; font-weight: 600;
+      padding: 10px 22px; font-size: 0.76rem; font-weight: 600;
       letter-spacing: 0.08em; text-transform: uppercase;
       border: 1px solid var(--gold); color: var(--gold); border-radius: var(--radius);
-      display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease;
+      display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s ease;
     }
     .location-btn:hover { background: var(--gold); color: var(--ink); }
 
     /* ===== FOOTER ===== */
-    footer { padding: 60px 0 40px; }
+    footer { padding: 60px 0 40px; background: #0E0E0E; color: var(--silver); }
     .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
-    .footer-brand p { color: var(--ink-soft); font-size: 0.9rem; max-width: 320px; margin-top: 14px; }
-    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--ink-soft); }
+    .footer-brand p { font-size: 0.9rem; max-width: 320px; margin-top: 14px; color: #8F8D88; }
+    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--gold-light); }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
     .footer-bottom {
-      border-top: 1px solid rgba(17,17,17,0.1); padding-top: 24px;
-      display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--ink-soft);
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+      display: flex; justify-content: space-between; font-size: 0.78rem; color: #73706A;
       flex-wrap: wrap; gap: 10px;
     }
     .footer-social { display: flex; gap: 14px; margin-top: 18px; }
     .footer-social a {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 16px; border-radius: var(--radius);
-      border: 1px solid rgba(17,17,17,0.18); font-size: 0.8rem; font-weight: 500;
-      transition: all 0.2s ease;
+      padding: 8px 18px; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.15); font-size: 0.8rem; font-weight: 500;
+      color: var(--cream); transition: all 0.2s ease;
     }
     .footer-social a:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); transform: translateY(-2px); }
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
-    /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+    /* ===== BOTÓN FLOTANTE WHATSAPP (MÁS GRANDE Y NOTORIO) ===== */
     .wa-widget {
-      position: fixed; bottom: 26px; right: 26px; z-index: 990;
-      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+      position: fixed; bottom: 30px; right: 30px; z-index: 999;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
     }
     .wa-bubble {
-      background: #fff; color: var(--ink); padding: 10px 16px;
-      border-radius: 18px 18px 2px 18px; font-size: 0.78rem; font-weight: 500;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      border: 1px solid rgba(176,141,87,0.2);
+      background: #ffffff; color: var(--ink);
+      padding: 11px 18px; border-radius: 20px 20px 4px 20px;
+      font-size: 0.84rem; font-weight: 500;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+      border: 1px solid rgba(176,141,87,0.3);
+      display: flex; align-items: center; gap: 8px;
       animation: bubbleFloat 3s ease-in-out infinite;
-      display: flex; align-items: center; gap: 6px;
     }
     @keyframes bubbleFloat {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-4px); }
     }
     .whatsapp-btn {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 12px;
       background: var(--wa-green); color: #fff;
-      padding: 13px 20px; border-radius: 50px;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
-      font-size: 0.84rem; font-weight: 600; letter-spacing: 0.04em;
-      transition: all 0.25s ease;
+      padding: 16px 26px; /* MÁS GRANDE */
+      border-radius: 50px;
+      box-shadow: 0 14px 32px rgba(37, 211, 102, 0.48);
+      font-size: 0.94rem; /* TEXTO MÁS GRANDE */
+      font-weight: 600; letter-spacing: 0.03em;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .whatsapp-btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.6);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 18px 40px rgba(37, 211, 102, 0.65);
+      background: var(--wa-hover);
       color: #fff;
     }
-    .whatsapp-btn svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+    .whatsapp-btn svg { width: 26px; height: 26px; fill: #fff; flex-shrink: 0; } /* ÍCONO MÁS GRANDE */
 
-    /* ===== ANIMACIÓN DE ENTRADA SUAVE (REVEAL) ===== */
+    /* ===== ANIMACIÓN DE REVELADO ===== */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 900px) {
       .nav-links {
         display: flex; flex-direction: column; gap: 0; text-align: center;
@@ -705,8 +675,8 @@
       .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
       .reels-grid { grid-template-columns: 1fr; }
       .cards-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
-      .gallery-item--tall { grid-row: span 2; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .testimonials-inner { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 70px; }
       .about-visual { max-width: 340px; margin: 0 auto; }
       .about-side-photos { right: -8px; }
@@ -714,8 +684,8 @@
       .about-text p { margin-left: auto; margin-right: auto; }
       .about-stats { justify-content: center; }
       .wa-bubble { display: none; }
-      .whatsapp-text { display: none; }
-      .whatsapp-btn { padding: 14px; border-radius: 50%; }
+      .wa-widget { bottom: 20px; right: 20px; }
+      .whatsapp-btn { padding: 14px 20px; font-size: 0.88rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
@@ -724,25 +694,24 @@
 </head>
 <body>
 
-<!-- ============ WIDGET WHATSAPP FLOTANTE ============ -->
+<!-- ============ BOTÓN WHATSAPP GRANDE Y FLOTANTE ============ -->
 <div class="wa-widget">
   <div class="wa-bubble">
-    <span>✨ ¡Hola! ¿Deseas consultar horarios disponibles?</span>
+    <span>✨ ¡Hola! ¿Deseas consultar disponibilidad para esta semana?</span>
   </div>
   <a href="https://wa.me/573222167080?text=Hola%20Karen,%20estoy%20en%20tu%20sitio%20web%20y%20quiero%20agendar%20una%20cita." 
      class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24">
       <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.071-2.18-.544-1.785-.739-2.92-2.56-3.01-2.679-.089-.12-1.02-1.357-1.02-2.588 0-1.23.642-1.838.87-2.088.229-.25.5-.312.667-.312.167 0 .334.002.48.009.153.007.358-.058.56.427.208.502.71 1.733.772 1.859.062.126.104.272.021.439-.083.167-.125.272-.25.417-.125.146-.263.326-.376.438-.125.125-.255.26-.11.51.146.25.648 1.069 1.39 1.731.954.85 1.758 1.114 2.008 1.239.25.125.396.104.542-.063.146-.167.625-.73.792-.98.167-.25.333-.208.562-.125.229.083 1.458.688 1.708.813.25.125.417.188.479.292.063.104.063.604-.081 1.009z"/>
     </svg>
-    <span class="whatsapp-text">Agendar cita</span>
+    <span class="whatsapp-text">Agendar Cita</span>
   </a>
 </div>
 
-<!-- ============ HEADER CON LOGO PROTAGÓNICO ============ -->
+<!-- ============ HEADER ============ -->
 <header>
   <nav class="nav">
     <a href="#" class="brand-group">
-      <!-- Logo destacado: el monograma permanece oculto porque tu logo ya existe -->
       <img src="images/logo.png" alt="Logo Karen Cárdenas" class="brand-logo-img" 
            onerror="this.style.display='none'; document.getElementById('brandMonogram').style.display='flex';">
       <div class="brand-monogram" id="brandMonogram">KC</div>
@@ -754,11 +723,11 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="#reels">Videos</a></li>
-      <li><a href="#comparador">Antes y Después</a></li>
       <li><a href="#tratamientos">Tratamientos</a></li>
-      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#experiencia">Tu Experiencia</a></li>
       <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#testimonios">Opiniones</a></li>
       <li><a href="#preguntas">Preguntas</a></li>
     </ul>
 
@@ -770,7 +739,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="hero-text-col">
+    <div>
       <div class="hero-badge-live">
         <span class="pulse-dot"></span>
         <span>Agenda abierta esta semana en La Vega</span>
@@ -778,13 +747,13 @@
 
       <h1>El arte de <em>realzar</em> tu mirada con precisión</h1>
       
-      <p>Estudio boutique especializado en micropigmentación, laminado y lifting. Diseñamos con técnica y armonía para resaltar tu belleza de forma natural y sofisticada.</p>
+      <p>Estudio boutique especializado en micropigmentación, laminado y lifting. Técnicas avanzadas que respetan la armonía de tu rostro para resultados elegantes y naturales.</p>
       
       <div class="hero-actions">
         <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20en%20el%20studio." class="btn btn-gold" target="_blank" rel="noopener">
           Agendar por WhatsApp →
         </a>
-        <a href="#reels" class="btn btn-ghost">Ver videos en acción</a>
+        <a href="#tratamientos" class="btn btn-ghost">Ver tratamientos & precios</a>
       </div>
 
       <div class="hero-social-proof">
@@ -801,7 +770,7 @@
   </div>
 </section>
 
-<!-- ============ CINTA MARQUESINA (LUXURY RIBBON) ============ -->
+<!-- ============ CINTA MARQUESINA ============ -->
 <div class="ticker-bar">
   <div class="ticker-track">
     <div class="ticker-item">MICROPIGMENTACIÓN DE CEJAS <span>✦</span></div>
@@ -810,7 +779,6 @@
     <div class="ticker-item">SOMBREADO EN HENNA <span>✦</span></div>
     <div class="ticker-item">LAMINADO DE CEJAS <span>✦</span></div>
     <div class="ticker-item">EPILACIÓN FACIAL <span>✦</span></div>
-    <div class="ticker-item">DISEÑO PERSONALIZADO <span>✦</span></div>
     <div class="ticker-item">LA VEGA, CUNDINAMARCA <span>✦</span></div>
     <!-- Duplicado para loop continuo -->
     <div class="ticker-item">MICROPIGMENTACIÓN DE CEJAS <span>✦</span></div>
@@ -819,116 +787,20 @@
     <div class="ticker-item">SOMBREADO EN HENNA <span>✦</span></div>
     <div class="ticker-item">LAMINADO DE CEJAS <span>✦</span></div>
     <div class="ticker-item">EPILACIÓN FACIAL <span>✦</span></div>
-    <div class="ticker-item">DISEÑO PERSONALIZADO <span>✦</span></div>
     <div class="ticker-item">LA VEGA, CUNDINAMARCA <span>✦</span></div>
   </div>
 </div>
 
-<!-- ============ STUDIO REELS (VIDEOS EN VIVO) ============ -->
-<section class="reels-section" id="reels">
-  <div class="wrap">
-    <div class="reels-head reveal">
-      <span class="eyebrow">Resultados en Movimiento</span>
-      <h2>Studio Reels</h2>
-      <p>Observa la técnica, el brillo y la precisión en cada procedimiento. Sin filtros engañosos.</p>
-    </div>
-
-    <div class="reels-grid">
-      <!-- REEL 1: img-2877_1D75Y0k0.mp4 -->
-      <div class="reel-card reveal">
-        <video class="reel-video" src="img-2877_1D75Y0k0.mp4" loop muted playsinline autoplay></video>
-        <div class="reel-overlay"></div>
-        <div class="reel-top">
-          <span class="reel-tag">En vivo</span>
-          <button class="reel-sound-btn" aria-label="Activar o desactivar sonido" title="Sonido">🔇</button>
-        </div>
-        <div class="reel-content">
-          <span class="reel-badge-pill">Técnica Exclusiva</span>
-          <h3>Micropigmentación</h3>
-          <p>Trazos hiperrealistas que definen y dan estructura a tu ceja desde el primer momento.</p>
-          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20vi%20el%20video%20de%20Micropigmentación%20y%20quiero%20este%20resultado." 
-             target="_blank" rel="noopener" class="reel-btn">Quiero este resultado →</a>
-        </div>
-      </div>
-
-      <!-- REEL 2: img-8267_p51kwQIT.mp4 -->
-      <div class="reel-card reveal">
-        <video class="reel-video" src="img-8267_p51kwQIT.mp4" loop muted playsinline autoplay></video>
-        <div class="reel-overlay"></div>
-        <div class="reel-top">
-          <span class="reel-tag">Detalle</span>
-          <button class="reel-sound-btn" aria-label="Activar o desactivar sonido" title="Sonido">🔇</button>
-        </div>
-        <div class="reel-content">
-          <span class="reel-badge-pill">Efecto Maquillaje</span>
-          <h3>Sombreado en Henna</h3>
-          <p>Pigmentación botánica con efecto sombreado degradado para una mirada más expresiva.</p>
-          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20vi%20el%20video%20de%20Sombreado%20en%20Henna%20y%20quiero%20agendar." 
-             target="_blank" rel="noopener" class="reel-btn">Quiero este resultado →</a>
-        </div>
-      </div>
-
-      <!-- REEL 3: INSTAGRAM DIRECTO -->
-      <div class="reel-card reel-card--insta reveal">
-        <div class="insta-icon-circle">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/>
-          </svg>
-        </div>
-        <span class="reel-badge-pill">Historias Diarias</span>
-        <h3 style="font-size:1.45rem; margin-bottom: 8px;">@karencardenas_studio</h3>
-        <p style="color:#B6B6B0; font-size: 0.88rem; max-width: 240px; margin: 0 auto 20px;">Sigue nuestros reels y antes/después actualizados día a día en La Vega.</p>
-        <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-gold" style="width: auto; padding: 10px 22px;">Ver en Instagram</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMPARADOR ANTES / DESPUÉS ============ -->
-<section class="compare-section" id="comparador">
-  <div class="wrap">
-    <div class="compare-head reveal">
-      <span class="eyebrow">Transformación en vivo</span>
-      <h2>Desliza para ver la diferencia</h2>
-      <p>Arrastra la barra para comparar el antes y después en una mirada real.</p>
-    </div>
-
-    <div class="compare-container reveal">
-      <div class="ba-slider" id="baSlider">
-        <!-- Imagen DESPUÉS -->
-        <img class="ba-img ba-img--after" src="images/micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación - Resultado cicatrizado">
-        <span class="ba-label ba-label--after">Cicatrizadas</span>
-
-        <!-- Imagen ANTES -->
-        <img class="ba-img ba-img--before" src="images/micropig-cejas-antes.jpg" alt="Micropigmentación - Antes del procedimiento">
-        <span class="ba-label ba-label--before">Antes</span>
-
-        <!-- Línea divisoria interactiva -->
-        <div class="ba-line">
-          <div class="ba-handle"><span>◀ ▶</span></div>
-        </div>
-
-        <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Comparar antes y después">
-      </div>
-
-      <div class="compare-foot">
-        <span>Técnica: <strong>Micropigmentación de cejas</strong></span>
-        <span>Resultado 100% real sin retoque digital</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRATAMIENTOS CON FILTRO ============ -->
+<!-- ============ 1. TRATAMIENTOS & PRECIOS (ACCESO RÁPIDO) ============ -->
 <section class="services" id="tratamientos">
   <div class="wrap">
     <div class="services-head reveal">
       <span class="eyebrow">Catálogo Exclusivo</span>
       <h2>Nuestros Tratamientos</h2>
-      <p>Elige el procedimiento diseñado para tu tipo de rostro y mirada.</p>
+      <p>Selecciona tu procedimiento y contáctanos para agendar tu horario preferido.</p>
     </div>
 
-    <!-- Pestañas de filtrado -->
+    <!-- Filtros de categoría -->
     <div class="filter-tabs reveal">
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="cejas">Cejas</button>
@@ -942,7 +814,7 @@
         <div>
           <span class="card-num">01 / Cejas</span>
           <h3>Micropigmentación</h3>
-          <p>Técnica semipermanente pelo a pelo o efecto sombreado adaptada a tu visagismo para cejas perfectas las 24 horas.</p>
+          <p>Técnica semipermanente pelo a pelo o efecto sombreado (powder brows). Simetría y cejas impecables las 24 horas.</p>
         </div>
         <div class="card-footer">
           <span class="price">Desde $250.000</span>
@@ -956,7 +828,7 @@
         <div>
           <span class="card-num">02 / Pestañas</span>
           <h3>Lifting de pestañas</h3>
-          <p>Eleva, curva e intensifica el color de tus pestañas naturales desde la raíz. Mirada abierta y descansada sin extensiones.</p>
+          <p>Eleva, curva e intensifica el color de tus pestañas naturales desde la raíz. Mirada descansada sin extensiones.</p>
         </div>
         <div class="card-footer">
           <span class="price">Desde $50.000</span>
@@ -970,7 +842,7 @@
         <div>
           <span class="card-num">03 / Cejas</span>
           <h3>Laminado de cejas</h3>
-          <p>Alisa, peina y fija los vellos rebeldes, aportando volumen óptico y un look sofisticado y prolijo por varias semanas.</p>
+          <p>Alisa, peina y fija los vellos rebeldes, aportando volumen óptico y un look sofisticado y prolijo por semanas.</p>
         </div>
         <div class="card-footer">
           <span class="price">Desde $45.000</span>
@@ -979,12 +851,12 @@
         </div>
       </div>
 
-      <!-- 04 HidraLips (Rostro) -->
+      <!-- 04 HidraLips (Labios) -->
       <div class="card reveal" data-category="rostro">
         <div>
           <span class="card-num">04 / Labios</span>
           <h3>HidraLips</h3>
-          <p>Hidratación profunda con ácido hialurónico y toque de rubor labial. Elimina resequedad y revitaliza la textura.</p>
+          <p>Tratamiento regenerador con ácido hialurónico y toque de rubor labial. Elimina resequedad y revitaliza la textura.</p>
         </div>
         <div class="card-footer">
           <span class="price">Desde $60.000</span>
@@ -998,7 +870,7 @@
         <div>
           <span class="card-num">05 / Cejas</span>
           <h3>Sombreado en henna</h3>
-          <p>Definición de cejas con henna vegetal orgánica. Rellena visualmente los espacios y resalta la silueta de tu mirada.</p>
+          <p>Definición de cejas con henna vegetal orgánica. Rellena visualmente los espacios claros con acabado suave.</p>
         </div>
         <div class="card-footer">
           <span class="price">Desde $35.000</span>
@@ -1024,57 +896,127 @@
   </div>
 </section>
 
-<!-- ============ GALERÍA PARALLAX ============ -->
-<section class="gallery" id="galeria">
+<!-- ============ 2. RESULTADOS REALES (DARK SHOWCASE UNIFICADO) ============ -->
+<section class="showcase-section" id="resultados">
   <div class="wrap">
-    <div class="gallery-head reveal">
-      <span class="eyebrow">Portafolio</span>
-      <h2>El detalle en cada mirada</h2>
-      <p>Resultados reales de nuestras clientas en La Vega.</p>
+    <div class="showcase-head reveal">
+      <span class="eyebrow">Prueba Visual</span>
+      <h2>Resultados Reales</h2>
+      <p>Desliza para ver la transformación antes/después y mira nuestros procesos en video real.</p>
     </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item gallery-item--tall reveal">
-        <img class="parallax-img" src="images/micropig-cejas-antes.jpg" alt="Micropigmentación antes" loading="lazy">
-        <span class="gallery-badge">Micropig. Antes</span>
+    <!-- COMPARADOR ANTES / DESPUÉS -->
+    <div class="compare-container reveal">
+      <div class="ba-slider" id="baSlider">
+        <img class="ba-img ba-img--after" src="images/micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación cicatrizada">
+        <span class="ba-label ba-label--after">Cicatrizadas</span>
+
+        <img class="ba-img ba-img--before" src="images/micropig-cejas-antes.jpg" alt="Micropigmentación antes">
+        <span class="ba-label ba-label--before">Antes</span>
+
+        <div class="ba-line">
+          <div class="ba-handle"><span>◀ ▶</span></div>
+        </div>
+
+        <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Comparar antes y después">
       </div>
-      <div class="gallery-item reveal">
-        <img class="parallax-img" src="images/micropig-cejas-recien.jpg" alt="Micropigmentación recién realizada" loading="lazy">
-        <span class="gallery-badge">Recién hecha</span>
+
+      <div class="compare-foot">
+        <span>Técnica: <strong>Micropigmentación de cejas</strong></span>
+        <span>Resultado 100% real sin retoques digitales</span>
       </div>
-      <div class="gallery-item reveal">
-        <img class="parallax-img" src="images/micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación cicatrizada" loading="lazy">
-        <span class="gallery-badge">Cicatrizada</span>
+    </div>
+
+    <!-- STUDIO REELS (VIDEOS VERTICALES) -->
+    <div class="reels-grid">
+      <!-- REEL 1 -->
+      <div class="reel-card reveal">
+        <video class="reel-video" src="img-2877_1D75Y0k0.mp4" loop muted playsinline autoplay></video>
+        <div class="reel-overlay"></div>
+        <div class="reel-top">
+          <span class="reel-tag">En vivo</span>
+          <button class="reel-sound-btn" aria-label="Sonido" title="Activar sonido">🔇</button>
+        </div>
+        <div class="reel-content">
+          <span class="reel-badge-pill">Técnica Exclusiva</span>
+          <h3>Micropigmentación</h3>
+          <p>Trazos hiperrealistas que definen y dan estructura a tu ceja desde el primer momento.</p>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20vi%20el%20video%20de%20Micropigmentación%20y%20quiero%20este%20resultado." 
+             target="_blank" rel="noopener" class="reel-btn">Quiero este resultado →</a>
+        </div>
       </div>
-      <div class="gallery-item gallery-item--tall reveal">
-        <img class="parallax-img" src="images/henna-antes.jpg" alt="Henna antes" loading="lazy">
-        <span class="gallery-badge">Henna Antes</span>
+
+      <!-- REEL 2 -->
+      <div class="reel-card reveal">
+        <video class="reel-video" src="img-8267_p51kwQIT.mp4" loop muted playsinline autoplay></video>
+        <div class="reel-overlay"></div>
+        <div class="reel-top">
+          <span class="reel-tag">Detalle</span>
+          <button class="reel-sound-btn" aria-label="Sonido" title="Activar sonido">🔇</button>
+        </div>
+        <div class="reel-content">
+          <span class="reel-badge-pill">Efecto Maquillaje</span>
+          <h3>Sombreado en Henna</h3>
+          <p>Pigmentación botánica con efecto sombreado degradado para una mirada más expresiva.</p>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20vi%20el%20video%20de%20Sombreado%20en%20Henna%20y%20quiero%20agendar." 
+             target="_blank" rel="noopener" class="reel-btn">Quiero este resultado →</a>
+        </div>
       </div>
-      <div class="gallery-item reveal">
-        <img class="parallax-img" src="images/henna_despues.jpg" alt="Henna después" loading="lazy">
-        <span class="gallery-badge">Henna Después</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img class="parallax-img" src="images/lifting-antes.jpg" alt="Lifting antes" loading="lazy">
-        <span class="gallery-badge">Lifting Antes</span>
-      </div>
-      <div class="gallery-item gallery-item--tall reveal">
-        <img class="parallax-img" src="images/lifting-despues.jpg" alt="Lifting después" loading="lazy">
-        <span class="gallery-badge">Lifting Después</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img class="parallax-img" src="images/laminado-antes.jpg" alt="Laminado antes" loading="lazy">
-        <span class="gallery-badge">Laminado Antes</span>
-      </div>
-      <div class="gallery-item reveal">
-        <img class="parallax-img" src="images/laminado-despues.jpg" alt="Laminado después" loading="lazy">
-        <span class="gallery-badge">Laminado Después</span>
+
+      <!-- REEL 3: INSTAGRAM -->
+      <div class="reel-card reel-card--insta reveal">
+        <div class="insta-icon-circle">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/>
+          </svg>
+        </div>
+        <span class="reel-badge-pill">Historias Diarias</span>
+        <h3 style="font-size:1.45rem; margin-bottom: 8px;">@karencardenas_studio</h3>
+        <p style="color:#B6B6B0; font-size: 0.88rem; max-width: 240px; margin: 0 auto 20px;">Historias, procesos y clientas felices compartidas a diario en La Vega.</p>
+        <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-gold" style="width: auto; padding: 10px 22px;">Ver en Instagram</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SOBRE KAREN ============ -->
+<!-- ============ 3. TU EXPERIENCIA (EL PASO A PASO QUE QUITA EL MIEDO) ============ -->
+<section class="experience" id="experiencia">
+  <div class="wrap">
+    <div class="experience-head reveal">
+      <span class="eyebrow">Tranquilidad Absoluta</span>
+      <h2>Tu Experiencia en el Studio</h2>
+      <p>Cuidamos cada detalle desde que llegas hasta tu resultado final. Cero improvisaciones.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <span class="step-num">01</span>
+        <h3>Visagismo Personalizado</h3>
+        <p>Analizamos las proporciones y la simetría de tus ojos y rostro. Ningún diseño es una plantilla genérica.</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">02</span>
+        <h3>Tu Aprobación Previa</h3>
+        <p>Trazamos el diseño primero a mano. <strong>Tú te miras al espejo y lo apruebas</strong> antes de que apliquemos cualquier producto.</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">03</span>
+        <h3>Procedimiento Sin Dolor</h3>
+        <p>Aplicamos anestésico tópico dermatológico, pigmentos hipoalergénicos y material 100% esterilizado y descartable.</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">04</span>
+        <h3>Asesoría & Post-Cuidado</h3>
+        <p>Te entregamos las instrucciones precisas para que la cicatrización sea perfecta y el resultado dure al máximo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. SOBRE KAREN ============ -->
 <section class="about" id="sobre-mi">
   <div class="wrap about-grid">
     <div class="about-visual reveal">
@@ -1089,24 +1031,69 @@
     <div class="about-text reveal">
       <span class="eyebrow">Detrás del estudio</span>
       <h2>Hola, soy Karen Cárdenas</h2>
-      <p>Fundé este estudio con una convicción clara: cada rostro tiene una armonía única que merece un diseño personalizado, sin plantillas genéricas ni excesos.</p>
+      <p>Fundé este estudio con una convicción clara: cada rostro tiene una armonía única que merece un diseño personalizado, sin excesos artificiales.</p>
       <p>Me capacito constantemente en micropigmentación, laminado y lifting de vanguardia, para entregarte siempre acabados impecables, higiénicos y con la calidez de una atención uno a uno.</p>
       <div class="about-stats">
         <div><strong>6+</strong><span>Años de experiencia</span></div>
         <div><strong>1.200+</strong><span>Clientas felices</span></div>
-        <div><strong>5.0★</strong><span>Calificación</span></div>
+        <div><strong>5.0★</strong><span>Calificación promedio</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PREGUNTAS FRECUENTES (FAQ) ============ -->
+<!-- ============ 5. TESTIMONIOS ============ -->
+<section class="testimonials" id="testimonios">
+  <div class="wrap">
+    <div class="testimonials-head reveal">
+      <span class="eyebrow">Lo que dicen de nosotras</span>
+      <h2>Resultados que Enamoran</h2>
+    </div>
+
+    <div class="testimonials-inner">
+      <div class="testi-card reveal">
+        <div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"La micropigmentación me quedó súper natural. Karen se toma el tiempo de diseñar según las facciones de uno antes de hacer cualquier trazo."</p>
+        </div>
+        <div>
+          <div class="testi-name">Laura P.</div>
+          <div class="testi-role">Clienta frecuente • La Vega</div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"El laminado de cejas dura un montón y se mantiene peinado todo el día. El espacio es impecable y la atención es 10/10."</p>
+        </div>
+        <div>
+          <div class="testi-name">Mariana T.</div>
+          <div class="testi-role">Clienta desde 2024</div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"El lifting de pestañas fue la mejor decisión. Ya no tengo que encresparme ni usar pestañina todos los días para verme arreglada."</p>
+        </div>
+        <div>
+          <div class="testi-name">Andrea S.</div>
+          <div class="testi-role">Clienta desde 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. PREGUNTAS FRECUENTES ============ -->
 <section class="faq-section" id="preguntas">
   <div class="wrap">
     <div class="faq-head reveal">
-      <span class="eyebrow">Tranquilidad Total</span>
+      <span class="eyebrow">Resuelve tus Dudas</span>
       <h2>Preguntas Frecuentes</h2>
-      <p>Resolvemos todas tus dudas antes de tu cita.</p>
+      <p>Todo lo que necesitas saber antes de tu cita.</p>
     </div>
 
     <div class="faq-list reveal">
@@ -1148,7 +1135,7 @@
   </div>
 </section>
 
-<!-- ============ RESERVA Y CONTACTO ============ -->
+<!-- ============ 7. RESERVA & UBICACIÓN ============ -->
 <section class="booking" id="reserva">
   <div class="wrap">
     <span class="eyebrow">Agenda tu espacio</span>
@@ -1165,7 +1152,7 @@
       </a>
     </div>
 
-    <!-- Caja de ubicación interactiva -->
+    <!-- Tarjeta de mapa interactiva -->
     <div class="location-box">
       <div class="location-address">📍 Cra. 4a #20-25, La Vega, Cundinamarca</div>
       <div class="location-buttons">
@@ -1180,7 +1167,7 @@
   </div>
 </section>
 
-<!-- ============ PIE DE PÁGINA ============ -->
+<!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -1188,7 +1175,7 @@
         <div class="brand-group">
           <img src="images/logo.png" alt="Logo Karen Cárdenas" style="height: 50px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
           <div class="brand-text">
-            <div class="brand-title">Karen Cárdenas <span>Studio</span></div>
+            <div class="brand-title" style="color:#fff;">Karen Cárdenas <span>Studio</span></div>
             <span class="brand-sub">CEJAS & PESTAÑAS</span>
           </div>
         </div>
@@ -1215,12 +1202,12 @@
       </div>
 
       <div class="footer-col">
-        <h4>Contacto & Citas</h4>
+        <h4>Contacto</h4>
         <ul>
           <li>Cra. 4a #20-25, La Vega</li>
           <li>+57 322 216 7080</li>
-          <li><a href="#reels">Ver Studio Reels</a></li>
-          <li><a href="#comparador">Antes y Después</a></li>
+          <li><a href="#resultados">Ver Resultados</a></li>
+          <li><a href="#experiencia">Cómo trabajamos</a></li>
         </ul>
       </div>
     </div>
@@ -1233,7 +1220,7 @@
 </footer>
 
 <!-- ============================================================
-     LIBRERÍAS: Lenis (Smooth Scroll) + GSAP + ScrollTrigger
+     SCRIPTS: Lenis (Smooth Scroll) + GSAP + ScrollTrigger
      ============================================================ -->
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1242,14 +1229,14 @@
 <script>
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 1. ANIMACIÓN DE DESPLAZAMIENTO SUAVE (LENIS)
+  // 1. LENIS SMOOTH SCROLL (Desplazamiento suave de alta gama)
   let lenis = null;
   if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
     lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 0.9,
+      wheelMultiplier: 0.95,
       touchMultiplier: 1.2
     });
 
@@ -1259,16 +1246,13 @@
     }
     requestAnimationFrame(raf);
 
-    // Sincronizar Lenis con GSAP ScrollTrigger
     if (window.ScrollTrigger) {
       lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
     }
 
-    // Desplazamiento suave al hacer clic en enlaces del menú (#secciones)
+    // Navegación suave en enlaces con #
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -1299,13 +1283,13 @@
     });
   }
 
-  // 3. HEADER CON SOMBRA DINÁMICA
+  // 3. HEADER SCROLL EFFECT
   const header = document.querySelector('header');
   const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 15);
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader, { passive: true });
 
-  // 4. ANIMACIÓN DE REVELADO AL SCROLL
+  // 4. ANIMACIÓN DE ENTRADA AL HACER SCROLL (REVEAL)
   const revealEls = document.querySelectorAll('.reveal');
   if (prefersReducedMotion) {
     revealEls.forEach(el => el.classList.add('is-visible'));
@@ -1321,11 +1305,10 @@
     revealEls.forEach(el => revealObserver.observe(el));
   }
 
-  // 5. PARALLAX Y MOVIMIENTO EN EL HERO
+  // 5. PARALLAX EN EL HERO CON GSAP
   if (!prefersReducedMotion && window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Movimiento sutil en la imagen del Hero al hacer scroll
     gsap.to('#heroVisual', {
       yPercent: 12,
       ease: 'none',
@@ -1335,39 +1318,6 @@
         end: 'bottom top',
         scrub: true
       }
-    });
-
-    // Parallax en las imágenes de la galería
-    document.querySelectorAll('.parallax-img').forEach((img) => {
-      const wrapper = img.closest('.gallery-item');
-      gsap.fromTo(img,
-        { scale: 0.88, opacity: 0.5 },
-        {
-          scale: 1.15,
-          opacity: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: 'top bottom',
-            end: '+=550',
-            scrub: 1
-          }
-        }
-      );
-
-      gsap.fromTo(img,
-        { yPercent: -10 },
-        {
-          yPercent: 10,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          }
-        }
-      );
     });
   }
 
@@ -1391,7 +1341,7 @@
     });
   });
 
-  // 7. STUDIO REELS AUDIO Y PLAY/PAUSE
+  // 7. STUDIO REELS AUDIO Y CONTROL
   document.querySelectorAll('.reel-card').forEach(card => {
     const video = card.querySelector('video');
     const soundBtn = card.querySelector('.reel-sound-btn');
