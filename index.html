@@ -44,7 +44,7 @@
   </script>
 
   <style>
-    /* ===== VARIABLES Y ESTILOS BASE ===== */
+    /* ===== RESET Y VARIABLES ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --ink: #111111;
@@ -63,7 +63,12 @@
       --container: 1200px;
       --gold-glow: rgba(176,141,87,0.3);
     }
-    html { scroll-behavior: smooth; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+    .lenis.lenis-scrolling iframe { pointer-events: none; }
+
     body {
       background: var(--cream);
       color: var(--ink);
@@ -96,13 +101,13 @@
       letter-spacing: 0.01em;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER CON LOGO MÁS GRANDE ===== */
     header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(250,249,246,0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(17,17,17,0.06);
-      transition: all 0.3s ease;
+      transition: padding 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     }
     header.is-scrolled {
       box-shadow: 0 10px 30px -15px rgba(17,17,17,0.15);
@@ -110,29 +115,41 @@
     }
     .nav {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 32px; max-width: var(--container); margin: 0 auto;
+      padding: 14px 32px; max-width: var(--container); margin: 0 auto;
+      transition: padding 0.3s ease;
     }
+    header.is-scrolled .nav { padding: 10px 32px; }
 
-    /* BRAND LOGO CON MONOGRAMA */
+    /* BRAND LOGO CON MONOGRAMA OCULTO */
     .brand-group {
       display: flex; align-items: center; gap: 14px; cursor: pointer;
     }
     .brand-logo-img {
-      height: 42px; width: auto; max-width: 120px; object-fit: contain;
+      /* Logo más grande y elegante */
+      height: 58px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
+    .brand-group:hover .brand-logo-img {
+      transform: scale(1.04);
+    }
+    /* Monograma OCULTO si existe el logo */
     .brand-monogram {
-      width: 40px; height: 40px; border-radius: 50%;
+      display: none;
+      width: 44px; height: 44px; border-radius: 50%;
       border: 1.5px solid var(--gold);
       background: linear-gradient(135deg, #FAF7F2 0%, #EFE9DF 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+      align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
       color: var(--gold-dark); letter-spacing: -0.05em;
-      box-shadow: 0 3px 10px -2px rgba(176,141,87,0.3);
+      box-shadow: 0 4px 12px -2px rgba(176,141,87,0.3);
       flex-shrink: 0;
     }
     .brand-text { display: flex; flex-direction: column; }
     .brand-title {
-      font-family: var(--font-display); font-size: 1.45rem; font-weight: 600;
+      font-family: var(--font-display); font-size: 1.48rem; font-weight: 600;
       line-height: 1.1; letter-spacing: 0.02em;
     }
     .brand-title span { color: var(--gold); font-style: italic; font-weight: 400; }
@@ -183,7 +200,7 @@
     .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); background: var(--gold); }
 
     /* ===== HERO ===== */
-    .hero { padding: 80px 0 70px; position: relative; overflow: hidden; }
+    .hero { padding: 85px 0 75px; position: relative; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; }
     
     .hero-badge-live {
@@ -219,7 +236,7 @@
       padding: 15px 30px; font-size: 0.82rem; font-weight: 600;
       letter-spacing: 0.08em; text-transform: uppercase;
       border-radius: var(--radius);
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
       cursor: pointer;
     }
     .btn-gold {
@@ -251,6 +268,7 @@
       border-radius: 50% 50% 46% 54% / 55% 50% 50% 45%;
       overflow: hidden;
       box-shadow: 0 40px 80px -30px rgba(17,17,17,0.4);
+      will-change: transform;
     }
     .hero-visual img {
       width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
@@ -301,8 +319,8 @@
     .ticker-bar:hover .ticker-track { animation-play-state: paused; }
 
     /* ===== SECCIÓN STUDIO REELS (VIDEOS DINÁMICOS) ===== */
-    .reels-section { padding: 100px 0; background: #141414; color: var(--cream); }
-    .reels-head { text-align: center; margin-bottom: 50px; }
+    .reels-section { padding: 110px 0; background: #141414; color: var(--cream); position: relative; }
+    .reels-head { text-align: center; margin-bottom: 54px; }
     .reels-head .eyebrow { color: var(--gold-light); }
     .reels-head h2 { font-size: clamp(2rem, 3.8vw, 3rem); color: #fff; margin-top: 12px; }
     .reels-head p { color: var(--silver); max-width: 560px; margin: 12px auto 0; font-size: 0.96rem; }
@@ -319,10 +337,11 @@
       aspect-ratio: 9/15;
       box-shadow: 0 25px 50px -20px rgba(0,0,0,0.8);
       display: flex; flex-direction: column; justify-content: flex-end;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
     }
     .reel-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px) scale(1.01);
       border-color: var(--gold);
       box-shadow: 0 30px 60px -20px var(--gold-glow);
     }
@@ -389,7 +408,7 @@
     }
 
     /* ===== COMPARADOR ANTES / DESPUÉS ===== */
-    .compare-section { padding: 96px 0; background: var(--cream-tint); }
+    .compare-section { padding: 104px 0; background: var(--cream-tint); }
     .compare-head { text-align: center; margin-bottom: 44px; }
     .compare-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
     .compare-container {
@@ -451,8 +470,62 @@
       padding: 0 8px;
     }
 
+    /* ===== TRATAMIENTOS CON FILTRO DINÁMICO ===== */
+    .services { padding: 110px 0; background: var(--card-bg); }
+    .services-head { text-align: center; margin-bottom: 36px; }
+    .services-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
+
+    .filter-tabs {
+      display: flex; justify-content: center; gap: 10px; margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 10px 22px; font-size: 0.76rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid rgba(17,17,17,0.15); border-radius: 50px;
+      background: var(--cream); color: var(--ink-soft);
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    .filter-btn:hover { border-color: var(--gold); color: var(--ink); }
+    .filter-btn.active {
+      background: var(--ink); color: var(--cream); border-color: var(--ink);
+      box-shadow: 0 4px 14px rgba(17,17,17,0.2);
+    }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .card {
+      background: var(--cream);
+      border: 1px solid rgba(17,17,17,0.08);
+      padding: 34px 28px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      border-radius: var(--radius);
+      will-change: transform;
+    }
+    .card:hover {
+      border-color: var(--gold); transform: translateY(-5px);
+      box-shadow: 0 20px 40px -18px rgba(17,17,17,0.22);
+    }
+    .card.is-hidden { display: none; }
+    .card-num { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 1rem; margin-bottom: 12px; display: block; }
+    .card h3 { font-size: 1.35rem; margin-bottom: 10px; }
+    .card p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 20px; line-height: 1.55; }
+    .card-footer {
+      border-top: 1px solid rgba(17,17,17,0.08);
+      padding-top: 18px; margin-top: auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card .price { font-weight: 600; font-size: 0.96rem; letter-spacing: 0.02em; color: var(--gold-dark); }
+    .card-cta {
+      font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: var(--radius); border: 1px solid rgba(17,17,17,0.15);
+      transition: all 0.2s ease;
+    }
+    .card-cta:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
     /* ===== GALERÍA PARALLAX ===== */
-    .gallery { padding: 104px 0; overflow: hidden; }
+    .gallery { padding: 110px 0; overflow: hidden; }
     .gallery-head { text-align: center; margin-bottom: 50px; }
     .gallery-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
     .gallery-grid {
@@ -479,64 +552,10 @@
       border-radius: 1px; letter-spacing: 0.05em; text-transform: uppercase;
     }
 
-    /* ===== TRATAMIENTOS CON FILTRO DINÁMICO ===== */
-    .services { padding: 100px 0; background: var(--card-bg); }
-    .services-head { text-align: center; margin-bottom: 36px; }
-    .services-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
-
-    /* FILTROS INTERACTIVOS */
-    .filter-tabs {
-      display: flex; justify-content: center; gap: 10px; margin-bottom: 48px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 10px 22px; font-size: 0.76rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border: 1px solid rgba(17,17,17,0.15); border-radius: 50px;
-      background: var(--cream); color: var(--ink-soft);
-      cursor: pointer; transition: all 0.2s ease;
-    }
-    .filter-btn:hover { border-color: var(--gold); color: var(--ink); }
-    .filter-btn.active {
-      background: var(--ink); color: var(--cream); border-color: var(--ink);
-      box-shadow: 0 4px 14px rgba(17,17,17,0.2);
-    }
-
-    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-    .card {
-      background: var(--cream);
-      border: 1px solid rgba(17,17,17,0.08);
-      padding: 34px 28px;
-      display: flex; flex-direction: column; justify-content: space-between;
-      transition: all 0.25s ease;
-      border-radius: var(--radius);
-    }
-    .card:hover {
-      border-color: var(--gold); transform: translateY(-4px);
-      box-shadow: 0 20px 40px -18px rgba(17,17,17,0.22);
-    }
-    .card.is-hidden { display: none; }
-    .card-num { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 1rem; margin-bottom: 12px; display: block; }
-    .card h3 { font-size: 1.35rem; margin-bottom: 10px; }
-    .card p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 20px; line-height: 1.55; }
-    .card-footer {
-      border-top: 1px solid rgba(17,17,17,0.08);
-      padding-top: 18px; margin-top: auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .card .price { font-weight: 600; font-size: 0.96rem; letter-spacing: 0.02em; color: var(--gold-dark); }
-    .card-cta {
-      font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 12px; border-radius: var(--radius); border: 1px solid rgba(17,17,17,0.15);
-      transition: all 0.2s ease;
-    }
-    .card-cta:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-
     /* ===== SOBRE KAREN ===== */
-    .about { padding: 104px 0; }
+    .about { padding: 110px 0; }
     .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: center; }
-    .about-visual { position: relative; margin-bottom: 46px; }
+    .about-visual { position: relative; margin-bottom: 46px; will-change: transform; }
     .about-main-photo {
       aspect-ratio: 3/4; overflow: hidden; border-radius: var(--radius);
       box-shadow: 0 30px 60px -24px rgba(17,17,17,0.35);
@@ -558,7 +577,7 @@
     .about-stats div span { font-size: 0.76rem; color: var(--ink-soft); letter-spacing: 0.04em; }
 
     /* ===== PREGUNTAS FRECUENTES (FAQ) ===== */
-    .faq-section { padding: 96px 0; background: var(--cream-tint); }
+    .faq-section { padding: 100px 0; background: var(--cream-tint); }
     .faq-head { text-align: center; margin-bottom: 48px; }
     .faq-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
     .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
@@ -585,7 +604,7 @@
     }
 
     /* ===== RESERVA Y UBICACIÓN ===== */
-    .booking { background: var(--ink); color: var(--cream); padding: 104px 0; text-align: center; }
+    .booking { background: var(--ink); color: var(--cream); padding: 110px 0; text-align: center; }
     .booking .eyebrow { color: var(--gold-light); }
     .booking h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); margin: 16px auto 20px; max-width: 720px; }
     .booking p { color: var(--silver); max-width: 520px; margin: 0 auto 12px; }
@@ -626,7 +645,7 @@
     .footer-social a:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); transform: translateY(-2px); }
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
-    /* ===== BOTÓN FLOTANTE WHATSAPP CON GLOBO CONVERSACIONAL ===== */
+    /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
     .wa-widget {
       position: fixed; bottom: 26px; right: 26px; z-index: 990;
       display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
@@ -658,9 +677,16 @@
     }
     .whatsapp-btn svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
 
-    /* ===== REVEAL EFFECT ===== */
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    /* ===== ANIMACIÓN DE ENTRADA SUAVE (REVEAL) ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
@@ -674,6 +700,7 @@
       .nav-links li { border-bottom: 1px solid rgba(17,17,17,0.08); }
       .nav-links a { display: block; padding: 18px 0; }
       .nav-toggle { display: block; }
+      .brand-logo-img { height: 46px; }
       .hero-grid { grid-template-columns: 1fr; }
       .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
       .reels-grid { grid-template-columns: 1fr; }
@@ -711,11 +738,11 @@
   </a>
 </div>
 
-<!-- ============ HEADER CON LOGO ============ -->
+<!-- ============ HEADER CON LOGO PROTAGÓNICO ============ -->
 <header>
   <nav class="nav">
     <a href="#" class="brand-group">
-      <!-- Intenta cargar el logo si existe, de lo contrario muestra el monograma KC -->
+      <!-- Logo destacado: el monograma permanece oculto porque tu logo ya existe -->
       <img src="images/logo.png" alt="Logo Karen Cárdenas" class="brand-logo-img" 
            onerror="this.style.display='none'; document.getElementById('brandMonogram').style.display='flex';">
       <div class="brand-monogram" id="brandMonogram">KC</div>
@@ -743,7 +770,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-text-col">
       <div class="hero-badge-live">
         <span class="pulse-dot"></span>
         <span>Agenda abierta esta semana en La Vega</span>
@@ -751,13 +778,13 @@
 
       <h1>El arte de <em>realzar</em> tu mirada con precisión</h1>
       
-      <p>Estudio especializado en micropigmentación, laminado y lifting. Técnicas avanzadas que respetan la armonía de tu rostro para resultados elegantes y naturales.</p>
+      <p>Estudio boutique especializado en micropigmentación, laminado y lifting. Diseñamos con técnica y armonía para resaltar tu belleza de forma natural y sofisticada.</p>
       
       <div class="hero-actions">
         <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20en%20el%20studio." class="btn btn-gold" target="_blank" rel="noopener">
           Agendar por WhatsApp →
         </a>
-        <a href="#reels" class="btn btn-ghost">Ver videos reales</a>
+        <a href="#reels" class="btn btn-ghost">Ver videos en acción</a>
       </div>
 
       <div class="hero-social-proof">
@@ -766,7 +793,7 @@
       </div>
     </div>
 
-    <div class="hero-visual">
+    <div class="hero-visual" id="heroVisual">
       <img src="images/karen.jpg" alt="Karen Cárdenas - Especialista en Cejas y Pestañas">
       <div class="hero-quote">"La mirada es el primer detalle que se nota, el último que se olvida"</div>
       <div class="hero-badge"><strong>6+</strong><span>Años de trayectoria</span></div>
@@ -1007,39 +1034,39 @@
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item gallery-item--tall">
+      <div class="gallery-item gallery-item--tall reveal">
         <img class="parallax-img" src="images/micropig-cejas-antes.jpg" alt="Micropigmentación antes" loading="lazy">
         <span class="gallery-badge">Micropig. Antes</span>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item reveal">
         <img class="parallax-img" src="images/micropig-cejas-recien.jpg" alt="Micropigmentación recién realizada" loading="lazy">
         <span class="gallery-badge">Recién hecha</span>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item reveal">
         <img class="parallax-img" src="images/micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación cicatrizada" loading="lazy">
         <span class="gallery-badge">Cicatrizada</span>
       </div>
-      <div class="gallery-item gallery-item--tall">
+      <div class="gallery-item gallery-item--tall reveal">
         <img class="parallax-img" src="images/henna-antes.jpg" alt="Henna antes" loading="lazy">
         <span class="gallery-badge">Henna Antes</span>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item reveal">
         <img class="parallax-img" src="images/henna_despues.jpg" alt="Henna después" loading="lazy">
         <span class="gallery-badge">Henna Después</span>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item reveal">
         <img class="parallax-img" src="images/lifting-antes.jpg" alt="Lifting antes" loading="lazy">
         <span class="gallery-badge">Lifting Antes</span>
       </div>
-      <div class="gallery-item gallery-item--tall">
+      <div class="gallery-item gallery-item--tall reveal">
         <img class="parallax-img" src="images/lifting-despues.jpg" alt="Lifting después" loading="lazy">
         <span class="gallery-badge">Lifting Después</span>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item reveal">
         <img class="parallax-img" src="images/laminado-antes.jpg" alt="Laminado antes" loading="lazy">
         <span class="gallery-badge">Laminado Antes</span>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item reveal">
         <img class="parallax-img" src="images/laminado-despues.jpg" alt="Laminado después" loading="lazy">
         <span class="gallery-badge">Laminado Después</span>
       </div>
@@ -1159,7 +1186,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="brand-group">
-          <div class="brand-monogram">KC</div>
+          <img src="images/logo.png" alt="Logo Karen Cárdenas" style="height: 50px; width: auto; object-fit: contain;" onerror="this.style.display='none';">
           <div class="brand-text">
             <div class="brand-title">Karen Cárdenas <span>Studio</span></div>
             <span class="brand-sub">CEJAS & PESTAÑAS</span>
@@ -1205,14 +1232,58 @@
   </div>
 </footer>
 
-<!-- GSAP + ScrollTrigger -->
+<!-- ============================================================
+     LIBRERÍAS: Lenis (Smooth Scroll) + GSAP + ScrollTrigger
+     ============================================================ -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Menú móvil
+  // 1. ANIMACIÓN DE DESPLAZAMIENTO SUAVE (LENIS)
+  let lenis = null;
+  if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.2
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Sincronizar Lenis con GSAP ScrollTrigger
+    if (window.ScrollTrigger) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    // Desplazamiento suave al hacer clic en enlaces del menú (#secciones)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElem = document.querySelector(targetId);
+          if (targetElem) {
+            e.preventDefault();
+            lenis.scrollTo(targetElem, { offset: -70 });
+          }
+        }
+      });
+    });
+  }
+
+  // 2. MENÚ MÓVIL
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.querySelector('.nav-links');
   if (navToggle && navLinks) {
@@ -1228,13 +1299,13 @@
     });
   }
 
-  // Header scroll shadow
+  // 3. HEADER CON SOMBRA DINÁMICA
   const header = document.querySelector('header');
   const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 15);
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader, { passive: true });
 
-  // Revelado de elementos al scroll
+  // 4. ANIMACIÓN DE REVELADO AL SCROLL
   const revealEls = document.querySelectorAll('.reveal');
   if (prefersReducedMotion) {
     revealEls.forEach(el => el.classList.add('is-visible'));
@@ -1246,11 +1317,61 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     revealEls.forEach(el => revealObserver.observe(el));
   }
 
-  // FILTRO DINÁMICO DE TRATAMIENTOS
+  // 5. PARALLAX Y MOVIMIENTO EN EL HERO
+  if (!prefersReducedMotion && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Movimiento sutil en la imagen del Hero al hacer scroll
+    gsap.to('#heroVisual', {
+      yPercent: 12,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // Parallax en las imágenes de la galería
+    document.querySelectorAll('.parallax-img').forEach((img) => {
+      const wrapper = img.closest('.gallery-item');
+      gsap.fromTo(img,
+        { scale: 0.88, opacity: 0.5 },
+        {
+          scale: 1.15,
+          opacity: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top bottom',
+            end: '+=550',
+            scrub: 1
+          }
+        }
+      );
+
+      gsap.fromTo(img,
+        { yPercent: -10 },
+        {
+          yPercent: 10,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        }
+      );
+    });
+  }
+
+  // 6. FILTRO DE TRATAMIENTOS
   const filterBtns = document.querySelectorAll('.filter-btn');
   const serviceCards = document.querySelectorAll('.cards-grid .card');
 
@@ -1270,7 +1391,7 @@
     });
   });
 
-  // CONTROL DE SONIDO Y REPRODUCCIÓN EN STUDIO REELS
+  // 7. STUDIO REELS AUDIO Y PLAY/PAUSE
   document.querySelectorAll('.reel-card').forEach(card => {
     const video = card.querySelector('video');
     const soundBtn = card.querySelector('.reel-sound-btn');
@@ -1282,7 +1403,6 @@
         soundBtn.textContent = video.muted ? '🔇' : '🔊';
       });
 
-      // Pausa o reproduce al tocar la tarjeta del video
       card.addEventListener('click', (e) => {
         if (e.target.closest('.reel-btn') || e.target.closest('.reel-sound-btn')) return;
         if (video.paused) {
@@ -1294,49 +1414,12 @@
     }
   });
 
-  // COMPARADOR INTERACTIVO ANTES / DESPUÉS
+  // 8. COMPARADOR INTERACTIVO ANTES / DESPUÉS
   const baSlider = document.getElementById('baSlider');
   const baRange = document.getElementById('baRange');
   if (baSlider && baRange) {
     baRange.addEventListener('input', (e) => {
       baSlider.style.setProperty('--pos', e.target.value + '%');
-    });
-  }
-
-  // PARALLAX CON GSAP + SCROLLTRIGGER
-  if (!prefersReducedMotion && window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-
-    document.querySelectorAll('.parallax-img').forEach((img) => {
-      const wrapper = img.closest('.gallery-item');
-      gsap.fromTo(img,
-        { scale: 0.85, opacity: 0.4 },
-        {
-          scale: 1.15,
-          opacity: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: 'top bottom',
-            end: '+=500',
-            scrub: 1
-          }
-        }
-      );
-
-      gsap.fromTo(img,
-        { yPercent: -10 },
-        {
-          yPercent: 10,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: wrapper,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          }
-        }
-      );
     });
   }
 </script>
