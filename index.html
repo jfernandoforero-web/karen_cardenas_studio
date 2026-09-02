@@ -46,7 +46,7 @@
 
   <style>
     /* ============================================================
-       SISTEMA DE DISEÑO: NOIR & STAINLESS STEEL
+       SISTEMA DE DISEÑO: NOIR & STAINLESS STEEL (CONTRASTE REALZADO)
        ============================================================ */
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     
@@ -56,19 +56,22 @@
       --bg-elevated: #14141A;
       --bg-card: rgba(20, 20, 26, 0.75);
       
+      /* Blancos y contraste realzado para máxima legibilidad */
       --white: #FFFFFF;
-      --text-main: #EDEDF2;
-      --text-muted: #9D9DA8;
-      --text-subtle: #686875;
+      --text-main: #FFFFFF;
+      --text-muted: #C4C5D2; /* Más claro para mejor lectura */
+      --text-subtle: #8A8B99;
 
       /* ACERO PLATEADO (CNC MACHINED STEEL) */
-      --steel-gradient: linear-gradient(180deg, #F5F5FA 0%, #D2D2DC 46%, #A8A8B8 52%, #DCDCDE 100%);
-      --steel-gradient-hover: linear-gradient(180deg, #FFFFFF 0%, #E2E2EC 46%, #B6B6C8 52%, #EAEAFA 100%);
+      --steel-gradient: linear-gradient(180deg, #FFFFFF 0%, #D8D8E2 46%, #ACACBC 52%, #E0E0E8 100%);
+      --steel-gradient-hover: linear-gradient(180deg, #FFFFFF 0%, #E8E8F2 46%, #BEBED0 52%, #F0F0FA 100%);
       --steel-titanium: linear-gradient(180deg, #1E1E26 0%, #121217 100%);
-      --steel-border: rgba(255, 255, 255, 0.2);
-      --steel-highlight: rgba(255, 255, 255, 0.5);
+      --steel-border: rgba(255, 255, 255, 0.22);
+      --steel-highlight: rgba(255, 255, 255, 0.6);
 
-      --wa-emerald: #25D366;
+      /* VERDE WHATSAPP ILUMINADO */
+      --wa-green-glow: #25D366;
+      --wa-green-bright: #2EE872;
 
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -101,7 +104,7 @@
     .ambient-mesh {
       position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
       width: min(1000px, 100vw); height: 600px;
-      background: radial-gradient(circle, rgba(230, 230, 255, 0.05) 0%, rgba(7, 7, 9, 0) 70%);
+      background: radial-gradient(circle, rgba(230, 230, 255, 0.06) 0%, rgba(7, 7, 9, 0) 70%);
       pointer-events: none; z-index: 0;
     }
 
@@ -111,13 +114,13 @@
       font-weight: 600;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #E2E2EC; /* Realce de color */
       display: inline-flex;
       align-items: center;
       gap: 12px;
     }
     .eyebrow::before {
-      content: ''; display: inline-block; width: 18px; height: 1px;
+      content: ''; display: inline-block; width: 18px; height: 1.5px;
       background: var(--steel-gradient);
     }
 
@@ -133,6 +136,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
+      text-shadow: 0 0 25px rgba(255,255,255,0.2);
     }
 
     /* ============================================================
@@ -183,17 +187,17 @@
     /* Botón Secundario: Titanio Oscuro con Bisel Plateado */
     .btn-titanium {
       background: var(--steel-titanium);
-      color: #E6E6EE;
+      color: #F0F0F8;
       border: 1px solid var(--steel-border);
       border-top: 1px solid var(--steel-highlight);
       box-shadow: 
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
         0 8px 20px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
     }
     .btn-titanium:hover {
       background: linear-gradient(180deg, #2A2A36 0%, #16161D 100%);
-      border-color: rgba(255, 255, 255, 0.6);
+      border-color: rgba(255, 255, 255, 0.7);
       color: #FFFFFF;
       transform: translateY(-2px);
       box-shadow: 
@@ -231,7 +235,7 @@
     .luxury-header.header-scrolled {
       background: rgba(7, 7, 9, 0.88);
       backdrop-filter: blur(20px) saturate(150%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding: 14px 0;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
     }
@@ -248,7 +252,7 @@
     }
     .brand-logo-img {
       height: 48px; width: auto; max-width: 140px; object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(255,255,255,0.18));
+      filter: drop-shadow(0 2px 10px rgba(255,255,255,0.22));
       transition: transform 0.25s ease;
     }
     .brand-group:hover .brand-logo-img { transform: scale(1.03); }
@@ -269,23 +273,26 @@
     }
     .brand-sub {
       font-size: 0.54rem; letter-spacing: 0.26em; text-transform: uppercase;
-      color: var(--text-subtle); margin-top: 2px;
+      color: #A4A4B2; margin-top: 2px;
     }
 
-    /* ENLACES EDITORIALES */
+    /* ENLACES EDITORIALES CON REALCE DE COLOR */
     .nav-links {
       display: flex; align-items: center; gap: 32px; list-style: none;
-      font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
     }
     .nav-links a {
-      position: relative; padding: 6px 0; color: var(--text-muted);
-      transition: color 0.25s ease;
+      position: relative; padding: 6px 0; color: #D8D8E5; /* Más brillante */
+      transition: color 0.25s ease, text-shadow 0.25s ease;
     }
     .nav-links a::after {
-      content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+      content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1.5px;
       background: var(--steel-gradient); transition: width 0.25s ease;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover {
+      color: var(--white);
+      text-shadow: 0 0 14px rgba(255,255,255,0.5);
+    }
     .nav-links a:hover::after { width: 100%; }
 
     .nav-actions { display: flex; align-items: center; gap: 14px; }
@@ -328,15 +335,15 @@
 
     .hero-badge-live {
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 6px 16px; background: rgba(255, 255, 255, 0.03);
+      padding: 6px 16px; background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--steel-border);
       border-top: 1px solid var(--steel-highlight);
       border-radius: var(--radius-pill);
-      font-size: 0.72rem; font-weight: 500; color: #D6D6DE;
+      font-size: 0.74rem; font-weight: 500; color: #EAEAFA;
       margin-bottom: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.5);
     }
     .pulse-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--wa-emerald);
+      width: 7px; height: 7px; border-radius: 50%; background: var(--wa-green-bright);
       box-shadow: 0 0 0 0 rgba(37,211,102,0.7); animation: pulseGreen 1.8s infinite;
     }
     @keyframes pulseGreen {
@@ -350,7 +357,7 @@
       line-height: 1.04; margin-bottom: 20px; font-weight: 500;
     }
     .hero p {
-      font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+      font-size: clamp(1rem, 1.4vw, 1.12rem);
       color: var(--text-muted); max-width: 490px; margin-bottom: 34px; line-height: 1.6;
     }
     .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
@@ -362,10 +369,10 @@
       background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       font-size: 0.95rem; letter-spacing: 3px;
     }
-    .proof-text { font-size: 0.8rem; color: var(--text-muted); }
+    .proof-text { font-size: 0.82rem; color: var(--text-muted); }
     .proof-text strong { color: var(--white); font-weight: 600; }
 
-    /* RETRATO HERO: ARCO EDITORIAL CON BISEL */
+    /* RETRATO HERO */
     .hero-visual-wrapper { display: flex; justify-content: center; width: 100%; }
     .hero-visual {
       position: relative; width: 100%; max-width: 380px; aspect-ratio: 4/5;
@@ -381,23 +388,23 @@
     }
     .hero-visual::before {
       content: ''; position: absolute; inset: 10px; border-radius: inherit;
-      border: 1px solid rgba(255,255,255,0.22); pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.25); pointer-events: none;
     }
     .hero-quote {
       position: absolute; left: 6%; right: 6%; bottom: 6%;
-      background: rgba(9, 9, 12, 0.88); backdrop-filter: blur(12px);
+      background: rgba(9, 9, 12, 0.9); backdrop-filter: blur(14px);
       border: 1px solid var(--steel-border);
       border-top: 1px solid rgba(255,255,255,0.4);
       border-radius: var(--radius-sm);
       padding: 12px 16px; font-family: var(--font-serif); font-style: italic;
-      font-size: 0.94rem; color: var(--white); text-align: center; line-height: 1.35;
+      font-size: 0.96rem; color: var(--white); text-align: center; line-height: 1.35;
     }
     .hero-badge {
       position: absolute; top: 8%; right: 4px;
       background: var(--steel-titanium); border: 1.5px solid var(--white);
       border-radius: 50%; width: 92px; height: 92px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      box-shadow: 0 16px 30px rgba(0,0,0,0.85), 0 0 20px rgba(255,255,255,0.15); z-index: 5;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.85), 0 0 20px rgba(255,255,255,0.18); z-index: 5;
     }
     .hero-badge strong {
       font-family: var(--font-serif); font-size: 1.5rem;
@@ -406,7 +413,7 @@
     }
     .hero-badge span {
       font-size: 0.54rem; letter-spacing: 0.06em; text-transform: uppercase;
-      color: #D6D6DE; margin-top: 3px; text-align: center;
+      color: #E2E2EC; margin-top: 3px; text-align: center;
     }
 
     /* ============================================================
@@ -422,7 +429,7 @@
     .ticker-item {
       display: inline-flex; align-items: center; gap: 14px;
       font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: #D6D6DE;
+      text-transform: uppercase; color: #E8E8F2;
     }
     .ticker-item span {
       background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -449,13 +456,13 @@
       padding: 9px 22px; font-size: 0.72rem; font-weight: 600;
       letter-spacing: 0.12em; text-transform: uppercase;
       border: 1px solid var(--steel-border); border-radius: var(--radius-pill);
-      background: var(--bg-elevated); color: #B0B0BE;
+      background: var(--bg-elevated); color: #C2C2D0;
       cursor: pointer; transition: all 0.25s ease; white-space: nowrap;
     }
     .filter-btn:hover { border-color: var(--white); color: var(--white); }
     .filter-btn.active {
       background: var(--steel-gradient); color: #0E0E12; border-color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
     }
 
     .cards-grid {
@@ -466,18 +473,18 @@
     .card {
       background: var(--bg-card);
       border: 1px solid var(--steel-border);
-      border-top: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.4);
       padding: clamp(26px, 3vw, 36px);
       display: flex; flex-direction: column; justify-content: space-between;
       border-radius: var(--radius-sm);
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .card:hover {
-      border-color: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.55);
       border-top-color: #FFFFFF;
       background: rgba(26, 26, 34, 0.92);
       transform: translateY(-5px);
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.1);
     }
     .card.is-hidden { display: none; }
     .card-num {
@@ -486,7 +493,7 @@
       font-size: 1.05rem; margin-bottom: 12px; display: block;
     }
     .card h3 { font-size: 1.35rem; margin-bottom: 8px; color: var(--white); }
-    .card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.55; }
+    .card p { color: var(--text-muted); font-size: 0.94rem; margin-bottom: 24px; line-height: 1.55; }
     .card-footer {
       border-top: 1px solid var(--steel-border);
       padding-top: 18px; margin-top: auto;
@@ -566,7 +573,7 @@
     }
     .compare-foot {
       display: flex; justify-content: space-between; align-items: center;
-      margin-top: 12px; font-size: 0.84rem; color: #D6D6DE; padding: 0 4px;
+      margin-top: 12px; font-size: 0.84rem; color: #EAEAFA; padding: 0 4px;
     }
     .compare-foot strong { color: var(--white); }
 
@@ -616,11 +623,11 @@
 
     .reel-content { position: relative; z-index: 5; padding: 22px 18px; }
     .reel-badge-pill {
-      font-size: 0.68rem; color: #D6D6DE; text-transform: uppercase;
+      font-size: 0.68rem; color: #EAEAFA; text-transform: uppercase;
       letter-spacing: 0.12em; font-weight: 600; display: block; margin-bottom: 4px;
     }
     .reel-content h3 { font-size: 1.3rem; color: #fff; line-height: 1.2; margin-bottom: 6px; }
-    .reel-content p { font-size: 0.85rem; color: #D6D6DE; margin-bottom: 16px; line-height: 1.4; }
+    .reel-content p { font-size: 0.86rem; color: #D8D8E5; margin-bottom: 16px; line-height: 1.4; }
     
     .reel-btn-steel {
       width: 100%; padding: 12px 16px; border-radius: var(--radius-sm);
@@ -668,8 +675,8 @@
       line-height: 1; margin-bottom: 12px; display: block;
     }
     .step-card h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--white); }
-    .step-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
-    .step-card strong { color: #E8E8F0; }
+    .step-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+    .step-card strong { color: #FFFFFF; }
 
     /* ============================================================
        4. SOBRE KAREN CÁRDENAS
@@ -697,13 +704,13 @@
       border: 2px solid var(--bg-surface); box-shadow: 0 10px 25px rgba(0,0,0,0.8);
     }
     .about-text h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-bottom: 16px; }
-    .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.96rem; }
+    .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.98rem; }
     .about-stats { display: flex; gap: clamp(20px, 4vw, 40px); margin-top: 28px; flex-wrap: wrap; }
     .about-stats div strong {
       display: block; font-family: var(--font-serif); font-size: 1.9rem;
       background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .about-stats div span { font-size: 0.74rem; color: #D6D6DE; }
+    .about-stats div span { font-size: 0.76rem; color: #E2E2EC; }
 
     /* ============================================================
        5. TESTIMONIOS
@@ -728,11 +735,11 @@
       font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px;
     }
     .testi-card p {
-      font-family: var(--font-serif); font-style: italic; font-size: 1.1rem;
-      color: #E8E8F0; margin-bottom: 18px; line-height: 1.45;
+      font-family: var(--font-serif); font-style: italic; font-size: 1.12rem;
+      color: #F0F0FA; margin-bottom: 18px; line-height: 1.45;
     }
-    .testi-name { font-weight: 600; font-size: 0.86rem; color: var(--white); }
-    .testi-role { font-size: 0.76rem; color: var(--text-subtle); margin-top: 2px; }
+    .testi-name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+    .testi-role { font-size: 0.78rem; color: var(--text-subtle); margin-top: 2px; }
 
     /* ============================================================
        6. PREGUNTAS FRECUENTES (FAQ)
@@ -754,10 +761,10 @@
       display: flex; justify-content: space-between; align-items: center; color: var(--white);
     }
     .faq-question::-webkit-details-marker { display: none; }
-    .faq-question::after { content: '+'; font-size: 1.35rem; color: #D6D6DE; }
+    .faq-question::after { content: '+'; font-size: 1.35rem; color: #E8E8F2; }
     .faq-item[open] .faq-question::after { content: '−'; }
     .faq-answer {
-      padding: 0 22px 20px; color: var(--text-muted); font-size: 0.94rem;
+      padding: 0 22px 20px; color: var(--text-muted); font-size: 0.96rem;
       border-top: 1px solid var(--steel-border); padding-top: 12px; line-height: 1.6;
     }
 
@@ -766,7 +773,7 @@
        ============================================================ */
     .booking { background: #040406; color: var(--white); padding: clamp(70px, 9vw, 110px) 0; text-align: center; }
     .booking h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin: 12px auto 16px; max-width: 720px; }
-    .booking p { color: #D6D6DE; max-width: 520px; margin: 0 auto 12px; font-size: 0.96rem; }
+    .booking p { color: #E2E2EC; max-width: 520px; margin: 0 auto 12px; font-size: 0.98rem; }
     .booking .phone {
       display: block; font-family: var(--font-serif); font-size: clamp(1.9rem, 3.5vw, 2.3rem);
       background: var(--steel-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -792,8 +799,8 @@
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
       gap: 32px; margin-bottom: 36px;
     }
-    .footer-brand p { font-size: 0.88rem; max-width: 320px; margin-top: 12px; color: var(--text-muted); }
-    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: #D6D6DE; }
+    .footer-brand p { font-size: 0.9rem; max-width: 320px; margin-top: 12px; color: var(--text-muted); }
+    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; color: #E2E2EC; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; }
     .footer-col a:hover { color: var(--white); }
     .footer-bottom {
@@ -806,7 +813,7 @@
       display: inline-flex; align-items: center; gap: 8px;
       padding: 8px 16px; border-radius: var(--radius-sm);
       border: 1px solid var(--steel-border); font-size: 0.78rem; font-weight: 500;
-      color: #D6D6DE; transition: all 0.2s ease;
+      color: #E2E2EC; transition: all 0.2s ease;
     }
     .footer-social a:hover {
       border-color: var(--white); background: var(--steel-gradient); color: #0E0E12;
@@ -815,7 +822,7 @@
     .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
     /* ============================================================
-       BOTÓN CONCIERGE WHATSAPP (ACERO & ESMERALDA)
+       BOTÓN WHATSAPP VERDE E ILUMINADO (LUMINOUS EMERALD)
        ============================================================ */
     .wa-widget {
       position: fixed;
@@ -829,28 +836,58 @@
       padding: 9px 16px; border-radius: var(--radius-pill);
       font-size: 0.8rem; font-weight: 500;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      border: 1px solid var(--steel-border);
-      border-top: 1px solid var(--steel-highlight);
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      border-top: 1px solid rgba(255,255,255,0.4);
       display: flex; align-items: center; gap: 8px;
     }
+    
+    /* BOTÓN VERDE WHATSAPP ILUMINADO */
     .whatsapp-btn {
-      display: flex; align-items: center; gap: 10px;
-      background: var(--steel-titanium); color: var(--white);
-      padding: 14px 24px; border-radius: var(--radius-pill);
-      border: 1px solid var(--steel-border);
-      border-top: 1.5px solid var(--steel-highlight);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255,255,255,0.2);
-      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 12px;
+      background: linear-gradient(135deg, #2CF87B 0%, #25D366 52%, #1AA84E 100%);
+      color: #FFFFFF;
+      padding: 15px 26px; border-radius: var(--radius-pill);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      min-height: 54px;
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-      min-height: 52px;
+      /* HALO DE ILUMINACIÓN */
+      box-shadow: 
+        0 0 24px rgba(37, 211, 102, 0.65),
+        0 0 50px rgba(37, 211, 102, 0.35),
+        0 10px 25px rgba(0, 0, 0, 0.85),
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.75);
+      animation: waIlluminatedPulse 3s ease-in-out infinite alternate;
     }
-    .whatsapp-btn svg { width: 22px; height: 22px; fill: var(--wa-emerald); flex-shrink: 0; }
+    @keyframes waIlluminatedPulse {
+      0% {
+        box-shadow: 
+          0 0 20px rgba(37, 211, 102, 0.55),
+          0 0 40px rgba(37, 211, 102, 0.25),
+          0 8px 22px rgba(0, 0, 0, 0.8),
+          inset 0 1.5px 2px rgba(255, 255, 255, 0.75);
+      }
+      100% {
+        box-shadow: 
+          0 0 34px rgba(37, 211, 102, 0.9),
+          0 0 70px rgba(37, 211, 102, 0.5),
+          0 12px 30px rgba(0, 0, 0, 0.9),
+          inset 0 1.5px 2px #FFFFFF;
+      }
+    }
     .whatsapp-btn:hover {
-      background: var(--steel-gradient); color: #0E0E12; border-color: #FFFFFF;
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 
+        0 0 42px rgba(37, 211, 102, 1),
+        0 0 80px rgba(37, 211, 102, 0.65),
+        inset 0 1.5px 2px #FFFFFF;
     }
-    .whatsapp-btn:hover svg { fill: #0E0E12; }
+    .whatsapp-btn svg {
+      width: 24px; height: 24px; fill: #FFFFFF; flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+    }
 
     /* ============================================================
        RESPONSIVE ADAPTATIVO
@@ -872,7 +909,6 @@
         display: block; padding: 18px 0; font-size: 1.15rem; font-family: var(--font-serif);
         color: var(--white); text-transform: uppercase;
       }
-      .nav-mobile-cta { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
       .hero-actions { flex-direction: column; width: 100%; }
       .hero-actions .btn { width: 100%; }
       .wa-bubble { display: none; }
@@ -882,7 +918,7 @@
 </head>
 <body>
 
-<!-- ============ BOTÓN CONCIERGE WHATSAPP ============ -->
+<!-- ============ BOTÓN WHATSAPP VERDE ILUMINADO ============ -->
 <div class="wa-widget">
   <div class="wa-bubble">
     <span>✨ Consultar disponibilidad en La Vega</span>
@@ -910,7 +946,7 @@
       </div>
     </a>
 
-    <!-- Enlaces integrados -->
+    <!-- Enlaces limpios sin botones duplicados -->
     <ul class="nav-links" id="navLinks">
       <li><a href="#tratamientos">Tratamientos</a></li>
       <li><a href="#resultados">Resultados</a></li>
@@ -918,14 +954,6 @@
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#testimonios">Opiniones</a></li>
       <li><a href="#preguntas">FAQ</a></li>
-      <li class="nav-mobile-cta">
-        <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita%20desde%20tu%20web." target="_blank" rel="noopener" class="btn btn-steel">
-          Agendar por WhatsApp
-        </a>
-        <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="btn btn-titanium">
-          Seguir en Instagram
-        </a>
-      </li>
     </ul>
 
     <!-- Botón de acero plateado -->
@@ -1176,7 +1204,7 @@
       <div class="reel-card reel-card--insta">
         <div class="insta-icon-circle">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77 1.15 4.9 4.9 0 0 1-1.15 1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/>
+            <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.77 1.15 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77 1.15 4.9 4.9 0 0 1-1.15 1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/>
           </svg>
         </div>
         <span class="reel-badge-pill">Historias Diarias</span>
@@ -1394,7 +1422,7 @@
         
         <div class="footer-social">
           <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77 1.15 4.9 4.9 0 0 1-1.15 1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.77 1.15 4.9 4.9 0 0 1-1.15 1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/></svg>
             <span>@karencardenas_studio</span>
           </a>
         </div>
@@ -1481,7 +1509,6 @@
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
 
-    // Al inicio de la página: totalmente transparente e integrada
     if (currentScrollY <= 25) {
       header.classList.remove('header-scrolled');
       header.classList.remove('header-hidden');
@@ -1489,14 +1516,11 @@
       return;
     }
 
-    // Al scrollear: aplica el efecto cristal
     header.classList.add('header-scrolled');
 
-    // Scrolleando hacia abajo: ocultar para dar espacio total a los contenidos
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       header.classList.add('header-hidden');
     } else {
-      // Scrolleando hacia arriba: mostrar de inmediato suavemente
       header.classList.remove('header-hidden');
     }
 
