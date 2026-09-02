@@ -3,13 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karen Cárdenas Studio — Cejas y pestañas</title>
-  <meta name="description" content="Estudio especializado en cejas y pestañas: epilación, HidraLips, sombreado en henna, lifting de pestañas, laminado y micropigmentación de cejas. La Vega, Cundinamarca.">
+  <title>Karen Cárdenas Studio — Cejas y Pestañas en La Vega, Cundinamarca</title>
+  <meta name="description" content="Estudio especializado en micropigmentación de cejas, lifting de pestañas, sombreado en henna, laminado, HidraLips y epilación. La Vega, Cundinamarca. Agenda tu cita.">
+  <meta name="keywords" content="cejas la vega, pestañas la vega cundinamarca, micropigmentacion, lifting pestañas, henna, laminado de cejas, karen cardenas">
+  <meta name="author" content="Karen Cárdenas">
+  <link rel="canonical" href="https://karencardenasstudio.com">
+
+  <!-- Open Graph para WhatsApp, Instagram y Facebook -->
+  <meta property="og:type" content="business.business">
+  <meta property="og:title" content="Karen Cárdenas Studio — Cejas y pestañas con precisión">
+  <meta property="og:description" content="Diseño, técnica y precisión para una mirada elegante y a tu medida en La Vega, Cundinamarca.">
+  <meta property="og:image" content="images/karen.jpg">
+  <meta property="og:locale" content="es_CO">
 
   <!-- Tipografías: Cormorant (títulos) + Jost (cuerpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Datos estructurados para Google LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Karen Cárdenas Studio",
+    "image": "images/karen.jpg",
+    "telephone": "+573222167080",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 4a #20-25",
+      "addressLocality": "La Vega",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    },
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/karencardenas_studio/"
+    ]
+  }
+  </script>
 
   <style>
     /* ===== RESET Y VARIABLES ===== */
@@ -18,12 +50,14 @@
       --ink: #111111;
       --cream: #FAF9F6;
       --gold: #B08D57;
+      --gold-dark: #91713F;
       --silver: #B6B6B0;
       --card-bg: #F1EFEA;
       --ink-soft: #55524C;
+      --wa-green: #25D366;
       --font-display: 'Cormorant', Georgia, serif;
       --font-body: 'Jost', -apple-system, sans-serif;
-      --radius: 1px;
+      --radius: 2px;
       --container: 1180px;
       --gold-glow: rgba(176,141,87,0.35);
     }
@@ -41,7 +75,7 @@
     .wrap { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
     .eyebrow {
       font-family: var(--font-body);
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.28em;
       text-transform: uppercase;
@@ -57,23 +91,23 @@
     header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(250,249,246,0.92);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(17,17,17,0.08);
       transition: box-shadow 0.3s ease, background 0.3s ease;
     }
     header.is-scrolled {
       box-shadow: 0 8px 24px -12px rgba(17,17,17,0.18);
-      background: rgba(250,249,246,0.97);
+      background: rgba(250,249,246,0.98);
     }
     .nav {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 22px 32px; max-width: var(--container); margin: 0 auto;
+      padding: 18px 32px; max-width: var(--container); margin: 0 auto;
     }
-    .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.02em; }
+    .logo { font-family: var(--font-display); font-size: 1.55rem; font-weight: 600; letter-spacing: 0.02em; }
     .logo span { color: var(--gold); font-style: italic; font-weight: 500; }
 
     .nav-links {
-      display: flex; gap: 38px; list-style: none;
+      display: flex; gap: 32px; list-style: none;
       font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
     }
     .nav-links a { position: relative; padding: 4px 0; }
@@ -85,12 +119,16 @@
 
     .nav-cta {
       background: var(--ink); color: var(--cream);
-      padding: 12px 26px; font-size: 0.78rem; font-weight: 600;
+      padding: 11px 24px; font-size: 0.78rem; font-weight: 600;
       letter-spacing: 0.08em; text-transform: uppercase;
       border: 1px solid var(--ink);
-      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      border-radius: var(--radius);
+      transition: all 0.25s ease;
     }
-    .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); box-shadow: 0 10px 26px -10px var(--gold-glow); }
+    .nav-cta:hover {
+      background: var(--gold); border-color: var(--gold);
+      color: var(--ink); box-shadow: 0 10px 24px -10px var(--gold-glow);
+    }
     .nav-toggle {
       display: none; background: none; border: none; cursor: pointer;
       width: 32px; height: 22px; position: relative;
@@ -109,29 +147,37 @@
     .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); background: var(--gold); }
 
     /* ===== HERO ===== */
-    .hero { padding: 100px 0 84px; position: relative; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+    .hero { padding: 90px 0 80px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
     .hero h1 {
       font-size: clamp(2.6rem, 5vw, 4.3rem);
-      line-height: 1.05;
-      margin: 18px 0 26px;
+      line-height: 1.08;
+      margin: 18px 0 24px;
       font-weight: 500;
     }
     .hero h1 em { font-style: italic; color: var(--gold); }
-    .hero p { font-size: 1.06rem; color: var(--ink-soft); max-width: 460px; margin-bottom: 34px; }
+    .hero p { font-size: 1.08rem; color: var(--ink-soft); max-width: 480px; margin-bottom: 34px; }
     .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 15px 30px; font-size: 0.82rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 28px; font-size: 0.82rem; font-weight: 600;
       letter-spacing: 0.08em; text-transform: uppercase;
       border-radius: var(--radius);
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
     }
-    .btn-primary { background: var(--gold); color: var(--ink); }
-    .btn-primary:hover { background: var(--ink); color: var(--cream); transform: translateY(-1px); }
-    .btn-ghost { border: 1px solid var(--ink); }
-    .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+    .btn-primary { background: var(--gold); color: var(--cream); border: 1px solid var(--gold); }
+    .btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); transform: translateY(-2px); }
+    .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+    .btn-wa {
+      background: var(--wa-green); color: #fff; border: 1px solid var(--wa-green);
+    }
+    .btn-wa:hover {
+      background: #1EBE5B; color: #fff; transform: translateY(-2px);
+      box-shadow: 0 10px 20px -8px rgba(37, 211, 102, 0.5);
+    }
 
     .hero-visual {
       position: relative;
@@ -144,28 +190,126 @@
       width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
     }
     .hero-visual::before {
-      content: ''; position: absolute; inset: 14px; border-radius: inherit;
+      content: ''; position: absolute; inset: 12px; border-radius: inherit;
       border: 1px solid var(--gold); opacity: 0.7; pointer-events: none;
     }
     .hero-quote {
-      position: absolute; left: 8%; right: 8%; bottom: 9%;
-      background: rgba(17,17,17,0.72); backdrop-filter: blur(6px);
+      position: absolute; left: 8%; right: 8%; bottom: 8%;
+      background: rgba(17,17,17,0.78); backdrop-filter: blur(6px);
       border: 1px solid rgba(176,141,87,0.5);
       border-radius: 2px; padding: 16px 20px;
-      font-family: var(--font-display); font-style: italic; font-size: 1rem;
+      font-family: var(--font-display); font-style: italic; font-size: 1.02rem;
       color: var(--cream); text-align: center; line-height: 1.4;
     }
     .hero-badge {
-      position: absolute; top: 6%; right: -6%;
+      position: absolute; top: 6%; right: -2%;
       background: var(--cream); border: 1px solid var(--gold);
       border-radius: 50%; width: 104px; height: 104px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       box-shadow: 0 18px 34px -14px rgba(17,17,17,0.35);
     }
-    .hero-badge strong { font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); line-height: 1; }
+    .hero-badge strong { font-family: var(--font-display); font-size: 1.55rem; color: var(--gold); line-height: 1; }
     .hero-badge span { font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; text-align: center; }
 
-    /* ===== ABOUT ===== */
+    /* ===== COMPARADOR ANTES / DESPUÉS (NUEVO) ===== */
+    .compare-section { padding: 90px 0; background: #FAF7F2; border-top: 1px solid rgba(17,17,17,0.06); }
+    .compare-head { text-align: center; margin-bottom: 44px; }
+    .compare-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
+    .compare-container {
+      max-width: 820px; margin: 0 auto;
+      background: var(--cream);
+      border: 1px solid rgba(17,17,17,0.1);
+      padding: 16px;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 50px -20px rgba(17,17,17,0.2);
+    }
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border-radius: var(--radius);
+      user-select: none;
+      --pos: 50%;
+    }
+    .ba-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; pointer-events: none;
+    }
+    .ba-img--before {
+      clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+    }
+    .ba-label {
+      position: absolute; top: 16px;
+      padding: 6px 14px; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: rgba(17,17,17,0.75); color: #fff;
+      border-radius: 2px; backdrop-filter: blur(4px);
+      pointer-events: none;
+    }
+    .ba-label--before { left: 16px; }
+    .ba-label--after { right: 16px; }
+    .ba-line {
+      position: absolute; top: 0; bottom: 0; left: var(--pos);
+      width: 2px; background: var(--gold);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .ba-handle {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--cream); border: 2px solid var(--gold);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink); font-size: 0.75rem; font-weight: bold;
+    }
+    .ba-range {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      opacity: 0; cursor: ew-resize; z-index: 10;
+    }
+    .compare-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 14px; font-size: 0.85rem; color: var(--ink-soft);
+      padding: 0 8px;
+    }
+
+    /* ===== GALERÍA — PARALLAX ===== */
+    .gallery { padding: 104px 0 112px; overflow: hidden; }
+    .gallery-head { text-align: center; margin-bottom: 54px; }
+    .gallery-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
+    .gallery-head p { color: var(--ink-soft); max-width: 520px; margin: 14px auto 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      grid-auto-flow: dense;
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--card-bg);
+    }
+    .gallery-item--tall { grid-row: span 2; }
+
+    .parallax-img {
+      position: absolute; top: -15%; left: 0;
+      width: 100%; height: 130%;
+      object-fit: cover;
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+    }
+    .gallery-badge {
+      position: absolute; bottom: 12px; left: 12px; z-index: 2;
+      background: rgba(17,17,17,0.7); backdrop-filter: blur(4px);
+      color: var(--cream); font-size: 0.72rem; padding: 4px 10px;
+      border-radius: 1px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+
+    /* ===== SOBRE KAREN ===== */
     .about { padding: 104px 0; }
     .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: center; }
     .about-visual { position: relative; margin-bottom: 46px; }
@@ -179,7 +323,7 @@
       display: flex; gap: 12px;
     }
     .about-side-photos img {
-      width: 92px; height: 120px; object-fit: cover; border-radius: var(--radius);
+      width: 96px; height: 124px; object-fit: cover; border-radius: var(--radius);
       border: 4px solid var(--cream); box-shadow: 0 16px 30px -14px rgba(17,17,17,0.4);
     }
     .about-text .eyebrow { display: block; margin-bottom: 14px; }
@@ -208,7 +352,7 @@
     }
     .swatch:last-child { border-right: none; }
     .swatch:hover, .swatch:focus-visible { flex: 2.4; }
-    .swatch-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; white-space: nowrap; }
+    .swatch-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; white-space: nowrap; }
     .swatch-desc {
       font-size: 0.8rem; max-width: 220px; margin-top: 6px;
       opacity: 0; transform: translateY(6px);
@@ -233,90 +377,29 @@
       background: var(--card-bg);
       border: 1px solid rgba(17,17,17,0.1);
       padding: 34px 28px;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .card:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .card-num { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 0.95rem; margin-bottom: 14px; display: block; }
-    .card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-    .card p { color: var(--ink-soft); font-size: 0.92rem; }
-    .card .price { display: block; margin-top: 18px; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.03em; color: var(--gold); }
-
-    /* ===== TRUST ===== */
-    .trust { border-top: 1px solid rgba(17,17,17,0.1); border-bottom: 1px solid rgba(17,17,17,0.1); padding: 44px 0; }
-    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
-    .trust-num { font-family: var(--font-display); font-size: 2.1rem; color: var(--gold); }
-    .trust-label { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
-
-    /* ===== TESTIMONIALS ===== */
-    .testimonials { padding: 104px 0; background: var(--card-bg); }
-    .testimonials-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .testi-card { background: var(--cream); padding: 32px 26px; border: 1px solid rgba(17,17,17,0.08); }
-    .testi-card p { font-family: var(--font-display); font-style: italic; font-size: 1.08rem; color: var(--ink); margin-bottom: 20px; }
-    .testi-name { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em; }
-    .testi-role { font-size: 0.78rem; color: var(--ink-soft); }
-
-    /* ===== BOOKING ===== */
-    .booking { background: var(--ink); color: var(--cream); padding: 104px 0; text-align: center; }
-    .booking .eyebrow { color: var(--gold); }
-    .booking h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin: 16px auto 20px; max-width: 700px; }
-    .booking p { color: var(--silver); max-width: 520px; margin: 0 auto 12px; }
-    .booking .phone { display: block; font-family: var(--font-display); font-size: 1.6rem; color: var(--gold); margin: 8px 0 34px; letter-spacing: 0.04em; }
-
-    /* ===== FOOTER ===== */
-    footer { padding: 60px 0 40px; }
-    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
-    .footer-brand .logo { margin-bottom: 12px; }
-    .footer-brand p { color: var(--ink-soft); font-size: 0.9rem; max-width: 300px; }
-    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--ink-soft); }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
-    .footer-bottom {
-      border-top: 1px solid rgba(17,17,17,0.1); padding-top: 24px;
-      display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--ink-soft);
-      flex-wrap: wrap; gap: 10px;
-    }
-    .footer-social { display: flex; gap: 14px; margin-top: 18px; }
-    .footer-social a {
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid rgba(17,17,17,0.18);
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-    }
-    .footer-social a:hover { border-color: var(--gold); background: var(--gold); transform: translateY(-2px); }
-    .footer-social svg { width: 16px; height: 16px; fill: var(--ink); }
-    .footer-social a:hover svg { fill: var(--ink); }
-
-    /* ===== REVEAL ===== */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-    /* ===== GALLERY (parallax) ===== */
-    .gallery { padding: 104px 0 112px; overflow: hidden; }
-    .gallery-head { text-align: center; margin-bottom: 54px; }
-    .gallery-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
-    .gallery-head p { color: var(--ink-soft); max-width: 520px; margin: 14px auto 0; }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 240px;
-      grid-auto-flow: dense;
-      gap: 20px;
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
       border-radius: var(--radius);
-      background: var(--card-bg);
     }
-    .gallery-item--tall { grid-row: span 2; }
-
-    .parallax-img {
-      position: absolute; top: -15%; left: 0;
-      width: 100%; height: 130%;
-      object-fit: cover;
-      will-change: transform, opacity;
-      backface-visibility: hidden;
+    .card:hover {
+      border-color: var(--gold); transform: translateY(-4px);
+      box-shadow: 0 20px 40px -20px rgba(17,17,17,0.2);
     }
+    .card-num { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 1rem; margin-bottom: 14px; display: block; }
+    .card h3 { font-size: 1.35rem; margin-bottom: 10px; }
+    .card p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 16px; }
+    .card-footer {
+      border-top: 1px solid rgba(17,17,17,0.08);
+      padding-top: 16px; margin-top: auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card .price { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; color: var(--gold-dark); }
+    .card-cta {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 4px;
+      transition: color 0.2s ease;
+    }
+    .card-cta:hover { color: var(--gold); }
 
     /* ===== PROJECTS (video portfolio) ===== */
     .projects { padding: 104px 0; background: var(--card-bg); }
@@ -330,6 +413,7 @@
       border: 1px solid rgba(17,17,17,0.1);
       overflow: hidden;
       cursor: pointer;
+      border-radius: var(--radius);
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
     .project-card:hover,
@@ -350,15 +434,31 @@
       font-size: 0.95rem; pointer-events: none;
       transition: background 0.25s ease, transform 0.25s ease;
     }
-    .project-card:hover .play-btn { background: var(--gold); transform: translate(-50%,-50%) scale(1.08); }
+    .project-card:hover .play-btn { background: var(--gold); color: #fff; transform: translate(-50%,-50%) scale(1.08); }
     .project-info { padding: 22px 24px 26px; }
-    .project-info h3 { font-size: 1.12rem; margin-bottom: 6px; }
+    .project-info h3 { font-size: 1.15rem; margin-bottom: 6px; }
     .project-info p { color: var(--ink-soft); font-size: 0.88rem; }
+
+    /* Tarjeta reservada */
+    .project-card--add {
+      border: 2px dashed rgba(176,141,87,0.4);
+      background: transparent;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 40px 24px;
+    }
+    .project-card--add:hover { border-color: var(--gold); background: rgba(176,141,87,0.04); }
+    .add-icon {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--card-bg); border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--gold); margin-bottom: 16px;
+    }
 
     /* ===== VIDEO MODAL ===== */
     .video-modal {
       position: fixed; inset: 0; z-index: 1000;
-      background: rgba(17,17,17,0.9);
+      background: rgba(17,17,17,0.92);
+      backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
       padding: 24px;
       opacity: 0; visibility: hidden;
@@ -366,22 +466,140 @@
     }
     .video-modal.is-open { opacity: 1; visibility: visible; }
     .video-modal-inner { position: relative; width: 100%; max-width: 900px; }
-    .video-modal-media { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+    .video-modal-media { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; border-radius: var(--radius); overflow: hidden; }
     .video-modal-media video,
     .video-modal-media iframe {
       position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
     }
     .video-modal-close {
       position: absolute; top: -46px; right: 0; background: none; border: none;
-      color: var(--cream); font-size: 1.6rem; cursor: pointer; line-height: 1;
+      color: var(--cream); font-size: 1.8rem; cursor: pointer; line-height: 1;
     }
     .video-modal-close:hover { color: var(--gold); }
+
+    /* ===== TRUST ===== */
+    .trust { border-top: 1px solid rgba(17,17,17,0.1); border-bottom: 1px solid rgba(17,17,17,0.1); padding: 50px 0; }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+    .trust-num { font-family: var(--font-display); font-size: 2.3rem; color: var(--gold); line-height: 1; }
+    .trust-label { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 8px; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials { padding: 104px 0; background: var(--card-bg); }
+    .testimonials-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .testi-card {
+      background: var(--cream); padding: 36px 30px;
+      border: 1px solid rgba(17,17,17,0.08); border-radius: var(--radius);
+    }
+    .testi-card p { font-family: var(--font-display); font-style: italic; font-size: 1.12rem; color: var(--ink); margin-bottom: 20px; line-height: 1.45; }
+    .testi-name { font-weight: 600; font-size: 0.88rem; letter-spacing: 0.02em; }
+    .testi-role { font-size: 0.78rem; color: var(--gold-dark); margin-top: 2px; }
+
+    /* ===== PREGUNTAS FRECUENTES (FAQ - NUEVO) ===== */
+    .faq-section { padding: 96px 0; }
+    .faq-head { text-align: center; margin-bottom: 48px; }
+    .faq-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); margin-top: 12px; }
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+      border: 1px solid rgba(17,17,17,0.12);
+      border-radius: var(--radius);
+      background: var(--cream);
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+    .faq-item[open] { border-color: var(--gold); }
+    .faq-question {
+      padding: 20px 24px; font-weight: 500; font-size: 1.05rem;
+      font-family: var(--font-display); cursor: pointer; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::after {
+      content: '+'; font-size: 1.3rem; color: var(--gold); transition: transform 0.25s ease;
+    }
+    .faq-item[open] .faq-question::after {
+      content: '−'; transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 24px 22px; color: var(--ink-soft); font-size: 0.94rem;
+      border-top: 1px solid rgba(17,17,17,0.06); padding-top: 14px;
+    }
+
+    /* ===== UBICACIÓN & CONTACTO ===== */
+    .location-box {
+      background: rgba(250,249,246,0.05);
+      border: 1px solid rgba(176,141,87,0.3);
+      padding: 30px; margin: 34px auto 0;
+      max-width: 620px; border-radius: var(--radius);
+      text-align: center;
+    }
+    .location-address { font-size: 1.05rem; margin-bottom: 18px; color: var(--cream); }
+    .location-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .location-btn {
+      padding: 9px 18px; font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid var(--gold); color: var(--gold); border-radius: var(--radius);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .location-btn:hover { background: var(--gold); color: var(--ink); }
+
+    /* ===== BOOKING ===== */
+    .booking { background: var(--ink); color: var(--cream); padding: 104px 0; text-align: center; }
+    .booking .eyebrow { color: var(--gold); }
+    .booking h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin: 16px auto 20px; max-width: 700px; }
+    .booking p { color: var(--silver); max-width: 520px; margin: 0 auto 12px; }
+    .booking .phone { display: block; font-family: var(--font-display); font-size: 1.8rem; color: var(--gold); margin: 8px 0 34px; letter-spacing: 0.04em; }
+
+    /* ===== FOOTER ===== */
+    footer { padding: 60px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+    .footer-brand .logo { margin-bottom: 12px; }
+    .footer-brand p { color: var(--ink-soft); font-size: 0.9rem; max-width: 320px; }
+    .footer-col h4 { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; color: var(--ink-soft); }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
+    .footer-bottom {
+      border-top: 1px solid rgba(17,17,17,0.1); padding-top: 24px;
+      display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--ink-soft);
+      flex-wrap: wrap; gap: 10px;
+    }
+    .footer-social { display: flex; gap: 14px; margin-top: 18px; }
+    .footer-social a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: var(--radius);
+      border: 1px solid rgba(17,17,17,0.18);
+      font-size: 0.8rem; font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .footer-social a:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); transform: translateY(-2px); }
+    .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+    .whatsapp-float {
+      position: fixed; bottom: 26px; right: 26px; z-index: 990;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--wa-green); color: #fff;
+      padding: 12px 18px; border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
+      color: #fff;
+    }
+    .whatsapp-float svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+    .whatsapp-float-text { white-space: nowrap; }
+
+    /* ===== REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .nav-links {
         display: flex; flex-direction: column; gap: 0; text-align: center;
-        position: fixed; top: 73px; left: 0; right: 0; bottom: 0;
+        position: fixed; top: 69px; left: 0; right: 0; bottom: 0;
         background: var(--cream); padding: 40px 32px;
         transform: translateX(100%); transition: transform 0.35s ease;
       }
@@ -407,6 +625,8 @@
       .about-text { text-align: center; }
       .about-text p { margin-left: auto; margin-right: auto; }
       .about-stats { justify-content: center; }
+      .whatsapp-float-text { display: none; }
+      .whatsapp-float { padding: 14px; border-radius: 50%; }
     }
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; scroll-behavior: auto !important; }
@@ -415,16 +635,29 @@
 </head>
 <body>
 
+<!-- ============ BOTÓN FLOTANTE WHATSAPP ============ -->
+<a href="https://wa.me/573222167080?text=Hola%20Karen,%20estoy%20en%20tu%20sitio%20web%20y%20quiero%20agendar%20una%20cita." 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener" 
+   aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.071-2.18-.544-1.785-.739-2.92-2.56-3.01-2.679-.089-.12-1.02-1.357-1.02-2.588 0-1.23.642-1.838.87-2.088.229-.25.5-.312.667-.312.167 0 .334.002.48.009.153.007.358-.058.56.427.208.502.71 1.733.772 1.859.062.126.104.272.021.439-.083.167-.125.272-.25.417-.125.146-.263.326-.376.438-.125.125-.255.26-.11.51.146.25.648 1.069 1.39 1.731.954.85 1.758 1.114 2.008 1.239.25.125.396.104.542-.063.146-.167.625-.73.792-.98.167-.25.333-.208.562-.125.229.083 1.458.688 1.708.813.25.125.417.188.479.292.063.104.063.604-.081 1.009z"/>
+  </svg>
+  <span class="whatsapp-float-text">Agendar por WhatsApp</span>
+</a>
+
 <!-- ============ HEADER ============ -->
 <header>
   <nav class="nav">
     <div class="logo">Karen Cárdenas <span>Studio</span></div>
     <ul class="nav-links">
       <li><a href="#galeria">Galería</a></li>
+      <li><a href="#comparador">Antes y Después</a></li>
       <li><a href="#tratamientos">Tratamientos</a></li>
       <li><a href="#proyectos">Videos</a></li>
       <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#testimonios">Opiniones</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
       <li><a href="#reserva">Contacto</a></li>
     </ul>
     <a href="#reserva" class="nav-cta">Agendar cita</a>
@@ -438,16 +671,54 @@
     <div>
       <span class="eyebrow">La Vega, Cundinamarca</span>
       <h1>El arte de <em>realzar</em> tu mirada</h1>
-      <p>Estudio especializado en cejas y pestañas. Diseño, técnica y precisión para una mirada elegante, natural y a tu medida.</p>
+      <p>Estudio boutique especializado en cejas y pestañas. Diseño, técnica y precisión para una mirada elegante, armónica y a tu medida.</p>
       <div class="hero-actions">
-        <a href="#reserva" class="btn btn-primary">Agendar cita →</a>
+        <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20agendar%20una%20cita." class="btn btn-wa" target="_blank" rel="noopener">
+          Escribir al WhatsApp →
+        </a>
         <a href="#tratamientos" class="btn btn-ghost">Ver tratamientos</a>
       </div>
     </div>
     <div class="hero-visual">
-      <img src="karen.jpg" alt="Karen Cárdenas - Especialista en cejas y pestañas">
+      <img src="images/karen.jpg" alt="Karen Cárdenas - Especialista en cejas y pestañas">
       <div class="hero-quote">"La mirada es el primer detalle que se nota, el último que se olvida"</div>
       <div class="hero-badge"><strong>6+</strong><span>Años de experiencia</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARADOR ANTES / DESPUÉS (NUEVO) ============ -->
+<section class="compare-section" id="comparador">
+  <div class="wrap">
+    <div class="compare-head reveal">
+      <span class="eyebrow">Transformación en vivo</span>
+      <h2>Desliza para ver la diferencia</h2>
+      <p>Arrastra la barra central para comparar el resultado antes y después del tratamiento.</p>
+    </div>
+
+    <div class="compare-container reveal">
+      <div class="ba-slider" id="baSlider">
+        <!-- Imagen DESPUÉS (fondo completo) -->
+        <img class="ba-img ba-img--after" src="images/micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación de cejas - Resultado final cicatrizado">
+        <span class="ba-label ba-label--after">Cicatrizadas</span>
+
+        <!-- Imagen ANTES (recortada dinámicamente) -->
+        <img class="ba-img ba-img--before" src="images/micropig-cejas-antes.jpg" alt="Micropigmentación de cejas - Antes del procedimiento">
+        <span class="ba-label ba-label--before">Antes</span>
+
+        <!-- Línea y Manija -->
+        <div class="ba-line">
+          <div class="ba-handle"><span>◀ ▶</span></div>
+        </div>
+
+        <!-- Input invisible interactivo -->
+        <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" aria-label="Deslizar para comparar antes y después">
+      </div>
+
+      <div class="compare-foot">
+        <span>Procedimiento: <strong>Micropigmentación de cejas</strong></span>
+        <span>Resultado 100% real</span>
+      </div>
     </div>
   </div>
 </section>
@@ -458,36 +729,45 @@
     <div class="gallery-head reveal">
       <span class="eyebrow">Nuestro trabajo</span>
       <h2>El detalle en cada mirada</h2>
-      <p>Resultados reales de nuestras clientas. Desplázate para ver el efecto de profundidad.</p>
+      <p>Resultados reales de nuestras clientas. Desplázate para apreciar cada técnica.</p>
     </div>
-    <!-- 🖼️ GALERÍA DE RESULTADOS: Antes y después de cada tratamiento -->
+
     <div class="gallery-grid">
       <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="micropig-cejas-antes.jpg" alt="Micropigmentación de cejas - Antes">
+        <img class="parallax-img" src="images/micropig-cejas-antes.jpg" alt="Micropigmentación de cejas - Antes" loading="lazy">
+        <span class="gallery-badge">Micropig. Antes</span>
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="micropig-cejas-recien.jpg" alt="Micropigmentación de cejas - Recién realizada">
+        <img class="parallax-img" src="images/micropig-cejas-recien.jpg" alt="Micropigmentación de cejas - Recién realizada" loading="lazy">
+        <span class="gallery-badge">Recién hecha</span>
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación de cejas - Cicatrizadas">
+        <img class="parallax-img" src="images/micropig-cejas-cicatrizadas.jpg" alt="Micropigmentación de cejas - Cicatrizadas" loading="lazy">
+        <span class="gallery-badge">Cicatrizada</span>
       </div>
       <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="henna-antes.jpg" alt="Sombreado en henna - Antes">
+        <img class="parallax-img" src="images/henna-antes.jpg" alt="Sombreado en henna - Antes" loading="lazy">
+        <span class="gallery-badge">Henna Antes</span>
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="henna_despues.jpg" alt="Sombreado en henna - Después">
+        <img class="parallax-img" src="images/henna_despues.jpg" alt="Sombreado en henna - Después" loading="lazy">
+        <span class="gallery-badge">Henna Después</span>
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="lifting-antes.jpg" alt="Lifting de pestañas - Antes">
+        <img class="parallax-img" src="images/lifting-antes.jpg" alt="Lifting de pestañas - Antes" loading="lazy">
+        <span class="gallery-badge">Lifting Antes</span>
       </div>
       <div class="gallery-item gallery-item--tall">
-        <img class="parallax-img" src="lifting-despues.jpg" alt="Lifting de pestañas - Después">
+        <img class="parallax-img" src="images/lifting-despues.jpg" alt="Lifting de pestañas - Después" loading="lazy">
+        <span class="gallery-badge">Lifting Después</span>
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="laminado-antes.jpg" alt="Laminado de cejas - Antes">
+        <img class="parallax-img" src="images/laminado-antes.jpg" alt="Laminado de cejas - Antes" loading="lazy">
+        <span class="gallery-badge">Laminado Antes</span>
       </div>
       <div class="gallery-item">
-        <img class="parallax-img" src="laminado-despues.jpg" alt="Laminado de cejas - Después">
+        <img class="parallax-img" src="images/laminado-despues.jpg" alt="Laminado de cejas - Después" loading="lazy">
+        <span class="gallery-badge">Laminado Después</span>
       </div>
     </div>
   </div>
@@ -498,18 +778,18 @@
   <div class="wrap about-grid">
     <div class="about-visual reveal">
       <div class="about-main-photo">
-        <img src="karen.jpg" alt="Karen Cárdenas, especialista en cejas y pestañas">
+        <img src="images/karen.jpg" alt="Karen Cárdenas, especialista en cejas y pestañas">
       </div>
       <div class="about-side-photos">
-        <img src="epilacion-antes.jpg" alt="Epilación - Antes">
-        <img src="epilacion-despues.jpg" alt="Epilación - Después">
+        <img src="images/epilacion-antes.jpg" alt="Epilación - Antes" loading="lazy">
+        <img src="images/epilacion-despues.jpg" alt="Epilación - Después" loading="lazy">
       </div>
     </div>
     <div class="about-text reveal">
       <span class="eyebrow">Quién está detrás</span>
       <h2>Hola, soy Karen Cárdenas</h2>
-      <p>Fundé este estudio con una idea simple: cada rostro merece un diseño de cejas y pestañas hecho a su medida, con técnica precisa y un trato cercano.</p>
-      <p>Me formé y sigo formándome constantemente en micropigmentación, laminado y lifting, para ofrecerte siempre resultados naturales y duraderos.</p>
+      <p>Fundé este estudio con una convicción clara: cada rostro tiene una armonía única que merece un diseño personalizado, sin plantillas genéricas ni excesos.</p>
+      <p>Me capacito continuamente en micropigmentación, laminado y lifting de vanguardia, para entregarte siempre acabados impecables, higiénicos y con la calidez de una atención uno a uno.</p>
       <div class="about-stats">
         <div><strong>6+</strong><span>Años de experiencia</span></div>
         <div><strong>1.200+</strong><span>Clientas atendidas</span></div>
@@ -524,7 +804,7 @@
   <div class="wrap">
     <div class="swatch-header reveal">
       <span class="eyebrow">Nuestra especialidad</span>
-      <h2>Seis técnicas, un mismo detalle</h2>
+      <h2>Seis técnicas, un mismo estándar</h2>
     </div>
     <div class="swatch-strip">
       <div class="swatch swatch-1" tabindex="0">
@@ -536,31 +816,31 @@
       <div class="swatch swatch-2" tabindex="0">
         <div>
           <span class="swatch-name" style="color:#111111">HidraLips</span>
-          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Tratamiento de hidratación y color natural para labios.</p>
+          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Tratamiento de hidratación profunda y toque de color labial.</p>
         </div>
       </div>
       <div class="swatch swatch-3" tabindex="0">
         <div>
           <span class="swatch-name">Sombreado en henna</span>
-          <p class="swatch-desc">Definición de cejas con henna, efecto denso y natural.</p>
+          <p class="swatch-desc">Definición de cejas con henna botánica, efecto sombreado.</p>
         </div>
       </div>
       <div class="swatch swatch-4" tabindex="0">
         <div>
           <span class="swatch-name" style="color:#111111">Lifting de pestañas</span>
-          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Curvatura y volumen natural sin necesidad de extensiones.</p>
+          <p class="swatch-desc" style="color:rgba(17,17,17,0.75)">Curvatura y alargamiento natural sobre tus propias pestañas.</p>
         </div>
       </div>
       <div class="swatch swatch-5" tabindex="0">
         <div>
           <span class="swatch-name">Laminado de cejas</span>
-          <p class="swatch-desc">Cejas peinadas, uniformes y con efecto duradero.</p>
+          <p class="swatch-desc">Cejas disciplinadas, con fijación orgánica y más volumen visual.</p>
         </div>
       </div>
       <div class="swatch swatch-6" tabindex="0">
         <div>
           <span class="swatch-name">Micropigmentación</span>
-          <p class="swatch-desc">Diseño semipermanente de cejas, trazo a trazo.</p>
+          <p class="swatch-desc">Diseño semipermanente hiperrealista adaptado a tu visagismo.</p>
         </div>
       </div>
     </div>
@@ -571,47 +851,94 @@
 <section class="services" id="tratamientos">
   <div class="wrap">
     <div class="services-head reveal">
-      <span class="eyebrow">Catálogo</span>
+      <span class="eyebrow">Menú de servicios</span>
       <h2>Nuestros tratamientos</h2>
-      <p>Cada procedimiento se realiza de forma personalizada, según la forma de tu rostro y lo que buscas resaltar.</p>
+      <p>Selecciona tu procedimiento y contáctanos para elegir tu horario preferido.</p>
     </div>
 
     <div class="cards-grid">
+      <!-- 01 Epilación -->
       <div class="card reveal">
-        <span class="card-num">01</span>
-        <h3>Epilación</h3>
-        <p>Depilación facial y corporal con cera tibia, cuidadosa con la piel y de larga duración.</p>
-        <span class="price">Desde $25.000</span>
+        <div>
+          <span class="card-num">01</span>
+          <h3>Epilación</h3>
+          <p>Depilación facial con cera hipoalergénica tibia. Cuida la barrera de tu piel y deja un acabado limpio y definido.</p>
+        </div>
+        <div class="card-footer">
+          <span class="price">Desde $25.000</span>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Epilación." 
+             class="card-cta" target="_blank" rel="noopener">Agendar →</a>
+        </div>
       </div>
+
+      <!-- 02 HidraLips -->
       <div class="card reveal">
-        <span class="card-num">02</span>
-        <h3>HidraLips</h3>
-        <p>Tratamiento hidratante que aporta color natural y suavidad a los labios.</p>
-        <span class="price">Desde $60.000</span>
+        <div>
+          <span class="card-num">02</span>
+          <h3>HidraLips</h3>
+          <p>Tratamiento regenerador intensivo que aporta hidratación profunda, suavidad y un rubor rosado natural a los labios.</p>
+        </div>
+        <div class="card-footer">
+          <span class="price">Desde $60.000</span>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20HidraLips." 
+             class="card-cta" target="_blank" rel="noopener">Agendar →</a>
+        </div>
       </div>
+
+      <!-- 03 Henna -->
       <div class="card reveal">
-        <span class="card-num">03</span>
-        <h3>Sombreado en henna</h3>
-        <p>Técnica que define y rellena las cejas con un efecto denso, natural y de larga duración.</p>
-        <span class="price">Desde $35.000</span>
+        <div>
+          <span class="card-num">03</span>
+          <h3>Sombreado en henna</h3>
+          <p>Pigmentación vegetal que rellena ópticamente los espacios claros de la ceja, dejando un efecto maquillaje sutil y duradero.</p>
+        </div>
+        <div class="card-footer">
+          <span class="price">Desde $35.000</span>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Sombreado%20en%20henna." 
+             class="card-cta" target="_blank" rel="noopener">Agendar →</a>
+        </div>
       </div>
+
+      <!-- 04 Lifting -->
       <div class="card reveal">
-        <span class="card-num">04</span>
-        <h3>Lifting de pestañas</h3>
-        <p>Curva y realza tus propias pestañas para una mirada abierta, sin extensiones.</p>
-        <span class="price">Desde $50.000</span>
+        <div>
+          <span class="card-num">04</span>
+          <h3>Lifting de pestañas</h3>
+          <p>Eleva y curva tus pestañas naturales desde la raíz mediante nutrición y tinte. Mirada descansada sin necesidad de extensiones.</p>
+        </div>
+        <div class="card-footer">
+          <span class="price">Desde $50.000</span>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Lifting%20de%20pestañas." 
+             class="card-cta" target="_blank" rel="noopener">Agendar →</a>
+        </div>
       </div>
+
+      <!-- 05 Laminado -->
       <div class="card reveal">
-        <span class="card-num">05</span>
-        <h3>Laminado de cejas</h3>
-        <p>Peinado y fijación de cejas pobladas y uniformes, con acabado natural.</p>
-        <span class="price">Desde $45.000</span>
+        <div>
+          <span class="card-num">05</span>
+          <h3>Laminado de cejas</h3>
+          <p>Alisa, peina y fija los vellos rebeldes, aportando volumen, definición y un look sofisticado que dura varias semanas.</p>
+        </div>
+        <div class="card-footer">
+          <span class="price">Desde $45.000</span>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20de%20Laminado%20de%20cejas." 
+             class="card-cta" target="_blank" rel="noopener">Agendar →</a>
+        </div>
       </div>
+
+      <!-- 06 Micropigmentación -->
       <div class="card reveal">
-        <span class="card-num">06</span>
-        <h3>Micropigmentación de cejas</h3>
-        <p>Diseño semipermanente pelo a pelo o sombreado, adaptado a tu forma de rostro.</p>
-        <span class="price">Desde $250.000</span>
+        <div>
+          <span class="card-num">06</span>
+          <h3>Micropigmentación</h3>
+          <p>Técnica semipermanente pelo a pelo o sombreado (powder brows). Simetría perfecta y cejas impecables día y noche.</p>
+        </div>
+        <div class="card-footer">
+          <span class="price">Desde $250.000</span>
+          <a href="https://wa.me/573222167080?text=Hola%20Karen,%20deseo%20agendar%20una%20cita%20o%20valoración%20para%20Micropigmentación." 
+             class="card-cta" target="_blank" rel="noopener">Agendar →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -621,57 +948,57 @@
 <section class="projects" id="proyectos">
   <div class="wrap">
     <div class="projects-head reveal">
-      <span class="eyebrow">Portafolio</span>
+      <span class="eyebrow">Portafolio en movimiento</span>
       <h2>Procesos y resultados en video</h2>
-      <p>Mira el paso a paso de nuestros tratamientos, directamente de nuestro estudio.</p>
+      <p>Conoce el paso a paso de cada procedimiento y el cuidado en cada detalle.</p>
     </div>
 
     <div class="projects-grid">
-
-      <!-- 🎥 PROYECTO 1 — Video: img-2877_1D75Y0k0.mp4 -->
+      <!-- Video 1 -->
       <div class="project-card reveal" tabindex="0" role="button"
            data-video="img-2877_1D75Y0k0.mp4"
-           aria-label="Reproducir video: Proceso de tratamiento de cejas">
+           aria-label="Reproducir video: Tratamiento de cejas">
         <div class="project-thumb">
-          <img src="micropig-cejas-antes.jpg" alt="Miniatura: Tratamiento de cejas">
+          <img src="images/micropig-cejas-antes.jpg" alt="Miniatura: Proceso de Micropigmentación">
           <span class="play-btn">▶</span>
         </div>
         <div class="project-info">
           <h3>Micropigmentación de cejas</h3>
-          <p>Proceso completo: diseño, pigmentación y resultado final.</p>
+          <p>Proceso completo: diseño de visagismo, aplicación y trazo.</p>
         </div>
       </div>
 
-      <!-- 🎥 PROYECTO 2 — Video: img-8267_p51kwQIT.mp4 -->
+      <!-- Video 2 -->
       <div class="project-card reveal" tabindex="0" role="button"
            data-video="img-8267_p51kwQIT.mp4"
-           aria-label="Reproducir video: Resultado final de tratamiento">
+           aria-label="Reproducir video: Resultado final">
         <div class="project-thumb">
-          <img src="henna_despues.jpg" alt="Miniatura: Resultado de tratamiento">
+          <img src="images/henna_despues.jpg" alt="Miniatura: Resultado Sombreado en Henna">
           <span class="play-btn">▶</span>
         </div>
         <div class="project-info">
           <h3>Sombreado en henna</h3>
-          <p>Antes y después, el detalle que marca la diferencia.</p>
+          <p>Definición del marco de la mirada y acabado impecable.</p>
         </div>
       </div>
 
-      <!-- 🎥 PROYECTO 3 — TARJETA PARA UN NUEVO VIDEO -->
-      <div class="project-card project-card--add reveal" tabindex="0" role="button" aria-label="Espacio para agregar un nuevo video">
-        <div class="project-thumb project-thumb--add">
-          <span class="add-icon">+</span>
-        </div>
+      <!-- Espacio para nuevo video o enlace a Instagram -->
+      <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" class="project-card project-card--add reveal">
+        <span class="add-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/>
+          </svg>
+        </span>
         <div class="project-info">
-          <h3>Tu próximo video aquí</h3>
-          <p>Espacio reservado para un nuevo proceso o resultado.</p>
+          <h3>Más videos en Instagram</h3>
+          <p>Haz clic para ver nuestras historias y reels diarios en @karencardenas_studio</p>
         </div>
-      </div>
-
+      </a>
     </div>
   </div>
 </section>
 
-<!-- Modal para reproducir los videos del portafolio -->
+<!-- Modal para reproducir los videos -->
 <div class="video-modal" id="videoModal" aria-hidden="true">
   <div class="video-modal-inner">
     <button class="video-modal-close" id="videoModalClose" aria-label="Cerrar video">✕</button>
@@ -693,37 +1020,103 @@
 <section class="testimonials" id="testimonios">
   <div class="wrap">
     <span class="eyebrow">Lo que dicen de nosotras</span>
-    <h2 style="margin: 14px 0 40px; font-size: clamp(1.8rem, 3vw, 2.4rem);">Resultados que se notan</h2>
+    <h2 style="margin: 14px 0 40px; font-size: clamp(1.8rem, 3vw, 2.4rem);">Resultados que enamoran</h2>
     <div class="testimonials-inner">
       <div class="testi-card reveal">
-        <p>"La micropigmentación quedó perfecta, muy natural. Karen es súper detallista con cada trazo."</p>
+        <p>"La micropigmentación me quedó súper natural. Karen se toma el tiempo de diseñar según las facciones de uno antes de hacer cualquier trazo."</p>
         <div class="testi-name">Laura P.</div>
-        <div class="testi-role">Cliente desde 2023</div>
+        <div class="testi-role">Clienta frecuente • La Vega</div>
       </div>
       <div class="testi-card reveal">
-        <p>"El laminado de cejas me cambió la cara. El resultado dura semanas y se ve impecable."</p>
+        <p>"El laminado de cejas dura un montón y se mantiene peinado todo el día. El espacio es impecable y la atención es 10/10."</p>
         <div class="testi-name">Mariana T.</div>
-        <div class="testi-role">Cliente desde 2024</div>
+        <div class="testi-role">Clienta desde 2024</div>
       </div>
       <div class="testi-card reveal">
-        <p>"El lifting de pestañas fue justo lo que buscaba: mirada abierta y sin necesidad de rímel."</p>
+        <p>"El lifting de pestañas fue la mejor decisión. Ya no tengo que encresparme ni usar pestañina todos los días."</p>
         <div class="testi-name">Andrea S.</div>
-        <div class="testi-role">Cliente desde 2022</div>
+        <div class="testi-role">Clienta desde 2023</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ RESERVA ============ -->
+<!-- ============ PREGUNTAS FRECUENTES (FAQ - NUEVO) ============ -->
+<section class="faq-section" id="preguntas">
+  <div class="wrap">
+    <div class="faq-head reveal">
+      <span class="eyebrow">Resuelve tus dudas</span>
+      <h2>Preguntas Frecuentes</h2>
+      <p>Todo lo que necesitas saber antes de tu cita.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item" open>
+        <summary class="faq-question">¿Duele el procedimiento de micropigmentación?</summary>
+        <div class="faq-answer">
+          No. Se aplica un anestésico tópico de uso profesional antes y durante el procedimiento para minimizar cualquier molestia. La gran mayoría de nuestras clientas sienten solo una ligera cosquilla.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">¿Cuánto tiempo dura el sombreado en henna y el laminado?</summary>
+        <div class="faq-answer">
+          El sombreado en henna suele durar entre 8 y 14 días en la piel y hasta 4 semanas en el vello, según tu tipo de piel (en piel seca dura más que en piel grasa). El laminado de cejas dura entre 5 y 7 semanas.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">¿Cuál es la diferencia entre lifting de pestañas y extensiones?</summary>
+        <div class="faq-answer">
+          El lifting trabaja sobre tus **propias pestañas naturales**, elevándolas y curvándolas desde la raíz mediante un complejo nutritivo. No requiere pegamentos pesados ni mantenimientos cada 15 días como las extensiones.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">¿Qué cuidados debo tener en las primeras 24 horas?</summary>
+        <div class="faq-answer">
+          Evitar mojar la zona tratada, no ingresar a saunas, piscinas ni realizar actividad física intensa que cause sudoración excesiva. En tu cita te entregaremos una guía detallada de cuidado según tu procedimiento.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">¿Qué medios de pago reciben?</summary>
+        <div class="faq-answer">
+          Recibimos efectivo, transferencias por Nequi, Daviplata y transferencias Bancolombia.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVA Y UBICACIÓN ============ -->
 <section class="booking" id="reserva">
   <div class="wrap">
     <span class="eyebrow">Agenda tu cita</span>
     <h2>Tu mirada merece este detalle</h2>
-    <p>Escríbenos o llámanos para reservar tu cita en La Vega, Cundinamarca.</p>
+    <p>Escríbenos o llámanos para verificar disponibilidad en La Vega, Cundinamarca.</p>
     <span class="phone">322 216 7080</span>
+    
     <div class="hero-actions" style="justify-content:center;">
-      <a href="https://wa.me/573222167080" class="btn btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      <a href="tel:+573222167080" class="btn btn-ghost" style="border-color: var(--cream); color: var(--cream);">Llamar ahora</a>
+      <a href="https://wa.me/573222167080?text=Hola%20Karen,%20quiero%20reservar%20una%20cita%20en%20el%20studio." class="btn btn-wa" target="_blank" rel="noopener">
+        Escribir por WhatsApp
+      </a>
+      <a href="tel:+573222167080" class="btn btn-ghost" style="border-color: var(--cream); color: var(--cream);">
+        Llamar ahora
+      </a>
+    </div>
+
+    <!-- Caja de ubicación interactiva -->
+    <div class="location-box">
+      <div class="location-address">📍 Cra. 4a #20-25, La Vega, Cundinamarca</div>
+      <div class="location-buttons">
+        <a href="https://www.google.com/maps/search/?api=1&query=Cra.+4a+%2320-25,+La+Vega,+Cundinamarca" target="_blank" rel="noopener" class="location-btn">
+          Abrir en Google Maps
+        </a>
+        <a href="https://waze.com/ul?q=Cra.%204a%20%2320-25,%20La%20Vega,%20Cundinamarca" target="_blank" rel="noopener" class="location-btn">
+          Abrir en Waze
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -734,20 +1127,16 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">Karen Cárdenas <span>Studio</span></div>
-        <p>Estudio especializado en cejas y pestañas, en el corazón de La Vega, Cundinamarca.</p>
-        <!-- 🔗 REDES SOCIALES: reemplaza los "#" por tus enlaces reales -->
+        <p>Estudio especializado en cejas y pestañas. Resaltando la belleza natural en La Vega, Cundinamarca.</p>
+        
         <div class="footer-social">
-          <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href="https://www.instagram.com/karencardenas_studio/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3.5 4.9 4.9 0 0 1 5.59 2.35c.46-.16 1.26-.35 2.43-.4C9.27 2.2 9.67 2.2 12.87 2.2H12zm0 1.8c-3.15 0-3.52 0-4.76.07-1 .04-1.55.21-1.9.35-.48.19-.83.41-1.19.77-.36.36-.58.71-.77 1.19-.14.35-.31.9-.35 1.9C3 9.28 3 9.65 3 12.8s0 3.52.07 4.76c.04 1 .21 1.55.35 1.9.19.48.41.83.77 1.19.36.36.71.58 1.19.77.35.14.9.31 1.9.35 1.24.07 1.61.07 4.76.07s3.52 0 4.76-.07c1-.04 1.55-.21 1.9-.35.48-.19.83-.41 1.19-.77.36-.36.58-.71.77-1.19.14-.35.31-.9.35-1.9.07-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-1-.21-1.55-.35-1.9a3.1 3.1 0 0 0-.77-1.19 3.1 3.1 0 0 0-1.19-.77c-.35-.14-.9-.31-1.9-.35C15.52 4 15.15 4 12 4zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1zm4.55-1.99a1.02 1.02 0 1 1 0 2.03 1.02 1.02 0 0 1 0-2.03z"/></svg>
-          </a>
-          <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.9h2.66l.4-3.09h-3.06V8.1c0-.9.25-1.5 1.53-1.5h1.63V3.85A21.9 21.9 0 0 0 14.3 3.7c-2.35 0-3.96 1.43-3.96 4.06v2.26H7.67v3.09h2.67V21h3.16z"/></svg>
-          </a>
-          <a href="#" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M16.6 3c.3 1.9 1.5 3.5 3.4 4v2.9c-1.3 0-2.6-.4-3.7-1.1v6.4c0 3.1-2.5 5.6-5.7 5.6S4.9 18.3 4.9 15.2c0-3 2.3-5.4 5.3-5.6v2.9a2.7 2.7 0 1 0 1.9 2.6V3h4.5z"/></svg>
+            <span>@karencardenas_studio</span>
           </a>
         </div>
       </div>
+
       <div class="footer-col">
         <h4>Tratamientos</h4>
         <ul>
@@ -759,18 +1148,21 @@
           <li><a href="#tratamientos">Micropigmentación</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h4>Contacto</h4>
+        <h4>Contacto & Citas</h4>
         <ul>
-          <li>Cra. 4a #20-25, La Vega, Cundinamarca</li>
-          <li>322 216 7080</li>
-          <li><a href="#reserva">Agendar cita</a></li>
+          <li>Cra. 4a #20-25, La Vega</li>
+          <li>+57 322 216 7080</li>
+          <li><a href="#comparador">Ver Antes y Después</a></li>
+          <li><a href="#preguntas">Preguntas Frecuentes</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <span>© 2026 Karen Cárdenas Studio. Todos los derechos reservados.</span>
-      <span>Cejas y pestañas, con precisión.</span>
+      <span>Cejas y pestañas con precisión.</span>
     </div>
   </div>
 </footer>
@@ -800,7 +1192,7 @@
     });
   }
 
-  // Cabecera con scroll
+  // Cabecera con sombra al hacer scroll
   const header = document.querySelector('header');
   const onScrollHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
   onScrollHeader();
@@ -818,8 +1210,17 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
     revealEls.forEach(el => revealObserver.observe(el));
+  }
+
+  // COMPARADOR INTERACTIVO ANTES / DESPUÉS
+  const baSlider = document.getElementById('baSlider');
+  const baRange = document.getElementById('baRange');
+  if (baSlider && baRange) {
+    baRange.addEventListener('input', (e) => {
+      baSlider.style.setProperty('--pos', e.target.value + '%');
+    });
   }
 
   // PARALLAX CON GSAP + SCROLLTRIGGER
@@ -828,24 +1229,21 @@
 
     document.querySelectorAll('.parallax-img').forEach((img) => {
       const wrapper = img.closest('.gallery-item');
-
-      // Escala 0.7 → 1.2 y opacidad 0 → 1 en 600px de scroll
       gsap.fromTo(img,
-        { scale: 0.7, opacity: 0 },
+        { scale: 0.85, opacity: 0.4 },
         {
-          scale: 1.2,
+          scale: 1.15,
           opacity: 1,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: wrapper,
             start: 'top bottom',
-            end: '+=600',
+            end: '+=500',
             scrub: 1
           }
         }
       );
 
-      // Movimiento vertical 20% más lento que el scroll
       gsap.fromTo(img,
         { yPercent: -10 },
         {
@@ -874,17 +1272,11 @@
 
   function openVideoModal(card) {
     const videoSrc = card.getAttribute('data-video');
-    const embedSrc = card.getAttribute('data-embed');
-
     if (videoSrc) {
-      videoModalMedia.innerHTML = `<video src="${videoSrc}" controls autoplay playsinline></video>`;
-    } else if (embedSrc) {
-      videoModalMedia.innerHTML = `<iframe src="${embedSrc}?autoplay=1" title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-    } else {
-      videoModalMedia.innerHTML = `<p style="color:#fff;text-align:center;padding-top:40%;">Agrega data-video o data-embed a esta tarjeta.</p>`;
+      videoModalMedia.innerHTML = `<video src="${videoSrc}" controls autoplay playsinline style="width:100%;height:100%;"></video>`;
+      videoModal.classList.add('is-open');
+      videoModal.setAttribute('aria-hidden', 'false');
     }
-    videoModal.classList.add('is-open');
-    videoModal.setAttribute('aria-hidden', 'false');
   }
 
   function closeVideoModal() {
@@ -893,15 +1285,15 @@
     videoModalMedia.innerHTML = '';
   }
 
-  document.querySelectorAll('.project-card:not(.project-card--add)').forEach(card => {
+  document.querySelectorAll('.project-card[data-video]').forEach(card => {
     card.addEventListener('click', () => openVideoModal(card));
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideoModal(card); }
     });
   });
 
-  videoModalClose.addEventListener('click', closeVideoModal);
-  videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  if (videoModal) videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
 </script>
 
